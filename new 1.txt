@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h2>Add a border to a table:</h2>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+ 
+  <tr>
+    <td><?php  echo $row['Name'] , " " ,$row['Lname'] ; ?></td>
+    <td><?php echo $row['Department']; ?></td>
+	<td><?php echo $row['Year']; ?></td>
+	<td><?php echo $row['Batch']; ?></td>
+	<td><?php echo $row['Contact']; ?></td>
+
+	<td><?php echo $row['Emailid']; ?></td>
+	<td><?php echo $row['Password']; ?></td>
+	<td><?php echo $row['TotalFee']; ?></td>
+	<td><?php echo $row['PaidFee']; ?></td>
+		<td><?php echo $row['Gender']; ?></td>
+  </tr>
