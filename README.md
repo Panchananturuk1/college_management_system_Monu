@@ -1,0 +1,2 @@
+# college_management_system_Monu
+ School/college/university Management Module which is used by Schools as well as Colleges to manage their daily activities which include the management of Employees, Students, Books and Library Records, Parents details, Assignments, Admission Process, Results and Reports, Exams, Events, Attendance, Timetable, Fees and Other Reports. It provides one-point access to manage these wide range of activities both effectively and efficiently.
