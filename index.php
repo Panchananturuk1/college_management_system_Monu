@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="index_style.css" />
+<link rel="stylesheet" type="text/css" href="style_index.css" />
 <head>  
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,22 +13,64 @@
 <body>
 
 		<div class="transparent_header" >
-            <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:40%;" />
-			<a href="index.php" style="text-decoration:none; color:white;">
-			<h1 class="myhead">
-             College Management System</h1></a>
+            
+			
+				<img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:40%;" />
+					
+				
+				<div  >									 
+				  <div style="float:right; margin-top:1.5%;">			 
+					 <nav>
+				<ul>
+					<li> <a href="index.php" class="header_Menu">Home</a> <li>
+					<li> <a href="#ABOUT" class="header_Menu">About</a> </li>
+					<li>  <a href="#student" class="header_Menu">Student</a> </li>
+					<li> <a href="#faculty" class="header_Menu">Faculty</a> </li>
+					<li> <a href="#librarian" class="header_Menu">Librarian</a>  </li>
+					<li> <a href="#admin" class="header_Menu">Admin</a> </li>
+				</ul>
+			  </nav>					 			 
+			 </div>
+		 </div>
+		 
+				
+				<div class="clg" style="float:center;">
+					<a href="index.php" style="text-decoration:none; color:white;">
+						<h1 class="myhead">
+						 College Management System
+						 </h1>
+					 </a>
+					 </div>
+					 
+					 
+					 
+					 
+					
+					 
+					 
+					 
+				
+			
+			 
+			 
+			 
+			 
         </div>
 		
 		<div class="transparent_header2">	
 			<img src="ouat_logo.png" style="height: 65px; width: 75px" />   
 			<h1 style="font-size:xx-large; ">OUAT</h1><br />
-			 <div><br />
-				<a href="index.php" class="header_Menu">Home</a> <br /><br />
-				<p><a href="#ABOUT" class="header_Menu">About</a></p><br />     
-				<p><a href="#student" class="header_Menu">Student</a></p><br />   
-				<p><a href="#faculty" class="header_Menu">Faculty</a></p><br />
-				<p><a href="#librarian" class="header_Menu">Librarian</a></p><br />
-				<p><a href="#admin" class="header_Menu">Admin</a></p><br />
+			 <div>
+			 <table>
+			
+				 <tr class="paddings"><a href="index.php" class="header_Menu">Home</a> </tr><br /><br />
+				 <tr  class="paddings"><a href="#ABOUT" class="header_Menu">About</a></tr><br />     
+				 <tr  class="paddings"><p><a href="#student" class="header_Menu">Student</a></p></tr><br />   
+				 <tr style=" padding-top:20px;"><p><a href="#faculty" class="header_Menu">Faculty</a></p></tr><br />
+				 <tr><p><a href="#librarian" class="header_Menu">Librarian</a></tr></td><br />
+				 <tr><p><a href="#admin" class="header_Menu">Admin</a></p></tr><br />
+				
+				</table>
 			</div>
 		</div>
 		
@@ -229,33 +271,36 @@
        <p style="margin-left:250px">____________________________</p> 
 
         <p class="about_des">
-		The Radhakrishnan University Education Commission of 1949 emphasised the need for establishing Agricultural Universities in India.,
-		Subsequently, the indo-American team consistitued under the Chairmanship of Dr. K.R. Damle (1955), the then Vice-president of
-		Indian Council of Agricultural Research, suggested a system of education for Indian as followed in the Land Grant Colleges of
-		USA. The Planning Commission Committee felt the inadequacy of trained personnel for substantial output in agricultural operations
-		with the then set up of research, education and extension in Agriculture, Animal Husbandry and allied fields. In course of time,
-		these recommendations led to the creation of the agricultural universities to accomplish the integration of teaching, research and extension.<br />
-		<br />
-		In 1956, Dr. J.H. Longwell from the University of Misouri visited Orissa and had discussion with the State Government which resulted
-		in a contract between the Government of India and the University of Missouri to provide assistance to the Agriculture and Veterinary
-		Colleges of the State. In 1960, a decision was taken to establish an Agricultural University in Orissa in the pattern of the Land Grant
-		Colleges of USA and Dr. Ide P. Trotter joined the Utkal Krishi Mahavidyalaya on 1st April, 1960, as a consultant in Educational
-		Administration. President Elmer Ellies of the University of Missouri, visited the Agriculture and Veterinary Colleges of Orissa
-		in 1961 and had discussion with the State Government for establishment of the Orissa University of Agriculture and Technology.</p>
+			The Radhakrishnan University Education Commission of 1949 emphasised the need for establishing Agricultural Universities in India.,
+			Subsequently, the indo-American team consistitued under the Chairmanship of Dr. K.R. Damle (1955), the then Vice-president of
+			Indian Council of Agricultural Research, suggested a system of education for Indian as followed in the Land Grant Colleges of
+			USA. The Planning Commission Committee felt the inadequacy of trained personnel for substantial output in agricultural operations
+			with the then set up of research, education and extension in Agriculture, Animal Husbandry and allied fields. In course of time,
+			these recommendations led to the creation of the agricultural universities to accomplish the integration of teaching, research and extension.<br />
+			<br />
+			In 1956, Dr. J.H. Longwell from the University of Misouri visited Orissa and had discussion with the State Government which resulted
+			in a contract between the Government of India and the University of Missouri to provide assistance to the Agriculture and Veterinary
+			Colleges of the State. In 1960, a decision was taken to establish an Agricultural University in Orissa in the pattern of the Land Grant
+			Colleges of USA and Dr. Ide P. Trotter joined the Utkal Krishi Mahavidyalaya on 1st April, 1960, as a consultant in Educational
+			Administration. President Elmer Ellies of the University of Missouri, visited the Agriculture and Veterinary Colleges of Orissa
+			in 1961 and had discussion with the State Government for establishment of the Orissa University of Agriculture and Technology.
+		</p>
         
     </div>
 
     <br /><br /><br /><br />
 		
-		 <marquee direction=up onMouseOver="this.stop();" OnMouseOut="this.start()" scrolldelay="10" style="text-align:center; font-size:x-large" >
-	
-        <p style="text-align:center; height :150px; ">
-      
-                <a href="Admission-Notification-2018.pdf" style="text-decoration:none;">Admission-Notification-2018</a><br /><br />
-                <a href="imp%20Notice/Registration.pdf" style="text-decoration:none;">imp Notice/Registration.pdf</a><br /><br />
-                 <a href="imp%20Notice/Registration.pdf" style="text-decoration:none;">imp Notice/Registration.pdf</a><br /></marquee> 
-
-        </p>
+			<div >
+				<marquee direction=up onMouseOver="this.stop();" OnMouseOut="this.start()" scrolldelay="10" style="text-align:center; font-size:x-large" >	
+					<p style="margin-left:250px">    
+						<a href="Admission-Notification-2018.pdf">Admission-Notification-2018</a><br /><br />
+						<a href="imp%20Notice/Registration.pdf">imp Notice/Registration.pdf</a><br /><br />
+						<a href="imp%20Notice/Registration.pdf">imp Notice/Registration.pdf</a><br />
+					</p>
+				</marquee> 
+			</p>
+	</div>
+       
       <br /><br /><br /><br />
 	  
 
@@ -267,7 +312,7 @@
 				 available books in library, Attendance, Result uploaded by faculty members.
 			</p>
 
-		<div class="abc"  style="margin-left:250px">
+		<div class="abc" >
 			<p class="headings2" >Student Login</p>
 			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large">
 			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
@@ -285,7 +330,7 @@
 		 Faculty also add results and attendence of students.
        </p>
 
-		<div class="abc" style="margin-left:250px">
+		<div class="abc" >
 			<p class="headings2" >Faculty Login</p>
 			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large">
 			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
@@ -303,7 +348,7 @@
          Librarian can login with valid user name and password. Librarian have authority to add books, request books, issue and return books of students.
          </p>
 
-         <div class="abc"  style="margin-left:250px">
+         <div class="abc">
 			<p class="headings2" >Librarian Login</p>
 			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large"> 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
@@ -324,16 +369,13 @@
 			 student, faculty and librarian.
 		</p>
 
-		<div class="abc"  style="margin-left:250px">
+		<div class="abc">
 			<p class="headings2" >Admin Login</p>
 			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large"> 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
 			<input class="submit" name="submit" type="submit" value="Signin" style="font-size:x-large">
 		</div>
   </form>
-
-
-
 
 </body>
 </html>

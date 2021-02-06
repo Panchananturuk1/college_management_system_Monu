@@ -1,4 +1,10 @@
-    .container{
+	       
+	* {
+  padding: 0;
+  margin: 0;
+ 
+}
+	.container{
            
             width:91%;
             height:550px;
@@ -10,25 +16,36 @@
 			
 			
         }
+		
+		.myhead
+		{
+			
+			margin: 0px;			
+			text-align:center;
+			margin-left:25%;			
+			padding: 0px;			
+			font-weight: 300;
+			font-size: xx-large;
+			
+		}
 
 		.body
 		{
 			margin-left: 0px;
 			margin-right: 0px;
 			margin-top: 0px;
+			background-color:#fecfef;
 		}
 
 		/* header */
 
 		
 		    .transparent_header {
+			
 			position: absolute;
-            font-family: roboto;
-            font-size: medium;
-            font-weight: 400;
-            word-spacing: 0px;
+           
             width: 100%;
-            height: 40%;
+            height: 19%;
             top:0px;         
             background-color: initial;
             background-image: url('background.jpg');          
@@ -37,6 +54,27 @@
             background-size: cover !important; 
 			
         }
+		
+		
+		.clg
+		{
+			font-family: roboto;
+            font-size: medium;
+            font-weight: 400;
+            word-spacing: 0px;
+			text-align:left;
+		}
+		
+		nav{
+			flex:1;
+			text-align:right;
+		}
+		
+		nav ul li {
+			list-style:none;
+			display: inline-block;
+			margin-right:5px;
+		}
 
 
       .transparent_header2 {
@@ -46,11 +84,7 @@
             text-align: center;
             width: 12%;
             height: 100%;
-            top:0px;
-            margin-top:0px;
-            margin-left:0px;
-            left:0px;
-            padding:20px;
+			margin:0px;                   
             padding: 0px;           
             background-image: url('background2.jpg');
             background-repeat: no-repeat;
@@ -62,18 +96,16 @@
         }
 		
 		
-		.myhead
-		{
-			
-			margin: 0px;
-			text-align:center;
-			margin-left:27%;
-			padding: 0px;
-			box-sizing: border-box !important;
-			font-weight: 300;
-			font-size: 35px;
-		}
-		
+		tr
+{
+	padding-top:30px;
+}
+
+.paddings
+{
+	padding-top:30px;
+}
+
 		.myimage
 		{
 			width: 100%;
@@ -94,7 +126,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-left:200px;
+    text-align:center;
 }
 
  input[type=password], select {
@@ -105,7 +137,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-left:200px;
+	text-align:center;
 }
 
 
@@ -118,7 +150,8 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left:350px;
+	float:center;
+   text-align:center;
 }
 
 input[type=submit]:hover {
@@ -130,6 +163,9 @@ input[type=submit]:hover {
     background-color: #f2f2f2;
     padding: 20px;
     width:60%;
+	margin-left:250px;
+	align-items: center;
+	text-align:center;
 
 }
 
@@ -168,3 +204,17 @@ input[type=submit]:hover {
 	font-size:x-large;
 	
 }
+
+.
+.mymarque
+{
+	text-align:center;
+	height :150px;
+}
+a
+{
+	text-decoration:none;
+}
+
+
+
