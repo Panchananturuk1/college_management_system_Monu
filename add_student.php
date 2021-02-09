@@ -75,51 +75,70 @@ if(isset($_POST['submit'])){
 ?>
 
 
-
+<!DOCTYPE html>
 <html>
 <title>Add Student </title>
+<link rel="stylesheet" type="text/css" href="style2.css" />
 <head>
-<link rel="stylesheet" type="text/css" href="admin_page4.css" />
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-         
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>           
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
       
 
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
-<style>
 
-		
-</style>
-
-<body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
+<body>
 
  
  
- <div class="transparent_header" >
-            <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
-          <a href="index.php" style="text-decoration:none; color:white;">  <h1 style="margin: 0px; margin-left:27%; padding: 0px; box-sizing: border-box !important; font-weight: 300; font-size: 35px">
-                College Management System</h1></a>
-        </div>
-	 
-  <header class="transparent_header2" style="  width:190px; background-color: #00FFFF;">
-<div class="font">
-
-
-    
-    </div></header>
+ <div class="header" >            		
+	  			<img alt="logo" class="logo_img" src="logo.png"; style="text-align:center" />			
+				<div class="clg" >
+					<a href="index.php" style="text-decoration:none; color:white;">
+						<h1 class="myhead">
+						 College Management System
+						 </h1>
+					 </a>
+					 									
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					<div style="float:right;">
+					<div class="collapse navbar-collapse" id="micon">									 
+						  <nav>
+							<ul>
+								<li> <a href="index.php" class="header_Menu">Home</a> </li>
+								<li> <a href="#ABOUT" class="header_Menu">Refresh</a> </li>
+								<li>  <a href="#student" class="header_Menu">Student</a> </li>
+								<li> <a href="#faculty" class="header_Menu">Faculty</a> </li>
+								<li> <a href="#librarian" class="header_Menu">Librarian</a>  </li>
+								<li> <a href="#admin" class="header_Menu">Admin</a> </li>
+							</ul>
+						  </nav>					 			 					
+						</div> 	
+					</div>				
+				 </div>			 							 		 		
+			</div>
 	
 
-<form action="add_student.php" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data">
+	<form action="add_student.php" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data">
 	<div class="box"  >
       <h1 style="text-align:center; font-size:40px;" >Registration</h1><br />
 	  
-	  <input type="file" name="image" id="image" style="font-size:large; margin-left:150px;;"><br /><br />
-	  
-		<input type="text" id="Name" name="Name" placeholder="First Name.." style="font-size:large"><br /><br />
-	
-	<input type="text" id="Lname" name="Lname" placeholder="Last Name.." style="font-size:large"><br /><br />
+		<input type="file" name="image" id="image" style="font-size:large; margin-left:150px;;"><br /><br />	  
+		<input type="text" id="Name" name="Name" placeholder="First Name.." style="font-size:large"><br /><br />	
+		<input type="text" id="Lname" name="Lname" placeholder="Last Name.." style="font-size:large"><br /><br />
 	
 			<select name="Gender">
                      <option value="-1" selected>[Select Gender]</option>

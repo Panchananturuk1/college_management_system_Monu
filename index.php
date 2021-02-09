@@ -4,78 +4,51 @@
 <!DOCTYPE html>
 <html>
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="style_index.css" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
 <head>  
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
-		<div class="transparent_header" >
-            
-			
-				<img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:40%;" />
-					
-				
-				<div  >									 
-				  <div style="float:right; margin-top:1.5%;">			 
-					 <nav>
-				<ul>
-					<li> <a href="index.php" class="header_Menu">Home</a> <li>
-					<li> <a href="#ABOUT" class="header_Menu">About</a> </li>
-					<li>  <a href="#student" class="header_Menu">Student</a> </li>
-					<li> <a href="#faculty" class="header_Menu">Faculty</a> </li>
-					<li> <a href="#librarian" class="header_Menu">Librarian</a>  </li>
-					<li> <a href="#admin" class="header_Menu">Admin</a> </li>
-				</ul>
-			  </nav>					 			 
-			 </div>
-		 </div>
-		 
-				
-				<div class="clg" style="float:center;">
+		<div class="header" >            		
+	  			<img alt="logo" class="logo_img" src="logo.png"; style="text-align:center" />			
+				<div class="clg" >
 					<a href="index.php" style="text-decoration:none; color:white;">
 						<h1 class="myhead">
 						 College Management System
 						 </h1>
 					 </a>
-					 </div>
-					 
-					 
-					 
-					 
-					
-					 
-					 
-					 
-				
-			
-			 
-			 
-			 
-			 
-        </div>
-		
-		<div class="transparent_header2">	
-			<img src="ouat_logo.png" style="height: 65px; width: 75px" />   
-			<h1 style="font-size:xx-large; ">OUAT</h1><br />
-			 <div>
-			 <table>
-			
-				 <tr class="paddings"><a href="index.php" class="header_Menu">Home</a> </tr><br /><br />
-				 <tr  class="paddings"><a href="#ABOUT" class="header_Menu">About</a></tr><br />     
-				 <tr  class="paddings"><p><a href="#student" class="header_Menu">Student</a></p></tr><br />   
-				 <tr style=" padding-top:20px;"><p><a href="#faculty" class="header_Menu">Faculty</a></p></tr><br />
-				 <tr><p><a href="#librarian" class="header_Menu">Librarian</a></tr></td><br />
-				 <tr><p><a href="#admin" class="header_Menu">Admin</a></p></tr><br />
-				
-				</table>
+					 									
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					<div style="float:right;">
+					<div class="collapse navbar-collapse" id="micon">									 
+						  <nav>
+							<ul>
+								<li> <a href="index.php" class="header_Menu">Home</a> </li>
+								<li> <a href="#ABOUT" class="header_Menu">About</a> </li>
+								<li>  <a href="#student" class="header_Menu">Student</a> </li>
+								<li> <a href="#faculty" class="header_Menu">Faculty</a> </li>
+								<li> <a href="#librarian" class="header_Menu">Librarian</a>  </li>
+								<li> <a href="#admin" class="header_Menu">Admin</a> </li>
+							</ul>
+						  </nav>					 			 					
+						</div> 	
+					</div>				
+				 </div>			 							 		 		
 			</div>
-		</div>
 		
+				
 		
-    <div id="imgGallary" class="container">
+    <div id="imgGallary" class="imageset">
 		<img class="myimage" src="1.jpg" alt="" />
 		<img class="myimage" src="2.jpg" alt="" />
 		<img class="myimage" src="3.jpg" alt="" />
@@ -265,10 +238,14 @@
 	
 	
 </script>
-    <br /><br /><br /><br />
+    <br />
+	
+	<div class="container">
+	
+	
     <div id="ABOUT">
         <h1 class="headings">About</h1>
-       <p style="margin-left:250px">____________________________</p> 
+       <p>____________________________</p> 
 
         <p class="about_des">
 			The Radhakrishnan University Education Commission of 1949 emphasised the need for establishing Agricultural Universities in India.,
@@ -290,92 +267,98 @@
 
     <br /><br /><br /><br />
 		
-			<div >
-				<marquee direction=up onMouseOver="this.stop();" OnMouseOut="this.start()" scrolldelay="10" style="text-align:center; font-size:x-large" >	
-					<p style="margin-left:250px">    
+			<div class="notification">
+				<marquee class="mrq" direction=up onMouseOver="this.stop();" OnMouseOut="this.start()" scrolldelay="10">	
+					<p >    
 						<a href="Admission-Notification-2018.pdf">Admission-Notification-2018</a><br /><br />
 						<a href="imp%20Notice/Registration.pdf">imp Notice/Registration.pdf</a><br /><br />
 						<a href="imp%20Notice/Registration.pdf">imp Notice/Registration.pdf</a><br />
 					</p>
 				</marquee> 
 			</p>
-	</div>
+		</div>
        
-      <br /><br /><br /><br />
+      <br />
 	  
 
+	
+	
 	<form action="Student_Profile.php" id="student" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data">
 		<h1 class="headings" id="STUDENT">Student</h1>
-			<p style="margin-left:250px">____________________________</p>
+			<p>____________________________</p>
 			<p class="login" >
-				 Student logins to system with valid user name and password. Student can view timetables, assignments,
-				 available books in library, Attendance, Result uploaded by faculty members.
+				 Student logins to system with valid user name and password.Student can view timetables,assignments,
+				 available books in library,Attendance,Result uploaded by faculty members.
 			</p>
 
-		<div class="abc" >
+		<div class="login_form" >
 			<p class="headings2" >Student Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large">
-			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
-			<input class="submit" name="submit" type="submit" value="Signin" style="font-size:x-large"><br>
+			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." >
+			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+			<input class="submit" name="submit" type="submit" value="Signin"><br>
 			<a href="add_student.php" style="text-decoration:none">Not a Member ? Register Here </a>	 
 		</div>
-	</form>
+	</form> <br />
+  
+	
+	
    
-   <form action="Faculty_Profile.php" id="faculty" method="post"  name="myForm2" onsubmit="return(validate2());"  enctype="multipart/form-data">
+   <form action="Faculty_Profile.php" id="faculty" method="post"  name="myForm2" onsubmit="return(validate2());" enctype="multipart/form-data">
      <h1 class="headings" id="FACULTY">Faculty</h1>
-       <p style="margin-left:250px">____________________________</p>
+       <p>____________________________</p>
 
        <p class="login">
-         Faculty can login with valid user name and password. Faculty have authority to upload timetables, assignments for students.
+         Faculty can login with valid user name and password. Faculty have authority to upload timetables,assignments for students.
 		 Faculty also add results and attendence of students.
        </p>
 
-		<div class="abc" >
+		<div class="login_form" >
 			<p class="headings2" >Faculty Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large">
-			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
-			<input class="submit" name="submit" type="submit" value="Signin" style="font-size:x-large">
+			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." >
+			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+			<input class="submit" name="submit" type="submit" value="Signin" >
 
 		</div>
     </form>
-    <br /><br /><br /><br /> 
+    <br />
+	
  <form action="Librarian_Profile.php" id="librarian" method="post"  name="myForm3" onsubmit="return(validate3());"  enctype="multipart/form-data">
 
       <h1 class="headings" id="LIBRARIAN">Librarian</h1>
-       <p style="margin-left:250px">____________________________</p>
+       <p >____________________________</p>
     
      <p class="login">
          Librarian can login with valid user name and password. Librarian have authority to add books, request books, issue and return books of students.
          </p>
 
-         <div class="abc">
+         <div class="login_form">
 			<p class="headings2" >Librarian Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large"> 
-			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
-			<input class="submit" name="submit" type="submit" value="Signin" style="font-size:x-large">
+			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." > 
+			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+			<input class="submit" name="submit" type="submit" value="Signin">
 		 </div>
-  </form>
-
-
-      <br /><br /><br /><br /> 
+  </form><br />
          
 	<form action="admin_profile.php" method="post" id="admin" name="myForm4" onsubmit="return(validate4());"  enctype="multipart/form-data">	
       <h1 class="headings" id="Admin">Admin</h1>
 	  
-       <p style="margin-left:250px">____________________________</p>  
+       <p>____________________________</p>  
 		<p class="login">
 			 Admin have authority to add  faculty, librarian, events. 
 			 Admin can add also events and view  all detail info about
 			 student, faculty and librarian.
 		</p>
 
-		<div class="abc">
+		<div class="login_form">
 			<p class="headings2" >Admin Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." style="font-size:large"> 
-			<input type="password" id="Password" name="Password" placeholder="Password  .."style="font-size:large"><br />
-			<input class="submit" name="submit" type="submit" value="Signin" style="font-size:x-large">
+			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........."> 
+			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+			<input class="submit" name="submit" type="submit" value="Signin">
 		</div>
   </form>
+
+
+</div>
 
 </body>
 </html>
