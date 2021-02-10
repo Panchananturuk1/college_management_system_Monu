@@ -5,28 +5,6 @@
  
 }
 
-
-.body
-		{
-			margin-left: 0px;
-			margin-right: 0px;
-			margin-top: 0px;
-			background-color:#fecfef;
-		}
-		
-.container
-	{
-		
-		width:100%;
-		min-height:100vh;
-		padding-left:8%;
-		padding-right:8%;
-		box-sizing:border-box;
-		overflow:hidden;
-	}
-
-
-
 	.icon-bar
 	{
 		background:darkblue;
@@ -39,7 +17,6 @@
   margin-right: auto;
 }
 
-	
         }
 		
 		.myhead
@@ -48,7 +25,7 @@
 			margin: 0px;									
 			padding: 0px;			
 			font-weight: 300;
-			font-size: xx-large;				
+			font-size: x-large;				
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
@@ -63,7 +40,7 @@
 		
 		    .header {						        
             width: 100%;
-            height: 10%;
+            
             top:0px;         
             background-color: initial;
             background-image: url('background.jpg');          
@@ -118,15 +95,9 @@
 			height: 550px;						
 		}
 				
-		.notification
-		{
-				text-align:center;				
-		}
 		
-		.mrq
-		{
-			text-align:center; font-size:x-large;
-		}
+		
+		
 
 		
 		
@@ -140,7 +111,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    text-align:center;
+    text-align:left;
 	font-size:large;
 }
 
@@ -152,7 +123,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-	text-align:center;
+	text-align:left;
 	font-size:large;
 }
 
@@ -206,14 +177,21 @@ input[type=submit]:hover {
 
 
 .box {
+	text-align:center;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-    width:45%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
     color:green;
-    margin-top:135px;
-    margin-left:400px;
+    margin-top:10%;
+	overflow:hidden;
+	
+	
 }
+
+
 
 
 .font{
