@@ -15,7 +15,7 @@
 </head>
 
 <body>
-		<div class="header" >            		
+		<div class="header">            		
 	  			<img alt="logo" class="logo_img" src="logo.png"; style="text-align:center" />			
 				<div class="clg" >
 					<a href="index.php" style="text-decoration:none; color:white;">

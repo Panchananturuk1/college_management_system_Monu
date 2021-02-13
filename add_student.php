@@ -35,25 +35,7 @@
 						 </h1>
 					 </a>
 					 									
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					<div style="float:right;">
-					<div class="collapse navbar-collapse" id="micon">									 
-						  <nav>
-							<ul>
-								<li> <a href="index.php" class="header_Menu">Home</a> </li>
-								<li> <a href="#ABOUT" class="header_Menu">About</a> </li>
-								<li>  <a href="#student" class="header_Menu">Student</a> </li>
-								<li> <a href="#faculty" class="header_Menu">Faculty</a> </li>
-								<li> <a href="#librarian" class="header_Menu">Librarian</a>  </li>
-								<li> <a href="#admin" class="header_Menu">Admin</a> </li>
-							</ul>
-						  </nav>					 			 					
-						</div> 	
-					</div>				
+									
 				 </div>			 							 		 		
 			</div>
 

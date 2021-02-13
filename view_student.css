@@ -1,0 +1,190 @@
+
+
+         .header2 {
+            
+              width: 10%;     
+			height:100%;				  
+            top:0px;         
+            background-color: initial;
+            background-image: url('background.jpg');          
+            background-attachment: initial;	
+            box-sizing: border-box !important;
+            background-size: cover !important; 
+			overflow:hidden;
+        }
+
+			
+		
+			       
+	* {
+  padding: 0;
+  margin: 0;
+ 
+}
+
+	.icon-bar
+	{
+		background:darkblue;
+		
+	}
+	
+	.logo_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+        }
+		
+		.myhead
+		{
+			
+			margin: 0px;									
+			padding: 0px;			
+			font-weight: 300;
+			font-size: x-large;				
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+					
+		}
+
+		
+
+		/* header */
+
+		
+		    .header {						        
+            width: 100%;          
+            top:0px;         
+            background-color: initial;
+            background-image: url('background.jpg');          
+            background-attachment: initial;	
+            box-sizing: border-box !important;
+            background-size: cover !important; 
+			overflow:hidden;
+			
+        }
+		
+		
+		.clg
+		{
+			font-family: roboto;
+            font-size: medium;
+            font-weight: 400;
+            word-spacing: 0px;
+			text-align:center;
+
+
+		}
+		
+		
+	
+		tr
+		{
+		  padding-top:30px;
+		}
+
+		.paddings
+		{
+			padding-top:30px;
+		}
+
+	
+		
+		
+		
+
+		
+		
+/* Student Login Form */
+
+    input[type=text], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align:left;
+	font-size:large;
+}
+
+ input[type=password], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	text-align:left;
+	font-size:large;
+}
+
+
+input[type=submit] {
+    width: 25%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	float:center;
+   text-align:center;
+   overflow:hidden;
+   font-size:x-large;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.login_form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width:70%;
+	text-align:center;
+	margin-left:10%;
+
+}
+
+.login_position{
+	
+	text-align:right;
+}
+
+.header_Menu
+{
+	text-decoration:none;
+	color:white;
+}
+
+.login
+{
+	
+	text-align:justify;	
+	font-size:xx-large;
+}
+
+
+.box {
+	text-align:center;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    color:green;
+    
+	overflow:hidden;
+	
+	
+}
+

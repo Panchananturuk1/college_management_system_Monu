@@ -35,12 +35,6 @@ if(isset($_POST['submit'])){
 					else{
 							echo  '<script> alert("Data Sucessfully Submitted "); </script>';
 						}
-		
-	
-	
-	
-	
-
 
 }
 
@@ -55,12 +49,9 @@ if(isset($_POST['submit'])){
 </head>
 
 <style>
-
-		
+	
 </style>
 <body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
-
- 
 
  <div class="transparent_header" >
             <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
@@ -74,9 +65,7 @@ if(isset($_POST['submit'])){
 <div class="font">
    
    <a href="admin_profile.php" style="text-decoration:none; color:white;">My Profile</a> 
-  
-
-    
+ 
     <p><a href="add_faculty.php" style="text-decoration:none; color:white;">Add Faculty</a></p>
     
    

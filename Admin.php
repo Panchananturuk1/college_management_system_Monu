@@ -17,41 +17,34 @@ $emailError ="";
 if(isset($_POST['submit'])){
 
 			
-	
-			$Name = $_POST['Name'];
-			$Lname = $_POST['Lname'];
-			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-			$Batch = $_POST['Batch'];
-			$Contact = $_POST['Contact'];
 			$Emailid = $_POST['Emailid'];
 			$Password = $_POST['Password'];
-			$TotalFee = $_POST['TotalFee'];
-			$PaidFee = $_POST['PaidFee'];
-			$Gender = $_POST['Gender'];
+	
+	
+	 $connect = mysqli_connect("localhost", "root", "", "admin");
 			
+			
+			
+			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
+			mysqli_query($connect, $query);
 
-			
-			
-			
-			$con = mysqli_connect('localhost', 'root', '');
-			
-			mysqli_select_db($con,'Student');
-			$q="insert into info(Name, Lname, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee, Gender) values('".$Name."','".$Lname."','".$Department."','".$Year."','".$Batch."','".$Contact."','".$Emailid."','".$Password."','".$TotalFee."','".$PaidFee."','".$Gender."')";
-			
-			mysqli_query($con, $q);
-			
-				if(mysqli_query($con, $q)){
-				
-				
-	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
+		
+$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
+$row = mysqli_fetch_assoc($result);
+if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
+{
 	
-//	echo "<script> window.location.assign('Student Profile.php'); </script>";
+	session_start();
+	echo  '<script> alert("User Name and Password are Correct"); </script>';
+}else
+{
+		echo  '<script> alert("User Name and Password are Wrong"); </script>';
 	
-}
-else{
-	echo  '<script> alert("Data Sucessfully Submitted "); </script>';
-}
+	echo "<script> window.location.assign('index.php'); </script>";
+}	
+				
+			
+			
 		
 	
 	
