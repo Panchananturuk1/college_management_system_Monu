@@ -7,7 +7,12 @@
 <html>
 <title> view event</title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin2_page.css">
+<link rel="stylesheet" type="text/css" href="admin1.css">
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style>
 
@@ -20,30 +25,31 @@ img{
 	
 </style>
 </head>
-<body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
+<body>
 
  
 
-		<div class="transparent_header" >
-          <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
-          <a href="index.php" style="text-decoration:none; color:white;">  <h1 style="margin: 0px; 
-		  margin-left:27%; padding: 0px; box-sizing: border-box !important; font-weight: 300; font-size: 35px">
-                College Management System</h1>
-		  </a>
+		 <div class="header" >
+            <img alt="logo"  class="logo_img" src="logo.png";  />
+          <a href="index.php" style="text-decoration:none; color:white;">  
+		  <h1 class="myheads">
+                College Management System</h1></a>
         </div>
- 
-  <header class="transparent_header2" style="width:190px; background-color: #00FFFF;">
-	<div class="font">
-		<a href="Student_Profile.php" style="text-decoration:none; color:white;">My Profile</a> <br /><br />  
-		<p><a href="view_book.php" style="text-decoration:none; color:white;">View Books</a></p><br />  
-		<p><a href="view_timetb.php" style="text-decoration:none; color:white;">View Timatables</a></p><br />  
-		<p><a href="view_assignments.php" style="text-decoration:none; color:white;">View Assignment</a></p>	
-		<p><a href="view_result.php" style="text-decoration:none; color:white;">View Result</a></p><br />  
-		<p><a href="view_attendence.php" style="text-decoration:none; color:white;">View Attendence </a></p><br />
-		<p><a href="view_event.php" style="text-decoration:none; color:white;">View Event</a></p>
-		<p><a href="index.php" style="text-decoration:none; color:white;">Logout</a></p><br />
-	</div>
- </header>
+
+				 <header class="header2" style="  width:190px; ">
+			<div class="font">
+			  <nav>
+							<ul>
+								<li> <a href="Faculty_Profile.php" class="header_Menu">My Profile</a> </li><br />
+								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
+								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
+								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br /><br />
+								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
+							</ul>
+						  </nav>					
+    
+			</div></header>
 	
 	
 	 <form action="view_event.php" method="post" enctype="multipart/form-data">
@@ -76,10 +82,10 @@ img{
 
 ?>
 </table><br /><br />
-	  <label for="Name" style="margin-left:140px; font-size:25px">Event Name:</label><br />
+	  <label for="Name">Event Name:</label><br />
       <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
 
-	  <label for="Name" style="margin-left:140px; font-size:25px">Event Date:</label><br />
+	  <label for="Name">Event Date:</label><br />
 	  <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy" style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
   
   </div>

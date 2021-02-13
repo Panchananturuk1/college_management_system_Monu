@@ -48,7 +48,7 @@ else{
 <html>
 <title>Add Faculty </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin.css" />
+<link rel="stylesheet" type="text/css" href="admin1.css" />
 
 
 <meta charset="UTF-8">
@@ -120,8 +120,8 @@ else{
      
 	 <input type="text" id="Designation" name="Designation" placeholder="Designation.." ><br /><br />      
      <input type="text" id="Qualification" name="Qualification" placeholder="Qualification.." ><br /><br />	 
-	 <input type="text" id="Contact" name="Contact" placeholder="Contact.." ><br /><br />
-	 <input type="text" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />		
+	 <input type="number" id="Contact" name="Contact" placeholder="Contact.." ><br /><br />
+	 <input type="email" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />		
 	 <input type="password" id="Password" name="Password" placeholder="Password...." ><br /><br />		
 	 <input class="submit" name="submit" type="submit" value="Submit"> 
   

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="style.css" />
 <head>  
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -293,7 +293,7 @@
 
 		<div class="login_form" >
 			<p class="headings2" >Student Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." >
+			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........." >
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin"><br>
 			<a href="add_student.php" style="text-decoration:none">Not a Member ? Register Here </a>	 
@@ -314,7 +314,7 @@
 
 		<div class="login_form" >
 			<p class="headings2" >Faculty Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." >
+			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........." >
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin" >
 
@@ -333,7 +333,7 @@
 
          <div class="login_form">
 			<p class="headings2" >Librarian Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........." > 
+			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........." > 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin">
 		 </div>
@@ -351,7 +351,7 @@
 
 		<div class="login_form">
 			<p class="headings2" >Admin Login</p>
-			<input type="text" id="Emailid" name="Emailid" placeholder="Email id.........."> 
+			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........."> 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin">
 		</div>

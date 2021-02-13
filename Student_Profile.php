@@ -3,9 +3,17 @@
 
 <html>
 <title>Student </title>
-<link rel="stylesheet" type="text/css" href="admin2_page.css">
+
 <head>
 
+<link rel="stylesheet" type="text/css" href="admin1.css">
+
+<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  
 </head>
 <script src="validation2.js">
@@ -17,32 +25,39 @@
 		
 </style>
 
-<body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
+<body >
 
 
 
-		<div class="transparent_header" >
-            <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
-			<a href="index.php" style="text-decoration:none; color:white;">
-			<h1 style="margin: 0px; margin-left:27%; padding: 0px; box-sizing: border-box !important; font-weight: 300; font-size: 35px">
-             College Management System</h1></a>
+
+ <div class="header" >
+            <img alt="logo"  class="logo_img" src="logo.png";  />
+          <a href="index.php" style="text-decoration:none; color:white;">  
+		  <h1 class="myheads">
+                College Management System</h1></a>
         </div>
 		
 		
-		
+	
 
- <header class="transparent_header2" style="width:190px; background-color: #00FFFF;">
-	<div class="font">
-		<a href="Student_Profile.php" style="text-decoration:none; color:white;">My Profile</a> <br /><br />  
-		<p><a href="view_book.php" style="text-decoration:none; color:white;">View Books</a></p><br />  
-		<p><a href="view_timetb.php" style="text-decoration:none; color:white;">View Timatables</a></p><br />  
-		<p><a href="view_assignments.php" style="text-decoration:none; color:white;">View Assignment</a></p>	
-		<p><a href="view_result.php" style="text-decoration:none; color:white;">View Result</a></p><br />  
-		<p><a href="view_attendence.php" style="text-decoration:none; color:white;">View Attendence </a></p><br />
-		<p><a href="view_event.php" style="text-decoration:none; color:white;">View Event</a></p>
-		<p><a href="index.php" style="text-decoration:none; color:white;">Logout</a></p><br />
-	</div>
- </header>
+
+
+<header class="header2" style="  width:190px; ">
+<div class="font">
+  <nav>
+							<ul>
+								<li> <a href="Student_Profile.php" class="header_Menu">My Profile</a> </li><br />
+								<li> <a href="view_book.php" class="header_Menu">View Books</a> </li><br />
+								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
+								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
+								<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
+								<li> <a href="view_attendence.php" class="header_Menu">View Attendence</a>  </li><br />
+								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li><br />							
+								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
+							</ul>
+						  </nav>					
+    
+	</div></header>
 
 
 
@@ -122,20 +137,20 @@ else{
 </table>
 <br><br>	  
  
-    <label for="Name" style="margin-left:140px; font-size:25px">Name:</label><br />
+    <label for="Name" >Name:</label><br />
      <input type="text" id="Name" name="Name" placeholder="Your name.." style="font-size:large"value="<?php  echo $row['Name'] , " " ,$row['Lname'] ; ?>" readonly="" /><br /><br />
   
 
-    <label for="Eml" style="margin-left:140px; font-size:25px">Email Id:</label><br />
-      <input type="text" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
+    <label for="Eml">Email Id:</label><br />
+      <input type="email" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
 
-      <label for="Contact" style="margin-left:140px; font-size:25px">Contact</label><br />
-     <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
+      <label for="Contact" >Contact</label><br />
+     <input type="number" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
 
-      <label for="Dtpmnt" style="margin-left:140px; font-size:25px">Department</label><br />
+      <label for="Dtpmnt" >Department</label><br />
       <input type="text" id="Department" name="Department" placeholder="Your Department .." style="font-size:large"value="<?php echo $row['Department']; ?>" readonly="" /><br /><br />
 
-      <label for="Btch" style="margin-left:140px; font-size:25px">Batch</label><br />
+      <label for="Btch" >Batch</label><br />
       <input type="text" id="Batch" name="Batch" placeholder="Your Batch.." style="font-size:large"value="<?php echo $row['Batch']; ?>" readonly="" /><br /><br /><br />
 	  
 

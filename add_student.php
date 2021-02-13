@@ -87,8 +87,8 @@
 					
 				</select> <br /><br />
   
-		<input type="text" id="Contact" name="Contact" placeholder="Contact.."><br /><br />	   
-	    <input type="text" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />		
+		<input type="number" id="Contact" name="Contact" placeholder="Contact.."><br /><br />	   
+	    <input type="email" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />		
 		<input type="password" id="Password" name="Password" placeholder="Password"><br /><br />
 		<input type="text" id="TotalFee" name="TotalFee" placeholder="Total Fees.." ><br /><br />		 
 		<input type="text" id="PaidFee" name="PaidFee" placeholder="Paid Fees.."><br /><br />

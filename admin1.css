@@ -102,7 +102,7 @@
         }
 
 
-    input[type=text], select {
+    input[type=text],[type=number], [type=email]{
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -110,10 +110,16 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
 	font-size:large;
      
     }
+	
+	label
+	{
+		
+		font-size:x-large;
+	}
 
 
 	input[type=submit] {
@@ -125,8 +131,18 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-   text-align:center;
+  
 }
+
+input[type=file] {
+    text-align:center;
+}
+
+
+
+
+
+
 
 .myfile
 {

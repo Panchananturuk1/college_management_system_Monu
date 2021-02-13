@@ -60,7 +60,7 @@ mysqli_close($con);
 <html>
 <title>Admin </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin.css" />
+<link rel="stylesheet" type="text/css" href="admin1.css" />
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

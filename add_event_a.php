@@ -93,7 +93,7 @@ else{
 <html>
 <title>Add Event </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin.css" />
+<link rel="stylesheet" type="text/css" href="admin1.css" />
 
 
 <meta charset="UTF-8">

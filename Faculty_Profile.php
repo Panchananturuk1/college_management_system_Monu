@@ -5,7 +5,7 @@
 <html>
 <title>My Profile </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin.css" />
+<link rel="stylesheet" type="text/css" href="admin1.css" />
 
 
 <meta charset="UTF-8">
@@ -33,20 +33,20 @@
                 College Management System</h1></a>
         </div>
 
-	 <header class="header2" style="  width:190px; ">
-<div class="font">
-  <nav>
+				 <header class="header2" style="  width:190px; ">
+			<div class="font">
+			  <nav>
 							<ul>
 								<li> <a href="Faculty_Profile.php" class="header_Menu">My Profile</a> </li><br />
 								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
 								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
 								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br /><br />
-								<li> <a href="add_timetable_admin.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li>	<br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
 						  </nav>					
     
-	</div></header>
+			</div></header>
 	
 
 
@@ -145,10 +145,10 @@ else{
 
 
     <label for="Eml" >Email Id:</label><br />
-      <input type="text" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
+      <input type="email" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
 
       <label for="Contact" >Contact</label><br />
-     <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
+     <input type="number" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
 
      
 
