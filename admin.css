@@ -11,9 +11,9 @@
 
 
 		
-		    .header {       
-			text-align:center;			
-            font-size: medium;         
+		    .header {      
+			font-family: arial;	
+
             width: 100%;              
             background-color: initial;
             background-image: url('background.jpg');
@@ -110,7 +110,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-        text-align: left;
+    text-align: left;
+	font-size:large;
      
     }
 
@@ -131,6 +132,7 @@
 {
 	 margin-left: auto;
 	margin-right: auto;
+	
 	
 }
 

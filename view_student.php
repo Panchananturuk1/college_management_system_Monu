@@ -62,13 +62,9 @@ table, th, td {
 		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
-	 
-   <header class="header2" style="  width:190px; ">
-<div class="font" style="text-align:justify;">
-   
-
-	<div class="collapse navbar-collapse" id="micon">									 
-						  <nav>
+	 <header class="header2" style="  width:190px; ">
+<div class="font">
+  <nav>
 							<ul>
 								<li> <a href="admin_profile.php" class="header_Menu">My Profile</a> </li><br />
 								<li> <a href="add_faculty.php" class="header_Menu">Add Faculty</a> </li><br />
@@ -82,12 +78,9 @@ table, th, td {
 								<li> <a href="delete_data.php" class="header_Menu">Delete Data</a> </li><br />
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
-						  </nav>					 			 					
-						</div> 	
-	
-	</div>
-	
-	</header>
+						  </nav>					
+    
+	</div></header>
 
   
   			
