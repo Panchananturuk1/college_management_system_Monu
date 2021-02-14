@@ -1,7 +1,15 @@
 <html>
 <title>Admin </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin_page.css" />
+<link rel="stylesheet" type="text/css" href="css/admin1.css" />
+
+
+<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -14,44 +22,32 @@
 
 
 
- <div class="transparent_header" >
-            <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
-          <a href="index.php" style="text-decoration:none; color:white;">  <h1 style="margin: 0px; margin-left:27%; padding: 0px; box-sizing: border-box !important; font-weight: 300; font-size: 35px">
+
+ <div class="header" >
+            <img alt="logo"  class="logo_img" src="logo.png";  />
+          <a href="index.php" style="text-decoration:none; color:white;">  
+		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
-		
-		
-		 
+	 
   
-  <header class="transparent_header2" style="  width:190px; background-color: #00FFFF;">
+	 <header class="header2" style="  width:190px; ">
 <div class="font">
-   
-   <a href="admin_profile.php" style="text-decoration:none; color:white;">My Profile</a> 
-  
-
-    
-    <p><a href="add_faculty.php" style="text-decoration:none; color:white;">Add Faculty</a></p>
-    
-   
-    <p><a href="add_librarian.php" style="text-decoration:none; color:white;">Add Librarian</a></p>
-   
-
-    <p><a href="add_event_a.php" style="text-decoration:none; color:white;">Add Event</a></p>
-	
-
-    <p><a href="view_requested_book.php" style="text-decoration:none; color:white;">View Requested Book</a></p>
-	
-	<p><a href="view_availablebook.php" style="text-decoration:none; color:white;">View Available Books</a></p> 
-	
-	<p><a href="view_student.php" style="text-decoration:none; color:white;">View Student</a> </p>
-	
-	<p><a href="view_faculty.php" style="text-decoration:none; color:white;">View Faculty</a></p> 
-	
-	<p><a href="view_librarian.php" style="text-decoration:none; color:white;">View Librarian </a></p> 
-	
-	<p><a href="delete_data.php" style="text-decoration:none; color:white;">Delete Data </a> </p>
-	
-	<p><a href="index.php" style="text-decoration:none; color:white;">Logout</a> </p>
+  <nav>
+							<ul>
+								<li> <a href="admin_profile.php" class="header_Menu">My Profile</a> </li><br />
+								<li> <a href="add_faculty.php" class="header_Menu">Add Faculty</a> </li><br />
+								<li> <a href="add_librarian.php" class="header_Menu">Add Librarian</a> </li><br />
+								<li>  <a href="add_event_a.php" class="header_Menu">Add Event</a> </li><br />
+								<li> <a href="view_requested_book.php" class="header_Menu">View Requested Book</a> </li><br />
+								<li> <a href="view_availablebook.php" class="header_Menu">View Available Books</a>  </li><br />
+								<li> <a href="view_student.php" class="header_Menu">View Student</a> </li><br />
+								<li> <a href="view_faculty.php" class="header_Menu">View Faculty </a> </li><br />
+								<li> <a href="view_librarian.php" class="header_Menu">View Librarian</a> </li><br />
+								<li> <a href="delete_data.php" class="header_Menu">Delete Data</a> </li><br />
+								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
+							</ul>
+						  </nav>					
     
 	</div></header>
   

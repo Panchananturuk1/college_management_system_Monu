@@ -33,7 +33,7 @@
 <html>
 <title>View Student </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin1.css" />
+<link rel="stylesheet" type="text/css" href="css/admin1.css" />
 <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -56,12 +56,15 @@ table, th, td {
 
  
 
+
  <div class="header" >
-            <img alt="logo" class="logo_image" src="logo.png" />
-          <a href="index.php" style="text-decoration:none; color:white;"> 
+            <img alt="logo"  class="logo_img" src="logo.png";  />
+          <a href="index.php" style="text-decoration:none; color:white;">  
 		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
+	 
+  
 	 <header class="header2" style="  width:190px; ">
 <div class="font">
   <nav>

@@ -19,9 +19,6 @@
          }
 	  
 	  
-		
-	  
-	
 	
 		 
 	
@@ -33,15 +30,15 @@
 <html>
 <title>View Faculty </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin1.css" />
+<link rel="stylesheet" type="text/css" href="css/admin1.css" />
 
-
-		<meta charset="UTF-8">
+<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <style>
@@ -54,7 +51,9 @@ table, th, td {
 
 		
 </style>
-<body> 
+<body > 
+
+ 
 
  
 
@@ -65,8 +64,7 @@ table, th, td {
                 College Management System</h1></a>
         </div>
 	 
-
-	 
+  
 	 <header class="header2" style="  width:190px; ">
 <div class="font">
   <nav>
@@ -86,30 +84,31 @@ table, th, td {
 						  </nav>					
     
 	</div></header>
-
   
   			
 <form action="view_faculty.php" method="post"  name="myForm" onsubmit="return(validate());">
 
-<div >
-		<div class="box"  >
+
+<div class="box"  >
 
       <h1 style="text-align:center; font-size:40px;" >View Faculty</h1><br />
-			<select name="Department" >
-			 
-			 
-			  <option  value="-1">Select Program</option>
-			  <option value="BCA">BCA</option>
-			  <option value="MCA">MCA</option>
-			  <option value="MBA">MBA</option>
-			   <option value="B.ED">B.ED</option>
-				<option value="INTEGRATED Msc">INTEGRATED Msc</option>
-			</select><br /> <br />
+<select name="Department" >
+ 
+ 
+  <option  value="-1">Select Program</option>
+  <option value="BCA">BCA</option>
+  <option value="MCA">MCA</option>
+  <option value="MBA">MBA</option>
+   <option value="B.ED">B.ED</option>
+    <option value="INTEGRATED Msc">INTEGRATED Msc</option>
+</select><br /> <br />
 
-			<input name="submit" type="submit" value="Submit"> 
-			  
-			  </div>
-   </div>
+
+
+<input class="submit" name="submit" type="submit" value="Submit"> 
+  
+  </div>
+   
 
 
    

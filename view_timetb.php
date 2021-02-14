@@ -41,7 +41,7 @@
 <html>
 <head>
 <title> view timetable </title>
-<link rel="stylesheet" type="text/css" href="admin1.css">
+<link rel="stylesheet" type="text/css" href="css/admin1.css">
 
 
 <meta charset="UTF-8">

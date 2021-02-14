@@ -12,7 +12,7 @@
 <html>
 <title>view event </title>
 <head> 
-<link rel="stylesheet" type="text/css" href="admin2_page.css" />
+<link rel="stylesheet" type="text/css" href="css/admin1.css" />
 </head>
 <style>
 

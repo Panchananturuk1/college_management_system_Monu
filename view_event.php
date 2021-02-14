@@ -7,7 +7,7 @@
 <html>
 <title> view event</title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin1.css">
+<link rel="stylesheet" type="text/css" href="css/admin1.css">
 	<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -86,7 +86,7 @@ img{
       <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
 
 	  <label for="Name">Event Date:</label><br />
-	  <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy" style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
+	  <input type="date" id="Event_Date" name="Event_Date"  style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
   
   </div>
   </form>
