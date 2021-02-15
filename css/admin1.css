@@ -5,15 +5,9 @@
  
 }
 
-	
-		  	/* header */
-	
-
-
 		
 		    .header {      
 			font-family: arial;	
-
             width: 100%;              
             background-color: initial;
             background-image: url('background.jpg');
@@ -22,8 +16,28 @@
             box-sizing: border-box !important;          
             background-size: cover !important; 
             overflow:hidden;
+        }	
+		
+		  .header2 {
+
+            font-family: roboto;
+            font-size: medium;         
+			letter-spacing: normal;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            top:0px;
+            padding:20px;
+            background-image: url('background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: initial;
+            box-sizing: border-box !important;
+            background-size: cover !important; 
+			position:fixed;
+                  
         }
-.clg
+		
+	.clg
 		{
 			font-family: roboto;
             font-size: medium;
@@ -33,20 +47,9 @@
 
 		}
 		
-		.myheads
-		{
-			
-			margin: 0px;
-			text-align:center;
-			padding: 0px;
-			box-sizing: border-box !important;
-			font-weight: 300;
-			font-size: 35px
-		}
 
-.myhead
-		{
-			
+	.myhead
+		{			
 			margin: 0px;									
 			padding: 0px;			
 			font-weight: 300;
@@ -69,40 +72,19 @@
 		nav ul li {
 			list-style:none;
 			text-align:left;
-			text-decoration:nonne;
-			
+			text-decoration:nonne;			
 			overflow:hidden;
 		}
 
-
-.logo_img {
-	text-align:center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-         .header2 {
-
-            font-family: roboto;
-            font-size: medium;         
-			letter-spacing: normal;
-            text-align: center;
-            width: 100%;
-            height: 100%;
-            top:0px;
-            padding:20px;
-            background-image: url('background.jpg');
-            background-repeat: no-repeat;
-            background-attachment: initial;
-            box-sizing: border-box !important;
-            background-size: cover !important; 
-			position:fixed;
-                  
-        }
+	.logo_img {
+		text-align:center;
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
 
 
-    input[type=text],[type=number], [type=email], [type=date]{
+    input[type=text],[type=number],[type=email],[type=date],[type=password], select{
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -114,15 +96,9 @@
 	font-size:large;
      
     }
-	
-	label
-	{
 		
-		font-size:x-large;
-	}
-
-
-	input[type=submit] {
+		       
+input[type=submit] {
     width: 25%;
     background-color: #4CAF50;
     color: white;
@@ -133,65 +109,53 @@
     cursor: pointer;
   
 }
-
-input[type=file] {
-    text-align:center;
-}
-
-
-
-
-
-
-
-.myfile
-{
-	 margin-left: auto;
-	margin-right: auto;
 	
 	
-}
+	label
+	{
+		
+		font-size:x-large;
+	}
 
+	input[type=file] {
+		text-align:center;
+	}
 
+	.myfile
+	{
+		 margin-left: auto;
+		margin-right: auto;
+		
+		
+	}
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+	input[type=submit]:hover {
+		background-color: #45a049;
+	}
 
+	.box {
+		border-radius: 5px;
+		background-color: #f2f2f2;
+		padding: 20px;
+		width:45%;
+		color:green;
+		margin-top:135px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		text-align:center;
+		font-size:large;
+		margin-bottom:10%;
+	}
 
-
- input[type=password], select {
-   width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    text-align: left;
-
-}
-
-
-.box {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    width:45%;
-    color:green;
-    margin-top:135px;
-    margin-left: auto;
-	margin-right: auto;
-	width: 50%;
-	text-align:center;
-	font-size:large;
-	margin-bottom:10%;
-}
-
-
-.font{
-	font-size:20px;
-	margin-top:45%;
-}
+	.font{
+		font-size:20px;
+		margin-top:45%;
+	}
+	
+	h1
+	{
+		font-size:x-large;
+	}
 
 

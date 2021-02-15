@@ -59,14 +59,22 @@
       return false;
     }
 	
-	
-	  
-  if( document.myForm.Gender.value == "-1" )
+	if( document.myForm.gens.value == "" )
          {
-            alert( "Please Select your Gender!" );
+            alert( "Please provide your Gender !" );
+            document.myForm.Lname.focus() ;
             return false;
-         }
+         } 
 		 
+		 
+		
+		var valueDate = document.getElementById('dob').value;
+		if ( valueDate== null || valueDate== '')
+		{
+			alert('Date is empty');
+			return false;
+		}
+	 
 	 
 		  if( document.myForm.Department.value == "-1" )
          {

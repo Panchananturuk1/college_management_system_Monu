@@ -102,29 +102,30 @@
 		
 /* Student Login Form */
 
-    input[type=text], select {
+    input[type=text],[type=email],[type=password],[type=number]  {
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px;
     border-radius: 4px;
     box-sizing: border-box;
-    text-align:left;
+    text-align:center;
 	font-size:large;
 }
 
- input[type=password], select {
+input[type=text] {
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px;
     border-radius: 4px;
     box-sizing: border-box;
-	text-align:left;
+    text-align:center;
 	font-size:large;
 }
+
 
 
 input[type=submit] {
