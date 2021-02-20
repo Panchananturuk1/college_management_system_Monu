@@ -8,11 +8,8 @@
 <head>
 
 
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>           
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-      
-
-
+		
+        
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -26,22 +23,21 @@
 
  
  
- <div class="header" >            		
+			<div class="header" >            		
 	  			<img alt="logo" class="logo_img" src="logo.png"; style="text-align:center" />			
 				<div class="clg" >
 					<a href="index.php" style="text-decoration:none; color:white;">
 						<h1 class="myhead">
 						 College Management System
 						 </h1>
-					 </a>
-					 									
-									
+					 </a>					 																		
 				 </div>			 							 		 		
 			</div>
 
 <div class="box" style="text-align:center;">
 	
-	<form action="add_student.php" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data">	
+	<form action="add_student.php" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data" onclick="this.disabled = true">	
+	<input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
       <h1 >Registration</h1><br />	  
 				<input type="file" name="image" id="image" style="font-size:large; margin-left:150px;"><br /><br />	  
 				<input type="text" id="Name" name="Name" placeholder="First Name.."><br /><br />	
@@ -86,7 +82,7 @@
 		<input type="password" id="Password" name="Password" placeholder="Password"><br /><br />
 		<input type="text" id="TotalFee" name="TotalFee" placeholder="Total Fees.." ><br /><br />		 
 		<input type="text" id="PaidFee" name="PaidFee" placeholder="Paid Fees.."><br /><br />
-		<input class="submit" name="submit" type="submit" value="Submit">  
+		<input class="submit" name="submit" type="submit" value="Submit" id="myButton">  
 	</form>
    </div>
 	</body> 
@@ -123,8 +119,13 @@
 <?php
 
 if(isset($_POST['submit'])){
-
-						
+	
+	//$files = "info".addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+		 $profile = $_FILES["image"]["name"]; 
+		 $tempname = $_FILES["image"]["tmp_name"];     
+		 $file_error = $_FILES["image"]["error"];
+		
+			//$profile = $_FILES["image"]["name"];
 			$Name = $_POST['Name'];
 			$Lname = $_POST['Lname'];
 			$Gender = $_POST['gens'];
@@ -140,20 +141,17 @@ if(isset($_POST['submit'])){
 			
 			
 	   
-		$connect = mysqli_connect("localhost", "root", "", "Student") or die(mysqli_error($connect)); 
- 		
-      $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-      $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
+	  $connect = mysqli_connect("localhost", "root", "", "Students") or die(mysqli_error($connect)); 		
+      //$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+	  
+     /* $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
 	  VALUES ('$file','$Name','$Lname','$gens','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
 		
-		mysqli_query($connect, $q);
+		mysqli_query($connect, $q); */
 			
-				/*
-					if ($connect->connect_error) {
-					  die("Connection failed: " . $connect->connect_error);
-					} */
 				
-				if(mysqli_query($connect, $q))
+				
+				/* if(mysqli_query($connect, $q))
 				{		
 						echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';	
 						echo "<script> window.location.assign('index.php'); </script>";
@@ -161,12 +159,42 @@ if(isset($_POST['submit'])){
 				else
 					{
 						
-						echo  '<script> alert("Error "); </script>';						
+						echo  '<script> alert("Error "); </script>';	
+					$this->form_validation->set_rules('Emailid', 'Emailid', 'required|valid_email|is_unique[info.Emailid]');						
 						echo "<script> window.location.assign('add_student.php'); </script>";
-					}
+					} */
+					
+					
+					
+				
+					
+					if ($connect->connect_error) {
+						  die("Connection failed: " . $connect->connect_error);
+						  echo  '<script> alert("Connection Failed "); </script>';	
+						} else{
+					
+
+						 $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
+						  VALUES ('$profile','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
+							
+							mysqli_query($connect, $q);
+
+
+
+						if ($connect->query($q) === TRUE) {
+							  echo  '<script> alert(" New record created successfully "); </script>';
+						  echo "New record created successfully";
+						} else {
+						  echo "Error: " . $q . "<br>" . $connect->error;
+						    echo  '<script> alert("Insertion Failed "); </script>';	
+						}
+
+						$connect->close();
+						}
+				
+					
+					
+					
 }
 
 ?>
-
-
-

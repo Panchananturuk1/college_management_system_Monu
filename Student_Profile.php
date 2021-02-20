@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/admin1.css">
 
+		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -60,7 +61,7 @@
 
 
 
- <form action="Student_Profile.php" method="post" name="myForm" onsubmit="return(validate());" enctype="multipart/form-data">
+ <form action="Student_Profile.php" method="post" name="myForm" onsubmit="return(validate());" enctype="multipart/form-data" >
 	  
 
 
@@ -98,9 +99,7 @@ if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
 {
 	
 	session_start();
-	echo  '<script> alert("User Name and Password are Correct"); </script>';
-	
-	
+	echo  '<script> alert("User Name and Password are Correct"); </script>';	
 	
 	     echo '  
                           <tr>  

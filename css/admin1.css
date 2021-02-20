@@ -48,8 +48,8 @@
 		}
 		
 
-	.myhead
-		{			
+	.myheads
+		{	
 			margin: 0px;									
 			padding: 0px;			
 			font-weight: 300;
@@ -57,7 +57,8 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			width: 50%;
+			text-align:center;
+			width:50%;
 					
 		}
 
@@ -96,6 +97,11 @@
 	font-size:large;
      
     }
+	
+	input[type=file]{
+		
+		text-align:center;
+	}
 		
 		       
 input[type=submit] {
