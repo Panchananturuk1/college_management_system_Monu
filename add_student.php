@@ -85,6 +85,88 @@
 		<input class="submit" name="submit" type="submit" value="Submit" id="myButton">  
 	</form>
    </div>
+   
+   
+   
+   
+   <?php require "config/connection.php"; ?>
+   
+<?php
+
+if(isset($_POST['submit'])){
+	
+		//session_start();
+		
+	//$files = "info".addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+		 $profile = $_FILES["image"]["name"]; 
+		 $tempname = $_FILES["image"]["tmp_name"];     
+		 $file_error = $_FILES["image"]["error"];
+		 $folder = "image/".$profile;
+		
+			//$profile = $_FILES["image"]["name"];
+			$Name = $_POST['Name'];
+			$Lname = $_POST['Lname'];
+			$Gender = $_POST['gens'];
+			$dob = $_POST['dob'];
+			$Department = $_POST['Department'];
+			$Year = $_POST['Year'];
+			$Batch = $_POST['Batch'];
+			$Contact = $_POST['Contact'];
+			$Emailid = $_POST['Emailid'];
+			$Password = $_POST['Password'];
+			$TotalFee = $_POST['TotalFee'];
+			$PaidFee = $_POST['PaidFee'];
+			
+			
+	   
+	 // $connect = mysqli_connect("localhost", "root", "", "Students") or die(mysqli_error($connect)); 		
+      //$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+	  
+     /* $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
+	  VALUES ('$file','$Name','$Lname','$gens','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
+		
+		mysqli_query($connect, $q); */
+			
+				
+				
+				/* if(mysqli_query($connect, $q))
+				{		
+						echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';	
+						echo "<script> window.location.assign('index.php'); </script>";
+				}
+				else
+					{
+						
+						echo  '<script> alert("Error "); </script>';	
+					$this->form_validation->set_rules('Emailid', 'Emailid', 'required|valid_email|is_unique[info.Emailid]');						
+						
+					} */
+				
+					
+
+						 $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
+						  VALUES ('$profile','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
+						
+						$fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));
+							
+
+							if($fire)
+							{
+								echo  '<script> alert("YOUR DATA SAVED Sucessfull "); </script>';	
+							}
+
+
+					
+										
+					
+}
+
+?>
+
+   
+   
+   
+   
 	</body> 
 </html>
 
@@ -115,86 +197,3 @@
 
 </script>
 
-
-<?php
-
-if(isset($_POST['submit'])){
-	
-	//$files = "info".addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
-		 $profile = $_FILES["image"]["name"]; 
-		 $tempname = $_FILES["image"]["tmp_name"];     
-		 $file_error = $_FILES["image"]["error"];
-		
-			//$profile = $_FILES["image"]["name"];
-			$Name = $_POST['Name'];
-			$Lname = $_POST['Lname'];
-			$Gender = $_POST['gens'];
-			$dob = $_POST['dob'];
-			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-			$Batch = $_POST['Batch'];
-			$Contact = $_POST['Contact'];
-			$Emailid = $_POST['Emailid'];
-			$Password = $_POST['Password'];
-			$TotalFee = $_POST['TotalFee'];
-			$PaidFee = $_POST['PaidFee'];
-			
-			
-	   
-	  $connect = mysqli_connect("localhost", "root", "", "Students") or die(mysqli_error($connect)); 		
-      //$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-	  
-     /* $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
-	  VALUES ('$file','$Name','$Lname','$gens','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
-		
-		mysqli_query($connect, $q); */
-			
-				
-				
-				/* if(mysqli_query($connect, $q))
-				{		
-						echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';	
-						echo "<script> window.location.assign('index.php'); </script>";
-				}
-				else
-					{
-						
-						echo  '<script> alert("Error "); </script>';	
-					$this->form_validation->set_rules('Emailid', 'Emailid', 'required|valid_email|is_unique[info.Emailid]');						
-						echo "<script> window.location.assign('add_student.php'); </script>";
-					} */
-					
-					
-					
-				
-					
-					if ($connect->connect_error) {
-						  die("Connection failed: " . $connect->connect_error);
-						  echo  '<script> alert("Connection Failed "); </script>';	
-						} else{
-					
-
-						 $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
-						  VALUES ('$profile','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
-							
-							mysqli_query($connect, $q);
-
-
-
-						if ($connect->query($q) === TRUE) {
-							  echo  '<script> alert(" New record created successfully "); </script>';
-						  echo "New record created successfully";
-						} else {
-						  echo "Error: " . $q . "<br>" . $connect->error;
-						    echo  '<script> alert("Insertion Failed "); </script>';	
-						}
-
-						$connect->close();
-						}
-				
-					
-					
-					
-}
-
-?>
