@@ -7,9 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/admin1.css" />
 <head>
 
-
-		
-        
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -121,42 +118,16 @@ if(isset($_POST['submit'])){
 	   
 	 // $connect = mysqli_connect("localhost", "root", "", "Students") or die(mysqli_error($connect)); 		
       //$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-	  
-     /* $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
-	  VALUES ('$file','$Name','$Lname','$gens','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
-		
-		mysqli_query($connect, $q); */
-			
-				
-				
-				/* if(mysqli_query($connect, $q))
-				{		
-						echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';	
-						echo "<script> window.location.assign('index.php'); </script>";
-				}
-				else
-					{
-						
-						echo  '<script> alert("Error "); </script>';	
-					$this->form_validation->set_rules('Emailid', 'Emailid', 'required|valid_email|is_unique[info.Emailid]');						
-						
-					} */
-				
-					
 
 						 $q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
 						  VALUES ('$profile','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
 						
-						$fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));
-							
+						$fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));				
 
 							if($fire)
 							{
 								echo  '<script> alert("YOUR DATA SAVED Sucessfull "); </script>';	
 							}
-
-
-					
 										
 					
 }
