@@ -1,13 +1,17 @@
 
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$db = 'Students';
+$username = "root";
+$password = "";
+$db = 'Admin';
 
 // Create connection
 $connect = new mysqli($servername, $username, $password,$db) or die(mysqli_error($connect));
 
-if($con) echo "YOUA RE CONNECTED";
-
+if($connect) 
+{
+    echo "YOUA RE CONNECTED";
+}else{
+    echo "CONNECTION FAILED";
+}
 ?>

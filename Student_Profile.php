@@ -25,11 +25,7 @@
 		
 </style>
 
-<body >
-
-
-
-
+<body>
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
@@ -85,20 +81,27 @@ if(isset($_POST['submit'])){
 			$Password = $_POST['Password'];
 	
 	
-	 $connect = mysqli_connect("localhost", "root", "", "Student");
-			
-			
-			
+	 $connect = mysqli_connect("localhost", "root", "", "Students");
+
 			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
-			mysqli_query($connect, $query);
+		
 
 		
 $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
 $row = mysqli_fetch_assoc($result);
+
+	
+	
 if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
 {
 	
 	session_start();
+
+	
+
+
+	
+
 	echo  '<script> alert("User Name and Password are Correct"); </script>';	
 	
 	     echo '  
@@ -126,10 +129,12 @@ else{
 
 
 
-		}
-
-
 		
+
+	
+}
+
+
 ?>
 
 </table>

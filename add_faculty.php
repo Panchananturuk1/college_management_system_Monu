@@ -24,17 +24,14 @@ if(isset($_POST['submit'])){
 			
 			mysqli_query($connect, $q);
 			
-				if(mysqli_query($connect, $q)){
-				
-				
-	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
-	
+		if(mysqli_query($connect, $q))
+		{
+		echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
 
-	
-}
-else{
-	echo  '<script> alert("Data Sucessfully Submitted "); </script>';
-}
+		}
+		else{
+			echo  '<script> alert("Data Sucessfully Submitted "); </script>';
+		}
 		
 	
 	
