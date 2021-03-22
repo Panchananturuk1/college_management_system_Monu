@@ -20,10 +20,7 @@
             alert( "Please Select your Year!" );
             return false;
          }
-	  
-	
-	
-		 
+
 	
 		return true;
       }
@@ -145,9 +142,9 @@ table, th, td {
 			$Year = $_POST['Year'];
 
 			$con = mysqli_connect('localhost', 'root', '');
-			mysqli_select_db($con,'Student');
+			mysqli_select_db($con,'Students');
 			
-			$query="SELECT DISTINCT ON column Emailid,Contact * FROM `info` WHERE Department='$Department' and Year='$Year'";	
+			$query="SELECT * FROM `info` WHERE Department='$Department' and Year='$Year'";	
 			mysqli_query($con, $query);
 
 		

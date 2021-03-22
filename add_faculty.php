@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
 
 		}
 		else{
-			echo  '<script> alert("Data Sucessfully Submitted "); </script>';
+			echo  '<script> alert("ERROR "); </script>';
 		}
 		
 	
