@@ -85,12 +85,12 @@ if(isset($_POST['submit'])){
 			
 			$con = mysqli_connect('localhost', 'root', '');
 			
-			mysqli_select_db($con,'req_book');
-			$q="insert into info(Department, Book_Name, Author_Name, Price, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."','".$Quantity."')";
+			mysqli_select_db($con,'librarian');
+			$q="insert into req_book(Department, Book_Name, Author_Name, Price, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."','".$Quantity."')";
 			
-			mysqli_query($con, $q);
+		$fire	= mysqli_query($con, $q);
 			
-				if(mysqli_query($con, $q)){
+				if($fire){
 				
 				
 	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
@@ -99,7 +99,7 @@ if(isset($_POST['submit'])){
 	
 }
 else{
-	echo  '<script> alert("Data Sucessfully Submitted "); </script>';
+	echo  '<script> alert("ERROR"); </script>';
 }
 		
 	

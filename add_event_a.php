@@ -65,10 +65,10 @@ if(isset($_POST['submit'])){
 
 			
 			
-			$con = mysqli_connect("localhost", "root", "", "event") or die(mysqli_error($connect)); 
+			$con = mysqli_connect("localhost", "root", "", "admin") or die(mysqli_error($connect)); 
 			
 			 $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-			$q="insert into info(Event_Name, Event_Date, event) values('$Event_Name','$Event_Date','$file')";
+			$q="insert into event(Event_Name, Event_Date, event) values('$Event_Name','$Event_Date','$file')";
 			
 			mysqli_query($con, $q);
 			
@@ -153,7 +153,7 @@ else{
   
       <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." ><br /><br />
 
-	   <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy"><br /><br />
+	   <input type="date" id="dob" name="dob" placeholder="mm/dd/yyyy"><br /><br />
 	   
 	  <input type="file" name="image" id="image" class="myfile" ><br /><br />
   

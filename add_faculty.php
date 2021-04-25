@@ -1,50 +1,6 @@
 
 <script src="validation_add_faculty.js"></script>
 
-<?php
-
-
-if(isset($_POST['submit'])){
-	$profile = $_FILES["image"]["name"]; 
-	$tempname = $_FILES["image"]["tmp_name"];     
-	$file_error = $_FILES["image"]["error"];
-	$folder = "image/".$profile;
-			
-	
-			$Name = $_POST['Name'];
-			$Lname = $_POST['Lname'];	
-			$Gender = $_POST['Gender'];
-			$Department = $_POST['Department'];
-			$Designation = $_POST['Designation'];
-			$Qualification = $_POST['Qualification'];
-			$Contact = $_POST['Contact'];
-			$Emailid = $_POST['Emailid'];
-			$Password = $_POST['Password'];
-			
-			 $connect = mysqli_connect("localhost", "root", "", "faculty") or die(mysqli_error($connect)); 
-			 $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
-			$q="insert into info(profile, Name, Lname, Gender, Department, Designation, Qualification, Contact, Emailid, Password) values('$file','$Name','$Lname','$Gender','$Department','$Designation','$Qualification','$Contact','$Emailid','$Password')";
-			
-			mysqli_query($connect, $q);
-			
-		if(mysqli_query($connect, $q))
-		{
-		echo  '<script> alert("Data Sucessfully Submitted Please Login"); </script>';
-
-		}
-		else{
-			echo  '<script> alert("ERROR "); </script>';
-		}
-		
-	
-	
-}
-	
-
-?>
-
-
-
 <html>
 <title>Add Faculty </title>
 <head>
@@ -60,14 +16,11 @@ if(isset($_POST['submit'])){
 </head>
 
 <style>
-
-		
+	
 </style>
 <body >
 
- 
-
- <div class="header" >
+  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
 		  <h1 class="myheads">
@@ -94,7 +47,7 @@ if(isset($_POST['submit'])){
     
 	</div></header>
   
-  <form action="add_faculty.php" method="post"  name="myForm" onsubmit="return(validate());" enctype="multipart/form-data">			
+  <form action="add_faculty.php" method="post"  name="myForm" onsubmit="return(validate());" enctype="multipart/form-data" onclick="this.disabled = true">			
   
 		<div class="box"  >  
 		  <h1 style="text-align:center; font-size:40px;" >Add Faculty</h1><br />
@@ -134,3 +87,57 @@ if(isset($_POST['submit'])){
 
 
 </html>
+
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = 'faculty';
+
+
+$connect = new mysqli($servername, $username, $password,$db) or die(mysqli_error($connect));
+
+if($connect){
+
+if(isset($_POST['submit'])){
+
+	$profile = $_FILES["image"]["name"]; 
+	$tempname = $_FILES["image"]["tmp_name"];     
+	$file_error = $_FILES["image"]["error"];
+	$folder = "image/".$profile;
+			
+	
+			$Name = $_POST['Name'];
+			$Lname = $_POST['Lname'];	
+			$Gender = $_POST['Gender'];
+			$Department = $_POST['Department'];
+			$Designation = $_POST['Designation'];
+			$Qualification = $_POST['Qualification'];
+			$Contact = $_POST['Contact'];
+			$Emailid = $_POST['Emailid'];
+			$Password = $_POST['Password'];
+			
+			
+			 $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+			$q="INSERT into info(profile, Name, Lname, Gender, Department, Designation, Qualification, Contact, Emailid, Password) 
+			VALUES ('$file','$Name','$Lname','$Gender','$Department','$Designation','$Qualification','$Contact','$Emailid','$Password')";
+
+			$fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));
+			
+		if($fire)
+		{
+		echo  '<script> alert("Data Sucessfully Submitted Please Login"); </script>';
+
+		}
+		else{
+			echo  '<script> alert("ERROR "); </script>';
+		}
+}
+}else{
+	echo  '<script> alert("CONNECTION ERROR "); </script>';
+}
+	
+
+?>

@@ -135,7 +135,8 @@ if(isset($_POST['submit'])){
 	
 		//session_start();
 		
-		$files = "info".addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+		//$files = "info".addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+		$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
 		 $profile = $_FILES["image"]["name"]; 
 		 $tempname = $_FILES["image"]["tmp_name"];     
 		 $file_error = $_FILES["image"]["error"];
@@ -192,7 +193,7 @@ if(isset($_POST['submit'])){
 
 
 						$q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
-						VALUES ('$profile','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
+						VALUES ('$file','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
 					  
 					  $fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));				
 					  if($fire)

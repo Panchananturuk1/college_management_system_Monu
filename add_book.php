@@ -51,11 +51,6 @@
 	  
 	  
 	  <?php
-// Initialize variables to null.
-$nameError ="";
-$emailError ="";
-	
-
 // On submitting form below function will execute.
 if(isset($_POST['submit'])){
 
@@ -66,18 +61,17 @@ if(isset($_POST['submit'])){
 			$Department = $_POST['Department'];
 			$Book_Name = $_POST['Book_Name'];
 			$Author_Name = $_POST['Author_Name'];
-				$Price = $_POST['Price'];
+			$Price = $_POST['Price'];
 			
 			
 			
-			$con = mysqli_connect('localhost', 'root', '');
+			$con = mysqli_connect('localhost', 'root', "", "librarian") or die(mysqli_error($con));
+			//mysqli_select_db($con,'book');
+			$q="insert into book(Department, Book_Name, Author_Name, Price) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."')";
 			
-			mysqli_select_db($con,'book');
-			$q="insert into info(Department, Book_Name, Author_Name, Price) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."')";
+			$fire = mysqli_query($con, $q);
 			
-			mysqli_query($con, $q);
-			
-				if(mysqli_query($con, $q)){
+				if($fire){
 				
 				
 	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
