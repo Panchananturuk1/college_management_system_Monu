@@ -15,7 +15,11 @@
 		overflow:hidden;
 	}
 
-
+	body {
+		background-image: url("bck.jpg");
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	  }
 
 	.icon-bar
 	{
@@ -95,7 +99,6 @@
 		nav ul li {
 			list-style:none;
 			display: inline-block;
-			
 			overflow:hidden;
 		}
 		

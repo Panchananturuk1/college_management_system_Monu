@@ -1,161 +1,43 @@
 
-
-  <script>
-
- function validate()
-      {
-      
 	  
-         if( document.myForm.Book_Name.value == "" )
-         {
-            alert( "Please provide your First Name!" );
-            document.myForm.Book_Name.focus() ;
-            return false;
-         }
-		 
-		     if( document.myForm.Author_Name.value == "" )
-         {
-            alert( "Please provide your First Name!" );
-            document.myForm.Author_Name.focus() ;
-            return false;
-         }
-		 
-		      if( document.myForm.Price.value == "" )
-         {
-            alert( "Please provide your First Name!" );
-            document.myForm.Price.focus() ;
-            return false;
-         }
-	  
-	  var num = /^[0-9]+$/;
-	  
-	     	 
-	  if(!num.test(myForm.Price.value)) {
-      alert("Error: Input contains invalid characters!");
-      document.myForm.Price.focus();
-      return false;
-	
-	  }
-	  
-	  
-		  if( document.myForm.Department.value == "-1" )
-         {
-            alert( "Please Select your Department!" );
-            return false;
-         }
-	
-		return true;
-      }
-	  </script>
-	  
-	  
-	  
-	  <?php
-// On submitting form below function will execute.
-if(isset($_POST['submit'])){
-
-			
-	
-		
-			
-			$Department = $_POST['Department'];
-			$Book_Name = $_POST['Book_Name'];
-			$Author_Name = $_POST['Author_Name'];
-			$Price = $_POST['Price'];
-			
-			
-			
-			$con = mysqli_connect('localhost', 'root', "", "librarian") or die(mysqli_error($con));
-			//mysqli_select_db($con,'book');
-			$q="insert into book(Department, Book_Name, Author_Name, Price) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."')";
-			
-			$fire = mysqli_query($con, $q);
-			
-				if($fire){
-				
-				
-	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
-	
-//	echo "<script> window.location.assign('Student Profile.php'); </script>";
-	
-}
-else{
-	echo  '<script> alert("Data Sucessfully Submitted "); </script>';
-}
-		
-	
-	
-	
-	
-if (empty($_POST["fname"])) {
-$nameError = "Name is required";
-} else {
-$fname = test_input($_POST["fname"]);
-// check name only contains letters and whitespace
-if (!preg_match("/^[a-zA-Z ]*$/",$fname)) {
-$nameError = "Only letters and white space allowed";
-}
-}
-if (empty($_POST["lname"])) {
-$emailError = "Email is required";
-} else {
-$lname = test_input($_POST["lname"]);
-
-}
-
-}
-function test_input($data) {
-$data = trim($data);
-$data = stripslashes($data);
-$data = htmlspecialchars($data);
-return $data;
-}
-//php code ends here
-?>
-	  
-
+     <script src="validation2.js"></script>
 
 <html>
-<title> Add Book</title>
+<title>My Profile </title>
 <head>
-<link rel="stylesheet" type="text/css" href="admin2_page.css" />
+<link rel="stylesheet" type="text/css" href="css/admin1.css" />
+<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<style>
+<body >
 
-	
-</style>
-<body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
-
- 
-
- <div class="transparent_header" >
-            <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
-          <a href="index.php" style="text-decoration:none; color:white;">  <h1 style="margin: 0px; margin-left:27%; padding: 0px; box-sizing: border-box !important; font-weight: 300; font-size: 35px">
+  			
+    <div class="header" >
+            <img alt="logo"  class="logo_img" src="logo.png";  />
+          <a href="index.php" style="text-decoration:none; color:white;">  
+		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
-	 
-  
-    
-  <header class="transparent_header2" style="  width:190px; background-color: #00FFFF;">
-<div class="font">
-  
-  <a href="Librarian_Profile.php" style="text-decoration:none; color:white;">My Profile</a> <br /><br />
-  
-   <a href="add_book.php" style="text-decoration:none; color:white;">Add Book</a> <br /><br />
-    
-    <p><a href="Request_book.php" style="text-decoration:none; color:white;">Request Book</a></p><br />
-    
-   
-    <p><a href="issue_book.php" style="text-decoration:none; color:white;">Issue Book</a></p><br />
-	
-	  <p><a href="return_book.php" style="text-decoration:none; color:white;">Return Book</a></p><br />
-   
 
-    <p><a href="view_event_l.php" style="text-decoration:none; color:white;">View Event</a></p><br />
-	
-
-    <p><a href="index.php" style="text-decoration:none; color:white;">Logout</a></p><br />
-    </div></header>
+				 <header class="header2" style="  width:190px; ">
+			<div class="font">
+			  <nav>
+							<ul>
+								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
+                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
+								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
+								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
+								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
+								<li> <a href="view_event_l.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
+							</ul>
+						  </nav>					
+    
+			</div></header>
   
   			
 <form action="add_book.php" method="post"  name="myForm" onsubmit="return(validate());">
@@ -192,9 +74,92 @@ return $data;
     <div style="margin-top:400px"></div>
 
 
-<?php
-
-?>
 
 
 </html>
+
+
+
+
+<script>
+
+function validate()
+     {
+     
+    
+        if( document.myForm.Book_Name.value == "" )
+        {
+           alert( "Please provide your First Name!" );
+           document.myForm.Book_Name.focus() ;
+           return false;
+        }
+      
+          if( document.myForm.Author_Name.value == "" )
+        {
+           alert( "Please provide your First Name!" );
+           document.myForm.Author_Name.focus() ;
+           return false;
+        }
+      
+           if( document.myForm.Price.value == "" )
+        {
+           alert( "Please provide your First Name!" );
+           document.myForm.Price.focus() ;
+           return false;
+        }
+    
+    var num = /^[0-9]+$/;
+    
+           
+    if(!num.test(myForm.Price.value)) {
+     alert("Error: Input contains invalid characters!");
+     document.myForm.Price.focus();
+     return false;
+  
+    }
+    
+    
+       if( document.myForm.Department.value == "-1" )
+        {
+           alert( "Please Select your Department!" );
+           return false;
+        }
+  
+     return true;
+     }
+    </script>
+    
+    
+    
+    <?php
+// On submitting form below function will execute.
+if(isset($_POST['submit'])){
+
+        
+  
+     
+        
+        $Department = $_POST['Department'];
+        $Book_Name = $_POST['Book_Name'];
+        $Author_Name = $_POST['Author_Name'];
+        $Price = $_POST['Price'];
+        
+        
+        
+        $con = mysqli_connect('localhost', 'root', "", "librarian") or die(mysqli_error($con));
+        //mysqli_select_db($con,'book');
+        $q="insert into book(Department, Book_Name, Author_Name, Price) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."')";
+        
+        $fire = mysqli_query($con, $q);
+        
+           if($fire){
+            echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
+         //	echo "<script> window.location.assign('Student Profile.php'); </script>";
+         }
+      else{
+         echo  '<script> alert("Data Sucessfully Submitted "); </script>';
+          }
+
+}
+
+?>

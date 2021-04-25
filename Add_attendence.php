@@ -39,53 +39,6 @@
       }
 	  </script>
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	   <?php 
-	   
-	   
- $connect = mysqli_connect("localhost", "root", "", "attendence");  
- 
- if(isset($_POST["submit"]))  
- {  
-
- $Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-		
-			
-      $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-      $query = "insert into info(attendence, Department, Year) values ('$file','$Department','$Year')";
-      if(mysqli_query($connect, $query))  
-      {  
-           echo '<script>alert("Image Inserted into Database")</script>';  
-      } 
-else
-{
-				echo '<script>alert("Please Insert Your File ")</script>';
-}	
- }  
-
-
-	
-
-?>
-	  
-	  
-	  
-	  
-	  
-	  
-
-	  
-
 <html>
 <title> Add Attendence</title>
 <head> 
@@ -97,21 +50,12 @@ else
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<style>
-
-
-		
-</style>
 <body >
-
- 
-
- 
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
-		  <h1 class="myheads">
-                College Management System</h1></a>
+		       <h1 class="myheads">College Management System</h1>
+         </a>
         </div>
 
 				 <header class="header2" style="  width:190px; ">
@@ -182,3 +126,27 @@ else
 
 
 </html>
+
+	   <?php 
+	   
+      $connect = mysqli_connect("localhost", "root", "", "faculty");  
+ 
+         if(isset($_POST["submit"]))  
+         {  
+
+         $Department = $_POST['Department'];
+         $Year = $_POST['Year'];
+               
+               $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+               $query = "insert into attendence(attendence, Department, Year) values ('$file','$Department','$Year')";
+               if(mysqli_query($connect, $query))  
+               {  
+                  echo '<script>alert("Image Inserted into Database")</script>';  
+               } 
+                else
+                  {
+                     echo '<script>alert("Please Insert Your File ")</script>';
+                   }	
+         }  
+
+   ?>
