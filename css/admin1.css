@@ -34,8 +34,11 @@
             box-sizing: border-box !important;
             background-size: cover !important; 
 			position:fixed;
+			color:white;
                   
         }
+
+
 		
 	.clg
 		{
@@ -76,6 +79,12 @@
 			text-decoration:nonne;			
 			overflow:hidden;
 		}
+
+		.header_Menu
+	{
+	text-decoration:none;
+	color:white;
+	}
 
 	.logo_img {
 		text-align:center;
@@ -157,6 +166,8 @@ input[type=submit] {
 	.font{
 		font-size:20px;
 		margin-top:45%;
+		color:white;
+		text-decoration:none; 
 	}
 	
 	h1

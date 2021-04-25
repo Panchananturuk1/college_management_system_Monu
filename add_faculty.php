@@ -5,7 +5,10 @@
 
 
 if(isset($_POST['submit'])){
-
+	$profile = $_FILES["image"]["name"]; 
+	$tempname = $_FILES["image"]["tmp_name"];     
+	$file_error = $_FILES["image"]["error"];
+	$folder = "image/".$profile;
 			
 	
 			$Name = $_POST['Name'];
@@ -26,7 +29,7 @@ if(isset($_POST['submit'])){
 			
 		if(mysqli_query($connect, $q))
 		{
-		echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
+		echo  '<script> alert("Data Sucessfully Submitted Please Login"); </script>';
 
 		}
 		else{

@@ -1,5 +1,7 @@
 
- <?php require "config/connection.php"; ?>
+<?php
+$msg;
+?>
 
 <!DOCTYPE html>
 <html>
@@ -12,14 +14,10 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 </head>
 
 
-<body>
-
-
-
+	<body>
 		 <div class="header" >
 	  			<img alt="logo" class="logo_img" src="logo.png"; style="text-align:center" />
 				<div class="clg" >
@@ -33,7 +31,7 @@
 
 <div class="box" style="text-align:center;">
 
-	<form action="config/action.php" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data" onclick="this.disabled = true">
+	<form action="add_student.php" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data" onclick="this.disabled = true">
 	<input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
       <h1 >Registration</h1><br />
 				<input type="file" name="image" id="image" style="font-size:large; margin-left:150px;"><br /><br />
@@ -76,7 +74,7 @@
 
 		<input type="number" id="Contact" name="Contact" placeholder="Contact.."><br /><br />
 	    <input type="email" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />
-		<input type="hidden" ><div id="iderror"><?php echo"$msg";?>  </div> </input>
+		<input type="hidden" ><!--<div id="iderror"><?php echo"$msg";?> </div> --> </input>
 		<input type="password" id="Password" name="Password" placeholder="Password"><br /><br />
 		<input type="text" id="TotalFee" name="TotalFee" placeholder="Total Fees.." ><br /><br />
 		<input type="text" id="PaidFee" name="PaidFee" placeholder="Paid Fees.."><br /><br />
@@ -84,10 +82,6 @@
 	</form>
    </div>
 
-
-
-
-  
 	</body>
 </html>
 
@@ -118,3 +112,103 @@
 
 </script> -->
 
+
+
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = 'Students';
+
+
+// Create connection
+$connect = new mysqli($servername, $username, $password,$db) or die(mysqli_error($connect));
+
+if($connect) 
+{
+   
+$msg="";
+
+if(isset($_POST['submit'])){
+	
+		//session_start();
+		
+		$files = "info".addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+		 $profile = $_FILES["image"]["name"]; 
+		 $tempname = $_FILES["image"]["tmp_name"];     
+		 $file_error = $_FILES["image"]["error"];
+		 $folder = "image/".$profile;
+		
+			//$profile = $_FILES["image"]["name"];
+			$Name = $_POST['Name'];
+			$Lname = $_POST['Lname'];
+			$Gender = $_POST['gens'];
+			$dob = $_POST['dob'];
+			$Department = $_POST['Department'];
+			$Year = $_POST['Year'];
+			$Batch = $_POST['Batch'];
+			$Contact = $_POST['Contact'];
+			$Emailid = $_POST['Emailid'];
+			$Password = $_POST['Password'];
+			$TotalFee = $_POST['TotalFee'];
+			$PaidFee = $_POST['PaidFee'];
+			
+
+            // if(empty($Name))
+            // {
+            //     echo "first name can not be empty";
+            //     echo  '<script> alert("yioooooo man first name can not be empty"); </script>';
+            // }
+
+            // if(empty($Lname))
+            // {
+            //     echo "first name can not be empty";
+            //   //  header("Location: ../add_student.php");
+            // }
+			
+			
+	   
+			// $connect = mysqli_connect("localhost", "root", "", "Students") or die(mysqli_error($connect)); 		
+			//$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+
+
+
+
+                       // $q = "SELECT Emailid from info WHERE Emailid = '$Emailid'";
+                       // $fire=mysqli_query($connect, $q) or die("SOMETHINGS WRONG " .mysqli_error($connect));
+
+                     $query2=mysqli_query($connect,"SELECT Emailid FROM info WHERE Emailid='$Emailid' ");
+					 $result = mysqli_num_rows($query2);
+					 
+				/*	 if($result>0)
+					 {
+						echo  '<script> alert("EMAIL ID ALREADY EXISTS "); </script>';
+						$msg= "EMAIL ALREADY EXISTS . ...........";
+					//	header("Location: ../add_student.php");
+					 }
+					 else{*/
+
+
+						$q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
+						VALUES ('$profile','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
+					  
+					  $fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));				
+					  if($fire)
+					  {
+						  echo  '<script> alert("YOUR DATA SAVED Sucessfull, Please Login "); </script>';	
+						 // header("Location: ../index.php");
+					  }else
+					  {
+						echo  '<script> alert("ERROR "); </script>';
+						//header("Location: add_student.php");
+					  }
+
+					 }								
+					
+}else{
+    echo "CONNECTION FAILED";
+}
+
+?>

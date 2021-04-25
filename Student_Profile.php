@@ -6,44 +6,34 @@
 
 <head>
 
-<link rel="stylesheet" type="text/css" href="css/admin1.css">
+<link rel="stylesheet" type="text/css" href="css/admin1.css" >
 
-		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  
-</head>
-<script src="validation2.js">
 
+<script src="validation2.js" >
 </script>
-<style>
-
-
-		
-</style>
+</head>
 
 <body>
- <div class="header" >
+ 		<div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
-          <a href="index.php" style="text-decoration:none; color:white;">  
-		  <h1 class="myheads">
-                College Management System</h1></a>
+        	  <a href="index.php" style="text-decoration:none; color:white;">  
+		 		 <h1 class="myheads">College Management System</h1>
+				</a>
         </div>
 		
 		
-	
-
-
-
-<header class="header2" style="  width:190px; ">
-<div class="font">
-  <nav>
+<header class="header2" style="width:190px;">
+				<div class="font">
+ 						 <nav>
 							<ul>
 								<li> <a href="Student_Profile.php" class="header_Menu">My Profile</a> </li><br />
-								<li> <a href="view_book.php" class="header_Menu">View Books</a> </li><br />
+								<li> <a href="view_book.php" class="header_Menu" >View Books</a> </li><br />
 								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
 								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
 								<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
@@ -53,22 +43,16 @@
 							</ul>
 						  </nav>					
     
-	</div></header>
+				</div></header>
 
 
 
  <form action="Student_Profile.php" method="post" name="myForm" onsubmit="return(validate());" enctype="multipart/form-data" >
-	  
 
-
-
-<div class="box"  >
- 
-      <h1 style="text-align:center; font-size:40px;" >My Profile</h1>
-
-	  <table  style="margin-left:38%; margin-top:0px">  
+	<div class="box">
+      <h1 style="text-align:center; font-size:40px;">My Profile</h1>
+	  <table  style="margin-left:38%; margin-top:0px" >  
                     
-
 
 <?php
 
@@ -79,16 +63,12 @@ if(isset($_POST['submit'])){
 			
 			$Emailid = $_POST['Emailid'];
 			$Password = $_POST['Password'];
-	
-	
-	 $connect = mysqli_connect("localhost", "root", "", "Students");
 
+	 		$connect = mysqli_connect("localhost", "root", "", "Students");
 			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
 		
-
-		
-$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
-$row = mysqli_fetch_assoc($result);
+			$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
+			$row = mysqli_fetch_assoc($result);
 
 	
 	
@@ -97,20 +77,11 @@ if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
 	
 	session_start();
 
-	
-
-
-	
-
 	echo  '<script> alert("User Name and Password are Correct"); </script>';	
 	
 	     echo '  
-                          <tr>  
-						  
-						  
+                          <tr>  	  
                                <td>  
-							   
-
                                     <img src="data:image/jpeg;base64,'.base64_encode($row['profile'] ).'" height="150" width="140" class="img-thumnail" />  
                                </td>  
                           </tr>  

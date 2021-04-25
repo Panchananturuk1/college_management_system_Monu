@@ -1,13 +1,9 @@
 <script src="validation2.js"></script>
 
-
-
 <html>
 <title>My Profile </title>
 <head>
 <link rel="stylesheet" type="text/css" href="css/admin1.css" />
-
-
 <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -16,16 +12,10 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<style>
-
-		
+<style>		
 </style>
 
 <body >
-
- 
-
- 
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
@@ -73,10 +63,7 @@ if(isset($_POST['submit'])){
 			$Emailid = $_POST['Emailid'];
 			$Password = $_POST['Password'];
 	
-	
-	 $connect = mysqli_connect("localhost", "root", "", "faculty");
-			
-			
+			$connect = mysqli_connect("localhost", "root", "", "faculty");
 			
 			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
 			mysqli_query($connect, $query);
@@ -86,37 +73,21 @@ $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
 $row = mysqli_fetch_assoc($result);
 if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
 {
-	
-	
 	echo  '<script> alert("User Name and Password are Correct"); </script>';
-	
-	
-	
 	     echo '  
-                          <tr>  
-						  
-						  
-                               <td>  
-							   
-		
-
+                          <tr>				  
+                               <td >  
                                     <img src="data:image/jpeg;base64,'.base64_encode($row['profile'] ).'" height="150" width="140" class="img-thumnail" />  
                                </td>  
                           </tr>  
                      ';  
-               
-	
 }
-
 
 else{
 
 	echo  '<script> alert("User Name and Password are Wrong"); </script>';
-	
 	echo "<script> window.location.assign('index.php'); </script>";
 }
-
-
 
 		}
 
