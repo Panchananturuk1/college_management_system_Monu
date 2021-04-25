@@ -70,9 +70,9 @@ if(isset($_POST['submit'])){
 			 $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
 			$q="insert into event(Event_Name, Event_Date, event) values('$Event_Name','$Event_Date','$file')";
 			
-			mysqli_query($con, $q);
+			$fire = mysqli_query($con, $q);
 			
-				if(mysqli_query($con, $q)){
+				if($fire){
 				
 				
 	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
 	
 }
 else{
-	echo  '<script> alert("Data Sucessfully Submitted "); </script>';
+	echo  '<script> alert("ERROR "); </script>';
 }
 }
 	
@@ -153,7 +153,7 @@ else{
   
       <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." ><br /><br />
 
-	   <input type="date" id="dob" name="dob" placeholder="mm/dd/yyyy"><br /><br />
+	   <input type="date" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy"><br /><br />
 	   
 	  <input type="file" name="image" id="image" class="myfile" ><br /><br />
   

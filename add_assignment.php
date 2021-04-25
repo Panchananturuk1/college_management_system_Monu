@@ -63,7 +63,7 @@
 	   <?php 
 	   
 	   
- $connect = mysqli_connect("localhost", "root", "", "assignment")or die(mysqli_error($connect));
+ $connect = mysqli_connect("localhost", "root", "", "faculty")or die(mysqli_error($connect));
  
  if(isset($_POST["submit"]))  
  {  

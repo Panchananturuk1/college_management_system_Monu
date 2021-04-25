@@ -63,14 +63,14 @@ if(isset($_POST['submit'])){
 			
 			
 			
-			$con = mysqli_connect('localhost', 'root', '');
+			$con = mysqli_connect("localhost", "root", "", "librarian");
 			
-			mysqli_select_db($con,'Books');
-			$q="insert into info(Department, enrollment_no, book, Author_Name, Price, Name) values('".$Department."','".$enrollment_no."','".$book."','".$Author_Name."','".$Price."','".$Name."' )";
+			//mysqli_select_db($con,'Books');
+			$q="INSERT INTO iss_book(Department, enrollment_no, book, Author_Name, Price, Name) VALUES ('".$Department."','".$enrollment_no."','".$book."','".$Author_Name."','".$Price."','".$Name."' )";
 			
-			mysqli_query($con, $q);
+		$fire =	mysqli_query($con, $q);
 			
-				if(mysqli_query($con, $q)){
+				if($fire){
 				
 				
 	echo  '<script> alert("Book Issued Sucessfully 2"); </script>';
@@ -79,7 +79,7 @@ if(isset($_POST['submit'])){
 	
 }
 else{
-	echo  '<script> alert("Book Issued Sucessfully  "); </script>';
+	echo  '<script> alert("ERROR"); </script>';
 }
 		
 	

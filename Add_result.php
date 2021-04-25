@@ -63,7 +63,7 @@
 	   <?php 
 	   
 	   
- $connect = mysqli_connect("localhost", "root", "", "result")or die(mysqli_error($connect));
+ $connect = mysqli_connect("localhost", "root", "", "faculty")or die(mysqli_error($connect));
  
  if(isset($_POST["submit"]))  
  {  
@@ -72,7 +72,7 @@
 			$Year = $_POST['Year'];
 			
       $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-      $query = "INSERT INTO info(result, Department, Year) VALUES ('$file','$Department','$Year')";  
+      $query = "INSERT INTO result(result, Department, Year) VALUES ('$file','$Department','$Year')";  
       if(mysqli_query($connect, $query))  
       {  
            echo '<script>alert("Image Inserted into Database")</script>';  

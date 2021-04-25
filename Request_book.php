@@ -133,10 +133,6 @@ return $data;
 ?>
 	  
 
-
-
-
-
 <html>
 <title> Request Book</title>
 <head>
