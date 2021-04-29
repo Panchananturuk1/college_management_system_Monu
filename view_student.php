@@ -50,19 +50,14 @@ table, th, td {
 		
 </style>
 <body > 
-
- 
-
-
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
 		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
-	 
-  
-	 <header class="header2" style="  width:190px; ">
+
+		<header class="header2" style="  width:190px; ">
 <div class="font">
   <nav>
 							<ul>
@@ -82,17 +77,11 @@ table, th, td {
     
 	</div></header>
 
-  
-  			
 <form action="view_student.php" method="post"  name="myForm" onsubmit="return(validate());">
-
-
 <div class="box"  >
-
       <h1 style="text-align:center; font-size:40px;" >View Student</h1><br />
+
 <select name="Department" >
- 
- 
   <option  value="-1">Select Program</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
@@ -100,7 +89,6 @@ table, th, td {
    <option value="B.ED">B.ED</option>
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
-
 
 <select name="Year">
   <option  value="-1" >Select Year</option>
@@ -122,7 +110,6 @@ table, th, td {
 
 <table style="margin-left:20%; margin-top:15%">
   <tr>
-  
 	<th> Name</th>
 	<th>Department</th>
 	<th>Year</th>
@@ -135,60 +122,49 @@ table, th, td {
 	<th>Gender</th>
 </tr>
  <?php
- 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "Students";
+$con = new mysqli($servername, $username, $password,$db) or die(mysqli_error($con));
+
  if(isset($_POST['submit'])){
 		
 			$Department = $_POST['Department'];
 			$Year = $_POST['Year'];
 
-			$con = mysqli_connect('localhost', 'root', '');
-			mysqli_select_db($con,'Students');
-			
 			$query="SELECT * FROM `info` WHERE Department='$Department' and Year='$Year'";	
-			mysqli_query($con, $query);
+			$result = mysqli_query($con, $query) or die(mysqli_error($con));
 
-		
-$result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_assoc($result);
- 
- if($row['Department'] == $Department && $row['Year'] == $Year )
- {
-	  echo  '<script> alert("Record  Matching"); </script>';
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+ if($row['Department'] == $Department && $row['Year'] == $Year ) {
 	 
- 	 	while($info = mysqli_fetch_assoc($result)) {
-		
+	echo  '<script> alert("Record  Matching"); </script>';
 		echo '<div align="center">';
 		echo "<tr>";		
-		echo "<td>" .$info['Name']. " " .$info['Lname']. "</td>";
-		echo "<td>" .$info['Department']. "</td>";
-		echo "<td>" .$info['Year']. "</td>";
-		echo "<td>" .$info['Batch']. "</td>";
-		echo "<td>" .$info['Contact']. "</td>";
-		echo "<td>" .$info['Emailid']. "</td>";		
-		echo "<td>" .$info['Password']. "</td>";
-		echo "<td>" .$info['TotalFee']. "</td>";
-		echo "<td>" .$info['PaidFee']. "</td>";
-		echo "<td>" .$info['Gender']. "</td>";
+		echo "<td>" .$row['Name']. " " .$row['Lname']. "</td>";
+		echo "<td>" .$row['Department']. "</td>";
+		echo "<td>" .$row['Year']. "</td>";
+		echo "<td>" .$row['Batch']. "</td>";
+		echo "<td>" .$row['Contact']. "</td>";
+		echo "<td>" .$row['Emailid']. "</td>";		
+		echo "<td>" .$row['Password']. "</td>";
+		echo "<td>" .$row['TotalFee']. "</td>";
+		echo "<td>" .$row['PaidFee']. "</td>";
+		echo "<td>" .$row['Gender']. "</td>";
 		echo "</tr>";
 		echo '</div>';
-		}
-	
- }
- 
-
-  else
- {
-	 echo  '<script> alert("Error: Record Not Matching"); </script>';
- }
- 
- }
- 
+		}else{
+				 echo  '<script> alert("Error: Record Not Matching"); </script>';
+ 			}
+ 	}
+ }else{
+	echo  '<script> alert("Record  Not Matching or Data is Not Available in the Database"); </script>';
+	 }
+}
  ?>
-
 </table>
-   
-
-   
   </form>
    <div style="margin-top:400px"></div>
 
