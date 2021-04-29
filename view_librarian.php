@@ -5,9 +5,7 @@
 <html>
 <title>View Librarian </title>
 <head>
-<link rel="stylesheet" type="text/css" href="css/admin1.css" />
-
-
+<link rel="stylesheet" type="text/css" href="css/admin1.css" >
 <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -18,20 +16,14 @@
 
 <style>
 
-
-
-
 table, th, td {
     border: 5px solid green;
-	text-size:20px;
+	font-size:20px;
 
-		
 </style>
-<body >
+<body>
 
  
-
-
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
@@ -87,26 +79,21 @@ table, th, td {
 
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_array($result);
+//$row = mysqli_fetch_array($result);
  
  
  if($con)
  {
+	while($row = mysqli_fetch_assoc($result)) {
 
- 	while($info = mysqli_fetch_assoc($result)) {
+ 	//while($info = mysqli_fetch_assoc($result)) {
 		
 		echo "<tr>";
-		
-		echo "<td>" .$info['Name']. " " .$info['Lname']. "</td>";
-		echo "<td>" .$info['Gender']. "</td>";
-		
-		echo "<td>" .$info['Contact']. "</td>";
-		echo "<td>" .$info['Emailid']. "</td>";
-		
-		echo "<td>" .$info['Password']. "</td>";
-		
-		
-		
+		echo "<td>" .$row['Name']. " " .$row['Lname']. "</td>";
+		echo "<td>" .$row['Gender']. "</td>";
+		echo "<td>" .$row['Contact']. "</td>";
+		echo "<td>" .$row['Emailid']. "</td>";
+		echo "<td>" .$row['Password']. "</td>";
 		echo "</tr>";
 	}
  }
@@ -127,11 +114,4 @@ $row = mysqli_fetch_array($result);
 
 
     <div style="margin-top:400px"></div>
-
-
-<?php
-
-?>
-
-
 </html>

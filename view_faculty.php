@@ -1,27 +1,15 @@
 
 
 
-
-
-
-
 	  <script>
 
  function validate()
       {
-      
-	  
-	  
 		  if( document.myForm.Department.value == "-1" )
          {
             alert( "Please Select your Department!" );
             return false;
          }
-	  
-	  
-	
-		 
-	
 		return true;
       }
 	  </script>
@@ -46,17 +34,12 @@
 
 table, th, td {
     border: 5px solid green;
-	text-size:20px;
+	font-size:20px;
 }
 
 		
 </style>
 <body > 
-
- 
-
- 
-
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
@@ -132,39 +115,26 @@ table, th, td {
 		
 			$Department = $_POST['Department'];
 
-
 			$con = mysqli_connect('localhost', 'root', '');
 			mysqli_select_db($con,'faculty');
 			
 			$query="SELECT * FROM `info` WHERE Department='$Department' ";	
 			mysqli_query($con, $query);
-
-		
+	
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_assoc($result);
 
- 
- 
  if($row['Department'] == $Department )
  {
-	 
 	  echo  '<script> alert("Record  Matching"); </script>';
-
- 	while($info = mysqli_fetch_assoc($result)) {
+	  while($row = mysqli_fetch_assoc($result)) {
 		
 		echo "<tr>";
-		
-		echo "<td>" .$info['Name']. " " .$info['Lname']. "</td>";
-		echo "<td>" .$info['Gender']. "</td>";
-		echo "<td>" .$info['Department']. "</td>";
-		echo "<td>" .$info['Designation']. "</td>";
-		echo "<td>" .$info['Qualification']. "</td>";
-		
-		
-		echo "<td>" .$info['Password']. "</td>";
-		
-		
-		
+		echo "<td>" .$row['Name']. " " .$row['Lname']. "</td>";
+		echo "<td>" .$row['Gender']. "</td>";
+		echo "<td>" .$row['Department']. "</td>";
+		echo "<td>" .$row['Designation']. "</td>";
+		echo "<td>" .$row['Qualification']. "</td>";
+		echo "<td>" .$row['Password']. "</td>";
 		echo "</tr>";
 	}
  }
@@ -178,17 +148,7 @@ $row = mysqli_fetch_assoc($result);
  ?>
 
 </table>
-   
 
-   
   </form>
-
-
     <div style="margin-top:400px"></div>
-
-
-
-
-
-
 </html>
