@@ -1,44 +1,7 @@
 
 
 
-
-
-	  <script>
-
- function validate()
-      {
-      
-	  
-	  
-		  if( document.myForm.Department.value == "-1" )
-         {
-            alert( "Please Select your Department!" );
-            return false;
-         }
-	  
-	  
-		  if( document.myForm.Year.value == "-1" )
-         {
-            alert( "Please Select your Year!" );
-            return false;
-         }
-	  
-	 
-
-   
-  if( document.myForm.File.value == "" )
-         {
-            alert( "Please upload Your File!" );
-            document.myForm.File.focus() ;
-            return false;
-         }
-	
-		 
-	
-		return true;
-      }
-	  </script>
-
+<?php include 'filesLogic.php';?>
 
 
 <html>
@@ -55,10 +18,13 @@
 
 <style>
 
+table{
+   margin-left:5%;
+}
 
 table, th, td {
     border: 5px solid green;
-	text-size:20px;
+	font-size:20px;
 }
 
 
@@ -104,8 +70,7 @@ table, th, td {
 
 <select name="Department" >
  
- 
-  <option  value="-1">Select Program</option>
+  <option  value="-1">Select Department</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
   <option value="MBA">MBA</option>
@@ -114,27 +79,39 @@ table, th, td {
 </select><br /> <br />
 
 
-<select name="Year">
-  <option  value="-1" >Select Year</option>
-  <option value="2012-2015">2012-2015</option>
-  <option value="2012-2014">2012-2014</option>
-  <option value="2013-2015">2013-2015</option>
-  <option value="2013-2016">2013-2016</option>
-   <option value="2014-2016">2014-2016</option>
-   <option value="2014-2017">2014-2017</option>
-    <option value="2015-2017">2015-2017</option>
-	 <option value="2015-2018">2015-2018</option>
-	</select> <br />
+<select name="Semester">
+  <option  value="-1" >Select Semester</option>
+  <option value="1st Semester">1st Semester</option>
+  <option value="2nd Semester">2nd Semester</option>
+  <option value="3rd Semester">3rd Semester</option>
+  <option value="4th Semester">4th Semester</option>
+   <option value="5th Semester">5th Semester</option>
+   <option value="6th Semester">6th Semester</option>
+</select> <br /><br />
+
 <input class="submit" name="submit" type="submit" value="Submit">  
 
 
-</div>
+<table>
+<thead>
+    <th>ID</th>
+    <th>Filename</th>
+    <th>size (in mb)</th>
+    <th>Downloads</th>
+    <th>Action</th>
+</thead>
+<?php foreach ($files as $file): ?>
+    <tr>
+      <td><?php echo $file['id']; ?></td>
+      <td><?php echo $file['name']; ?></td>
+      <td><?php echo floor($file['size'] / 1000) . ' KB'; ?></td>
+      <td><?php echo $file['downloads']; ?></td>
+      <td><a href="downloads.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+    </tr>
+  <?php endforeach;?>
+</tbody>
+</table>
 
-<table class="table table-bordered" style="margin-left:20%; margin-top:15%">  
-                     <tr>  
-						 <th>assignment</th>  
-						  
-                     </tr> 
 
 
 <?php
@@ -143,64 +120,85 @@ table, th, td {
  if(isset($_POST['submit'])){
 
 
- $connect = mysqli_connect("localhost", "root", "", "assignment"); 
+ $con = mysqli_connect("localhost", "root", "", "faculty"); 
 	
-	
-			
 			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-	
-	
-	$query="SELECT * FROM `info` WHERE Department='$Department' and Year='$Year'";		
-			mysqli_query($connect, $query);
+			$Semester = $_POST['Semester'];
+        
+	      $query="SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";		
+			mysqli_query($con, $query);
 
 		
-$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_assoc($result);
-if($row['Department'] == $Department && $row['Year'] == $Year )
+if($row['Department'] == $Department && $row['Semester'] == $Semester )
 {
 	
+   echo  '<script> alert("Record  Matching"); </script>';
 
-	echo  '<script> alert("Record Matching "); </script>';
-	
-
-	
-			
-	
-                     echo '  
-                          <tr>  
-						  
-						  
-                               <td>  
-							   
-
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['name'] ).'" height="600" width="850" class="img-thumnail" />  
-                               </td>  
-                          </tr>  
-                     ';  
-               
+   $query2 = "SELECT * FROM assignment";
+   $result2 = mysqli_query($con, $query2) or die(mysqli_error($con));
+  
+      while($rows = mysqli_fetch_assoc($result2)) {
+    
+    echo "<tr>";
+    
+    echo "<td>" .$rows['id']. "</td>";
+    echo "<td>" .$rows['name']. "</td>";
+    echo "<td>" .$rows['size']. "</td>";
+    echo "<td>" .$rows['Department']. "</td>";
+    echo "<td>" .$rows['Semester']. "</td>";
+         
+      }
 }
-
 
 else{
 
 	echo  '<script> alert("Error: Record Not Matching"); </script>';
-
-
 }
 
 		}
-
-
 ?>
 
 
-</table>
-
-</form>
 
 
+</div>
 
-</body>
 
+
+
+      </form>
+
+      <div style="margin-top:400px"></div>
+   </body>
 </html>
+
+<script>
+function validate()
+     {
+     
+       if( document.myForm.Department.value == "-1" )
+        {
+           alert( "Please Select your Department!" );
+           return false;
+        }
+    
+    
+       if( document.myForm.Year.value == "-1" )
+        {
+           alert( "Please Select your Year!" );
+           return false;
+        }
+
+  
+ if( document.myForm.File.value == "" )
+        {
+           alert( "Please upload Your File!" );
+           document.myForm.File.focus() ;
+           return false;
+        }
+  
+     return true;
+     }
+    </script>

@@ -1,95 +1,7 @@
 
-	  <script>
-
- function validate()
-      {
-	  
-	  
-	  
-	  
-	    if( document.myForm.Department.value == "-1" )
-         {
-            alert( "Please Select your Department!" );
-            return false;
-         }
-	  
-	  
-		  if( document.myForm.Year.value == "-1" )
-         {
-            alert( "Please Select your Year!" );
-            return false;
-         }
-	  
-	  
-  
-   
-  if( document.myForm.image.value == "" )
-         {
-            alert( "Please upload Your File!" );
-            document.myForm.image.focus() ;
-            return false;
-         }
 	
-
-	
-	
-	   var image_name = $('#image').val();  
-           if(image_name == '')  
-           {  
-                alert("Please Select Image");  
-                return false;  
-           }  
-           else  
-           {  
-                var extension = $('#image').val().split('.').pop().toLowerCase();  
-                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
-                {  
-                     alert('Invalid Image File');  
-                     $('#image').val('');  
-                     return false;  
-                }  
-           }  
-	
-	
+	<?php include 'filesLogic.php';?>  
 	  
-
-      }
-	  </script>
-	  
-	  
-	  
-
-
-	   <?php 
-	   
-	   
- $connect = mysqli_connect("localhost", "root", "", "faculty")or die(mysqli_error($connect));
- 
- if(isset($_POST["submit"]))  
- {  
-
- $Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-			
-      $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-      $query = "INSERT INTO info(name, Department, Year) VALUES ('$file','$Department','$Year')";  
-      if(mysqli_query($connect, $query))  
-      {  
-           echo '<script>alert("Image Inserted into Database")</script>';  
-      } 
-else
-{
-				echo '<script>alert("Please Insert Your File ")</script>';
-}	
- }  
-
-
-	
-
-?>
-	  
-	  
-
 <html>
 <title> Add Assignments</title>
 <head> 
@@ -103,14 +15,11 @@ else
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
-
-
-		
+	
 </style>
 <body >
 
  
-
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
@@ -138,16 +47,12 @@ else
 <div class="box"  >
 <form  method="post"    name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data" >
   
-   
-		
-      <h1 style="text-align:center; font-size:40px;" >Add Assignments</h1><br />
+   		
+<h1 style="text-align:center; font-size:40px;" >Add Assignments</h1><br />
 
-  
-	
+
 <select name="Department" >
- 
- 
-  <option  value="-1">Select Program</option>
+  <option  value="-1">Select Department</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
   <option value="MBA">MBA</option>
@@ -155,34 +60,71 @@ else
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
-<select name="Year">
-  <option  value="-1" >Select Year</option>
-  <option value="2012-2015">2012-2015</option>
-  <option value="2012-2014">2012-2014</option>
-  <option value="2013-2015">2013-2015</option>
-  <option value="2013-2016">2013-2016</option>
-   <option value="2014-2016">2014-2016</option>
-   <option value="2014-2017">2014-2017</option>
-    <option value="2015-2017">2015-2017</option>
-	 <option value="2015-2018">2015-2018</option>
-	
+<select name="Semester">
+  <option  value="-1" >Select Semester</option>
+  <option value="1st Semester">1st Semester</option>
+  <option value="2nd Semester">2nd Semester</option>
+  <option value="3rd Semester">3rd Semester</option>
+  <option value="4th Semester">4th Semester</option>
+   <option value="5th Semester">5th Semester</option>
+   <option value="6th Semester">6th Semester</option>
 </select> <br /><br />
 
-      
-     
-	 
- <input type="file" name="image" id="image" style="font-size:large; margin-left:150px;;"><br /><br />
+     <input type="date" name="date" id="date" />
+     <input type="file" name="myfile" id="image" style="font-size:large; margin-left:150px;;"><br /><br />	
+     <input type="submit" class="myfile" name="submit" id="submit" value="Submit"  class="submit" />  
 		
- <input type="submit" class="myfile" name="submit" id="submit" value="Submit"  class="submit" />  
-		
-  
-   
   </form>
 </div>
 
     <div style="margin-top:400px"></div>
-
-
-
-
 </html>
+
+<script>
+function validate()
+     {
+        if( document.myForm.Department.value == "-1" )
+        {
+           alert( "Please Select your Department!" );
+           return false;
+        }
+      
+      
+           if( document.myForm.Year.value == "-1" )
+        {
+           alert( "Please Select your Year!" );
+           return false;
+        }
+      
+      
+ 
+  
+ if( document.myForm.image.value == "" )
+        {
+           alert( "Please upload Your File!" );
+           document.myForm.image.focus() ;
+           return false;
+        }
+    
+       var image_name = $('#image').val();  
+          if(image_name == '')  
+          {  
+               alert("Please Select Image");  
+               return false;  
+          }  
+          else  
+          {  
+               var extension = $('#image').val().split('.').pop().toLowerCase();  
+               if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+               {  
+                    alert('Invalid Image File');  
+                    $('#image').val('');  
+                    return false;  
+               }  
+          }  
+     }
+      </script>
+      
+      
+      
+
