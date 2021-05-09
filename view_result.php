@@ -52,13 +52,14 @@
 
 <style>
 
-
+table, th, td {
+    border: 5px solid green;
+	font-size:20px;
+}
 	
 </style>
 
 <body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
-
- 
 
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
@@ -66,8 +67,7 @@
 		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
-	 
-  
+	  
 					  <header class="header2" style="  width:190px; ">
 					<div class="font">
 					  <nav>
@@ -90,30 +90,24 @@
 <h1 style="text-align:center; font-size:40px;" >View Result</h1><br />
 
 
-
-	
 <select name="Department" >
- 
- 
-  <option  value="-1">Select Program</option>
+  <option  value="-1">Select Department</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
   <option value="MBA">MBA</option>
-   <option value="B.ED">B.ED</option>
-    <option value="INTEGRATED Msc">INTEGRATED Msc</option>
+  <option value="B.ED">B.ED</option>
+  <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
-<select name="Year">
-  <option  value="-1" >Select Year</option>
-  <option value="2012-2015">2012-2015</option>
-  <option value="2012-2014">2012-2014</option>
-  <option value="2013-2015">2013-2015</option>
-  <option value="2013-2016">2013-2016</option>
-   <option value="2014-2016">2014-2016</option>
-   <option value="2014-2017">2014-2017</option>
-    <option value="2015-2017">2015-2017</option>
-	 <option value="2015-2018">2015-2018</option>
-	
+
+<select name="Semester">
+  <option  value="-1" >Select Semester</option>
+  <option value="1st Semester">1st Semester</option>
+  <option value="2nd Semester">2nd Semester</option>
+  <option value="3rd Semester">3rd Semester</option>
+  <option value="4th Semester">4th Semester</option>
+   <option value="5th Semester">5th Semester</option>
+   <option value="6th Semester">6th Semester</option>
 </select> <br /><br />
 
 
@@ -122,84 +116,106 @@
 
 <input class="submit" name="submit" type="submit" value="Submit">  
 
-
+</form>
 </div>
 
+<center>
 
- <table class="table table-bordered" style="margin-left:20%; margin-top:15%">  
-                     <tr>  
-						 <th>Result</th>  
-						  
-                     </tr> 
-
-
+<table>
+<thead>
+    <th>ID</th>
+    <th>Filename</th>
+    <th>Date</th>
+    <th>size (in mb)</th>
+    <th>Department</th>
+    <th>Semester</th>
+    <th>Assignment File</th>
 <?php
 
 
  if(isset($_POST['submit'])){
 
 
- $connect = mysqli_connect("localhost", "root", "", "result")or die(mysqli_error($connect));
+ $con = mysqli_connect("localhost", "root", "", "faculty"); 
 	
-	
-			
 			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-	
-	
-	$query="SELECT * FROM `info` WHERE Department='$Department' and Year='$Year'";		
-			mysqli_query($connect, $query);
+			$Semester = $_POST['Semester'];
+        
+	      $query="SELECT * FROM `result` WHERE Department='$Department' and Semester='$Semester'";		
+			mysqli_query($con, $query);
 
-		
-$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_assoc($result);
-if($row['Department'] == $Department && $row['Year'] == $Year )
+if($row['Department'] == $Department && $row['Semester'] == $Semester )
 {
 	
+   echo  '<script> alert("Record  Matching"); </script>';
 
-	echo  '<script> alert("Record Matching "); </script>';
-	
-
-	
-			
-	
-                     echo '  
-                          <tr>  
-						  
-						  
-                               <td>  
-							   
-
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['result'] ).'" height="600" width="850" class="img-thumnail" />  
-                               </td>  
-                          </tr>  
-                     ';  
-               
+   //$query2 = "SELECT * FROM assignment";
+   $result2 = mysqli_query($con, $query) or die(mysqli_error($con));
+  
+while($rows = mysqli_fetch_assoc($result2)) {
+    
+    echo "<tr>";
+    echo "<td>" .$rows['id']. "</td>";
+    echo "<td>" .$rows['name']. "</td>";
+    echo "<td>" .$rows['Date']. "</td>";
+    echo "<td>" .$rows['Size']. "</td>";
+    echo "<td>" .$rows['Department']. "</td>";
+    echo "<td>" .$rows['Semester']. "</td>";
+   ?>
+  <td><a href="downloads.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+</tr>
+   <?php
+      }
 }
-
-
 else{
 
 	echo  '<script> alert("Error: Record Not Matching"); </script>';
-
-
 }
 
 		}
-
-
 ?>
 
-
+</tbody>
 </table>
 
+</center>
 
 
-</form>
+<?php
+  if (isset($_GET['file_id'])) {
+   $id = $_GET['file_id'];
 
+   // fetch file to download from database
+   $sql = "SELECT * FROM result WHERE id=$id";
+   $result = mysqli_query($conn, $sql);
 
+   $file = mysqli_fetch_assoc($result);
+   $filepath = 'Faculty/Assignments/' . $file['name'];
 
+   if (file_exists($filepath)) {
+       header('Content-Description: File Transfer');
+       header('Content-Type: application/octet-stream');
+       header('Content-Disposition: attachment; filename=' . basename($filepath));
+       header('Expires: 0');
+       header('Cache-Control: must-revalidate');
+       header('Pragma: public');
+       header('Content-Length: ' . filesize('Faculty/Assignments/' . $file['name']));
+       readfile('Faculty/Assignments/' . $file['name']);
 
-</body>
+       // Now update downloads count
+      // $newCount = $file['downloads'] + 1;
+       //$updateQuery = "UPDATE files SET downloads=$newCount WHERE id=$id";
+       //mysqli_query($conn, $updateQuery);
+       //exit;
+   }
 
+}
+?>
+
+      </form>
+
+      <div style="margin-top:400px"></div>
+   </body>
 </html>

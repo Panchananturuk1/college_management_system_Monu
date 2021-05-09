@@ -26,7 +26,7 @@
 			  <nav>
 							<ul>
 								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
-                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
+                                <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
 								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
@@ -114,17 +114,17 @@ else{
 
 </table>
 	  
-    <label for="Name" style="margin-left:140px; font-size:25px">Name:</label><br />
+    <label for="Name" >Name:</label><br />
      <input type="text" id="Name" name="Name" placeholder="Your name.." style="font-size:large"value="<?php  echo $row['Name'] , " " ,$row['Lname'] ; ?>" readonly="" /><br /><br />
   
 
-     <label for="Contact" style="margin-left:140px; font-size:25px">Gender</label><br />
+     <label for="Contact">Gender</label><br />
      <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Gender']; ?>" readonly="" /><br /><br />
 	 
-    <label for="Eml" style="margin-left:140px; font-size:25px">Email Id:</label><br />
+    <label for="Eml">Email Id:</label><br />
       <input type="text" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
 
-      <label for="Contact" style="margin-left:140px; font-size:25px">Contact</label><br />
+      <label for="Contact">Contact</label><br />
      <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
 
      

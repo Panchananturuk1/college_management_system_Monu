@@ -155,15 +155,13 @@ if(isset($_POST['submit'])){
         
         $Department = $_POST['Department'];
         $Book_Name = $_POST['Book_Name'];
-        $Author_Name = $_POST['Author_Name'];
-           $Price = $_POST['Price'];
-                 $Quantity = $_POST['Quantity'];
+        $Author_Name = $_POST['Author_Name']; 
+         $Quantity = $_POST['Quantity'];
         
         
         $con = mysqli_connect('localhost', 'root', '');
-        
         mysqli_select_db($con,'librarian');
-        $q="insert into req_book(Department, Book_Name, Author_Name, Price, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."','".$Quantity."')";
+        $q="insert into req_book(Department, Book_Name, Author_Name, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Quantity."')";
         
      $fire	= mysqli_query($con, $q);
         

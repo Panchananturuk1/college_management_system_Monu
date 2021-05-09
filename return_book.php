@@ -101,7 +101,7 @@ table, th, td {
   <select name="Department" >
  
  
-  <option  value="-1">Select Program</option>
+  <option  value="-1">Select Department</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
   <option value="MBA">MBA</option>
@@ -110,16 +110,7 @@ table, th, td {
 </select><br /> <br />
   
   
-     <select name="enrollment_no" >
-  <option  value="-1" >Select Enrollment No.</option>
-  <option value="15/05/DCS/01">15/05/DCS/01</option>
-  <option value="15/05/DCS/02">15/05/DCS/02</option>
-  <option value="15/05/DCS/03">15/05/DCS/03</option>
-   <option value="15/05/DCS/04">15/05/DCS/04</option>
-   <option value="15/05/DCS/05">15/05/DCS/05</option>
-   <option value="15/05/DCS/06">15/05/DCS/06</option>
-   <option value="15/05/DCS/07">15/05/DCS/07</option>
-</select><br /> <br />
+<input type="text" id="enrollment_no" name="enrollment_no" placeholder="Enter Enrollment No." style="font-size:large"><br /><br />
 
 
 
@@ -135,6 +126,7 @@ table, th, td {
   
   
 	<th>Student NAME</th>
+	<th>Enrollment Number</th>
 	<th>BOOK NAME</th>
 	<th>AUTHOR</th>
 	<th>PRICE</th>

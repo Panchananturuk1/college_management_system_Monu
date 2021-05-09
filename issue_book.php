@@ -173,26 +173,19 @@ return $data;
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
   
-     <select name="enrollment_no">
-  <option  value="-1" >Select Enrollment No.</option>
-  <option value="15/05/DCS/01">15/05/DCS/01</option>
-  <option value="15/05/DCS/02">15/05/DCS/02</option>
-  <option value="15/05/DCS/03">15/05/DCS/03</option>
-   <option value="15/05/DCS/04">15/05/DCS/04</option>
-   <option value="15/05/DCS/05">15/05/DCS/05</option>
-   <option value="15/05/DCS/06">15/05/DCS/06</option>
-   <option value="15/05/DCS/07">15/05/DCS/07</option>
-</select><br /> <br />
+    
+
+<input type="text" id="enrollment_no" name="enrollment_no" placeholder="Enter Enrollment No." style="font-size:large"><br /><br />
 
 <select name="book">
-  <option  value="-1" >Select Book</option>
-    <option value="C">C</option>
-	 <option value="C++">C++</option>
-	  <option value="Database">Database</option>
-	  <option value="HTML">HTML</option>
-	  <option value=".NET">.NET<option>
-  <option value="php">php</option>
-  <option value="JAVA">JAVA</option>
+   <option  value="-1" >Select Book</option>
+   <option value="C">C</option>
+   <option value="C++">C++</option>	
+   <option value="Database">Database</option>
+   <option value="HTML">HTML</option>
+   <option value=".NET">.NET<option>
+   <option value="php">php</option>
+   <option value="JAVA">JAVA</option>
   
   
 </select> <br /><br />

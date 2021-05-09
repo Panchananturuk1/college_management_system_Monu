@@ -30,7 +30,7 @@
 								<li> <a href="Faculty_Profile.php" class="header_Menu">My Profile</a> </li><br />
 								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
 								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
-								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br /><br />
+								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br />
 								<li> <a href="view_event_f.php" class="header_Menu">View Event</a> </li>	<br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
@@ -46,12 +46,7 @@
 <div class="box"  >
  
       <h1 style="text-align:center; font-size:40px;" >My Profile</h1>
-	  
-	  
-	  
-	    <table  style="margin-left:40%; margin-top:0px">  
-                    
-
+	  <table  style="margin-left:40%; margin-top:0px">  
 
 <?php
 
