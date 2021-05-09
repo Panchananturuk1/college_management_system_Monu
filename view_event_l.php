@@ -2,136 +2,78 @@
 
 
 
-<?php
 
 
-
-	
-			$Event_Name ;
-			$Event_Date ;
-			
-			$File;
-			
-		
-				
-			
-			$con = mysqli_connect('localhost', 'root', '');
-			
-			mysqli_select_db($con,'event');
-			
-	$query="SELECT * FROM info";		
-			mysqli_query($con, $query);
-
-		
-$result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_array($result);
-
-
-
-?>
-
-
-
-
+<script src="validation2.js"></script>
 
 <html>
-<title>view event </title>
-<head> 
+<title>View Event </title>
+<head>
 <link rel="stylesheet" type="text/css" href="css/admin1.css" />
-</head>
-<style>
-
-
+<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-</style>
-<body style="margin-left: 0px; margin-right: 0px; margin-top: 0px">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body >
 
- 
-
- <div class="transparent_header" >
-            <img alt="logo" class=" image_repons" src="logo.png"; style="margin-left:30%;" />
-          <a href="index.php" style="text-decoration:none; color:white;">  <h1 style="margin: 0px; margin-left:27%; padding: 0px; box-sizing: border-box !important; font-weight: 300; font-size: 35px">
+  			
+    <div class="header" >
+            <img alt="logo"  class="logo_img" src="logo.png";  />
+          <a href="index.php" style="text-decoration:none; color:white;">  
+		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
   
-  <header class="transparent_header2" style="  width:190px; background-color: #00FFFF;">
-<div class="font">
-  
-  <a href="Librarian_Profile.php" style="text-decoration:none; color:white;">My Profile</a> <br /><br />
-  
-   <a href="add_book.php" style="text-decoration:none; color:white;">Add Book</a> <br /><br />
+        <header class="header2" style="  width:190px; ">
+			<div class="font">
+			  <nav>
+							<ul>
+								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
+                                <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
+								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
+								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
+								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
+								<li> <a href="view_event_l.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
+							</ul>
+						  </nav>					
     
-    <p><a href="Request_book.php" style="text-decoration:none; color:white;">Request Book</a></p><br />
-    
-   
-    <p><a href="issue_book.php" style="text-decoration:none; color:white;">Issue Book</a></p><br />
-	
-	  <p><a href="return_book.php" style="text-decoration:none; color:white;">Return Book</a></p><br />
-   
-
-    <p><a href="view_event_l.php" style="text-decoration:none; color:white;">View Event</a></p><br />
+			</div></header>
 	
 
-    <p><a href="index.php" style="text-decoration:none; color:white;">Logout</a></p><br />
-    </div></header>
-	
-	
-	
-	<div class="box"  >
+      <form action="view_event_l.php" method="post" enctype="multipart/form-data">
+<div class="box">
 <h1 style="text-align:center; font-size:40px;" > Event</h1><br />
-
-
-		
 	<table style="margin-left:25%; margin-top:0%">
   
   <?php
 
-
-
-  
-			
-	
-
-		
-				$con = mysqli_connect("localhost", "root", "", "event");
-			
-		
-			
-	$query="SELECT * FROM info";		
-			mysqli_query($con, $query);
-
+	$con = mysqli_connect("localhost", "root", "", "admin")or die(mysqli_error($con));;
+	$query="SELECT * FROM event";		
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_array($result);
 
    echo '  
                           <tr>  
-						  
-						  
                                <td>  
-							   
-
                                     <img src="data:image/jpeg;base64,'.base64_encode($row['event'] ).'" height="225" width="300" class="img-thumnail" />  
                                </td>  
                           </tr>  
                      ';  
-
-
-
 ?>
 </table><br /><br />
-  
-  <label for="Name" style="margin-left:140px; font-size:25px">Event Name:</label><br />
-      <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
 
-	  
-	  <label for="Name" style="margin-left:140px; font-size:25px">Event Date:</label><br />
-	   <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy" style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
-	   
-	   
-
+  <label for="Name">Event Name:</label><br />
+  <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
   
+	  <label for="Name" >Event Date:</label><br />
+	  <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy" style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
+	   
   </div>
-  
-</body>
+  </form>
+  </body>
 	</html>

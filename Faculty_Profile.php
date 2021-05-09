@@ -42,7 +42,6 @@
 
  <form action="Student Profile.php" method="post">
 	  
-
 <div class="box"  >
  
       <h1 style="text-align:center; font-size:40px;" >My Profile</h1>

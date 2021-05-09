@@ -53,42 +53,35 @@ img{
 	
 	
 	 <form action="view_event.php" method="post" enctype="multipart/form-data">
-	 <div class="box"  >
-		<h1 style="text-align:center; font-size:40px;" > Event</h1>
-		<table style="margin-left:25%; margin-top:0%">
+	 <div class="box">
+<h1 style="text-align:center; font-size:40px;" > Event</h1><br />
+	<table style="margin-left:25%; margin-top:0%">
   
   <?php
 
-	
-	$con = mysqli_connect("localhost", "root", "", "event");
-	$query="SELECT * FROM info";		
-	mysqli_query($con, $query);
-
+	$con = mysqli_connect("localhost", "root", "", "admin")or die(mysqli_error($con));;
+	$query="SELECT * FROM event";		
 		
-	$result = mysqli_query($con, $query) or die(mysqli_error($con));
-	$row = mysqli_fetch_array($result);
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
+$row = mysqli_fetch_array($result);
 
-	echo '  
+   echo '  
                           <tr>  
-						  
-						  
                                <td>  
-							   
-
                                     <img src="data:image/jpeg;base64,'.base64_encode($row['event'] ).'" height="225" width="300" class="img-thumnail" />  
                                </td>  
                           </tr>  
                      ';  
-
 ?>
 </table><br /><br />
-	  <label for="Name">Event Name:</label><br />
-      <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
 
-	  <label for="Name">Event Date:</label><br />
-	  <input type="date" id="Event_Date" name="Event_Date"  style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
+  <label for="Name">Event Name:</label><br />
+  <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
   
+	  <label for="Name" >Event Date:</label><br />
+	  <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy" style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
+	   
   </div>
   </form>
-</body>
+  </body>
 	</html>

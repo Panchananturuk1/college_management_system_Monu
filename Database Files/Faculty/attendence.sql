@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2021 at 08:37 PM
+-- Generation Time: May 09, 2021 at 08:39 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -18,51 +18,49 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `admin`
+-- Database: `faculty`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info`
+-- Table structure for table `attendence`
 --
 
-CREATE TABLE `info` (
+CREATE TABLE `attendence` (
   `id` int(11) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  `Lname` varchar(20) NOT NULL,
-  `Gender` varchar(15) NOT NULL,
-  `Emailid` varchar(30) NOT NULL,
-  `Password` varchar(29) NOT NULL,
-  `Contact` bigint(12) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `Date` date NOT NULL,
+  `Size` int(11) NOT NULL,
+  `Department` varchar(100) NOT NULL,
+  `Semester` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `info`
+-- Dumping data for table `attendence`
 --
 
-INSERT INTO `info` (`id`, `Name`, `Lname`, `Gender`, `Emailid`, `Password`, `Contact`) VALUES
-(1, 'Panchanan', 'Turuk', 'Male', 'panchu@gmail.com', '123', 8596957901);
+INSERT INTO `attendence` (`id`, `name`, `Date`, `Size`, `Department`, `Semester`) VALUES
+(2, 'home page.pdf', '2021-05-09', 107390, 'BCA', '2nd Semester');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `info`
+-- Indexes for table `attendence`
 --
-ALTER TABLE `info`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Contact` (`Contact`);
+ALTER TABLE `attendence`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `info`
+-- AUTO_INCREMENT for table `attendence`
 --
-ALTER TABLE `info`
+ALTER TABLE `attendence`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 

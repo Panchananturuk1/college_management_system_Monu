@@ -3,8 +3,6 @@
 
  function validate()
       {
-      
-	  
 	    if( document.myForm.Department.value == "-1" )
          {
             alert( "Please Select your Department!" );
@@ -14,17 +12,7 @@
 		return true;
       }
 	  
-	  
-     
-		 
 	  </script>
-
-
-
-
-
-
-
 
 <html>
 <title> Requested Book</title>
@@ -44,7 +32,7 @@
 
 table, th, td {
     border: 5px solid green;
-	text-size:20px;
+	font-size:20px;
 }
 	
 </style>
@@ -103,7 +91,7 @@ table, th, td {
  
 </div>
 
-<table style="margin-left:30%; margin-top:10%;">
+<table style="margin-left:30%; margin-top:10%; margin-bottom:10%;">
   <tr>
   
 	
@@ -123,9 +111,9 @@ table, th, td {
 
 
 			$con = mysqli_connect('localhost', 'root', '');
-			mysqli_select_db($con,'req_book');
+			mysqli_select_db($con,'librarian');
 			
-			$query="SELECT * FROM `info` WHERE Department='$Department' ";	
+			$query="SELECT * FROM `req_book` WHERE Department='$Department' ";	
 			mysqli_query($con, $query);
 
 		
@@ -135,24 +123,24 @@ $row = mysqli_fetch_array($result);
  
  if($row['Department'] == $Department )
  {
- 
- 	while($info = mysqli_fetch_assoc($result)) {
+	echo  '<script> alert("Record  Matching"); </script>';
+
+	$query2 = "SELECT * FROM req_book";
+	$result2 = mysqli_query($con, $query2)or die(mysqli_error($con));;
+ 	while($rows = mysqli_fetch_assoc($result2)) {
 		
 		echo "<tr>";
-		
-		
-		echo "<td>" .$info['Department']. "</td>";
-		echo "<td>" .$info['Book_Name']. "</td>";
-		echo "<td>" .$info['Author_Name']. "</td>";
-		echo "<td>" .$info['Price']. "</td>";
-		echo "<td>" .$info['Quantity']. "</td>";
-		
+		echo "<td>" .$rows['Department']. "</td>";
+		echo "<td>" .$rows['Book_Name']. "</td>";
+		echo "<td>" .$rows['Author_Name']. "</td>";
+		echo "<td>" .$rows['Quantity']. "</td>";
+		echo "<td>" .$rows['Date']. "</td>";
 		echo "</tr>";
 	}
  }
  else
  {
-	 echo  '<script> alert("Record Not Matching"); </script>';
+	 echo  '<script> alert("There id No Data"); </script>';
  }
  
  }

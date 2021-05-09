@@ -44,7 +44,7 @@
 
 table, th, td {
     border: 5px solid green;
-	text-size:20px;
+	font-size:20px;
 }
 
 		
@@ -90,36 +90,33 @@ table, th, td {
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
-<select name="Year">
-  <option  value="-1" >Select Year</option>
-  <option value="2012-2014">2012-2014</option>
-  <option value="2012-2015">2012-2015</option> 
-  <option value="2013-2015">2013-2015</option>
-   <option value="2013-2016">2013-2016</option>
-    <option value="2014-2016">2014-2016</option>
-	<option value="2014-2017">2014-2017</option>
-	<option value="2015-2017">2015-2017</option>
-	<option value="2015-2018">2015-2018</option>
-	
+<select name="Semester">
+  <option  value="-1" >Select Semester</option>
+  <option value="1st Semester">1st Semester</option>
+  <option value="2nd Semester">2nd Semester</option>
+  <option value="3rd Semester">3rd Semester</option>
+  <option value="4th Semester">4th Semester</option>
+   <option value="5th Semester">5th Semester</option>
+   <option value="6th Semester">6th Semester</option>
 </select> <br /><br />
+
 
 <input class="submit" name="submit" type="submit" value="Submit"> 
   
   </div>
    
-
+<center>
 <table style="margin-left:20%; margin-top:15%">
   <tr>
 	<th> Name</th>
 	<th>Department</th>
-	<th>Year</th>
-	<th>Batch</th>
+
+	<th>Semester</th>
 	<th>Contact</th>
 	<th>Emailid</th>
 	<th>Password</th>
 	<th>TotalFee</th>
-	<th>PaidFee</th>
-	<th>Gender</th>
+
 </tr>
  <?php
 $servername = "localhost";
@@ -131,40 +128,46 @@ $con = new mysqli($servername, $username, $password,$db) or die(mysqli_error($co
  if(isset($_POST['submit'])){
 		
 			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
+			$Semester = $_POST['Semester'];
 
-			$query="SELECT * FROM `info` WHERE Department='$Department' and Year='$Year'";	
+			$query="SELECT * FROM `info` WHERE Department='$Department' and Semester='$Semester'";	
 			$result = mysqli_query($con, $query) or die(mysqli_error($con));
 
 if (mysqli_num_rows($result) > 0) {
-while($row = mysqli_fetch_assoc($result)) {
- if($row['Department'] == $Department && $row['Year'] == $Year ) {
+	$row = mysqli_fetch_assoc($result);
+ if($row['Department'] == $Department && $row['Semester'] == $Semester ) {
 	 
 	echo  '<script> alert("Record  Matching"); </script>';
-		echo '<div align="center">';
+
+	$query2 = "SELECT * FROM assignment";
+	$result2 = mysqli_query($con, $query) or die(mysqli_error($con));
+
+	while($rows = mysqli_fetch_assoc($result2)) {
+
+		
 		echo "<tr>";		
-		echo "<td>" .$row['Name']. " " .$row['Lname']. "</td>";
-		echo "<td>" .$row['Department']. "</td>";
-		echo "<td>" .$row['Year']. "</td>";
-		echo "<td>" .$row['Batch']. "</td>";
-		echo "<td>" .$row['Contact']. "</td>";
-		echo "<td>" .$row['Emailid']. "</td>";		
-		echo "<td>" .$row['Password']. "</td>";
-		echo "<td>" .$row['TotalFee']. "</td>";
-		echo "<td>" .$row['PaidFee']. "</td>";
-		echo "<td>" .$row['Gender']. "</td>";
+		echo "<td>" .$rows['Name']. " " .$rows['Lname']. "</td>";
+		echo "<td>" .$rows['Department']. "</td>";
+		echo "<td>" .$rows['Semester']. "</td>";
+		echo "<td>" .$rows['Contact']. "</td>";
+		echo "<td>" .$rows['Emailid']. "</td>";		
+		echo "<td>" .$rows['Password']. "</td>";
+		echo "<td>" .$rows['Gender']. "</td>";
 		echo "</tr>";
-		echo '</div>';
+		
+	}
 		}else{
 				 echo  '<script> alert("Error: Record Not Matching"); </script>';
  			}
- 	}
+ 	
  }else{
 	echo  '<script> alert("Record  Not Matching or Data is Not Available in the Database"); </script>';
 	 }
 }
  ?>
 </table>
+
+</center>
   </form>
    <div style="margin-top:400px"></div>
 

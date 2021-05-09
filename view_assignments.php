@@ -18,15 +18,10 @@
 
 <style>
 
-
-
 table, th, td {
     border: 5px solid green;
 	font-size:20px;
 }
-
-
-
 </style>
 
 <body>
@@ -70,8 +65,8 @@ table, th, td {
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
   <option value="MBA">MBA</option>
-   <option value="B.ED">B.ED</option>
-    <option value="INTEGRATED Msc">INTEGRATED Msc</option>
+  <option value="B.ED">B.ED</option>
+  <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
 
@@ -117,7 +112,7 @@ table, th, td {
 			$Semester = $_POST['Semester'];
         
 	      $query="SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";		
-			mysqli_query($con, $query);
+			
 
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_assoc($result);

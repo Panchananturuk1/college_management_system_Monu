@@ -51,33 +51,21 @@ $msg;
 				  <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 				</select><br /> <br />
 
-				<select name="Year" >
-				  <option  value="-1" >Select Year</option>
-				  <option value="2012-2014">2012-2014</option>
-				  <option value="2012-2015">2012-2015</option>
-				  <option value="2013-2015">2013-2015</option>
-				  <option value="2013-2016">2013-2016</option>
-				  <option value="2014-2016">2014-2016</option>
-				  <option value="2014-2017">2014-2017</option>
-				  <option value="2015-2017">2015-2017</option>
-				  <option value="2015-2018">2015-2018</option>
-				</select> <br /><br />
-
-				<select name="Batch">
-				  <option  value="-1" >Select Batch</option>
-				  <option value="1st Batch">1st Batch</option>
-				  <option value="2nd Batch">2nd Batch</option>
-				  <option value="3rd Batch">3rd Batch</option>
-				  <option value="4th Batch">4th Batch</option>
-				  <option value="5th Batch">5th Batch</option>
+				<select name="Semester">
+					<option  value="-1" >Select Semester</option>
+					<option value="1st Semester">1st Semester</option>
+					<option value="2nd Semester">2nd Semester</option>
+					<option value="3rd Semester">3rd Semester</option>
+					<option value="4th Semester">4th Semester</option>
+					<option value="5th Semester">5th Semester</option>
+					<option value="6th Semester">6th Semester</option>
 				</select> <br /><br />
 
 		<input type="number" id="Contact" name="Contact" placeholder="Contact.."><br /><br />
 	    <input type="email" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />
 		<input type="hidden" ><!--<div id="iderror"><?php echo"$msg";?> </div> --> </input>
 		<input type="password" id="Password" name="Password" placeholder="Password"><br /><br />
-		<input type="text" id="TotalFee" name="TotalFee" placeholder="Total Fees.." ><br /><br />
-		<input type="text" id="PaidFee" name="PaidFee" placeholder="Paid Fees.."><br /><br />
+		
 		<input class="submit" name="submit" type="submit" value="Submit" id="myButton">
 	</form>
    </div>
@@ -148,13 +136,11 @@ if(isset($_POST['submit'])){
 			$Gender = $_POST['gens'];
 			$dob = $_POST['dob'];
 			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-			$Batch = $_POST['Batch'];
+			$Semester = $_POST['Semester'];
 			$Contact = $_POST['Contact'];
 			$Emailid = $_POST['Emailid'];
 			$Password = $_POST['Password'];
-			$TotalFee = $_POST['TotalFee'];
-			$PaidFee = $_POST['PaidFee'];
+			
 			
 
             // if(empty($Name))
@@ -192,8 +178,8 @@ if(isset($_POST['submit'])){
 					 else{*/
 
 
-						$q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Year, Batch, Contact, Emailid, Password, TotalFee, PaidFee) 
-						VALUES ('$file','$Name','$Lname','$Gender','$dob','$Department','$Year','$Batch','$Contact','$Emailid','$Password','$TotalFee','$PaidFee')";  
+						$q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Semester, Contact, Emailid, Password) 
+						VALUES ('$file','$Name','$Lname','$Gender','$dob','$Department','$Semester','$Contact','$Emailid','$Password')";  
 					  
 					  $fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));				
 					  if($fire)

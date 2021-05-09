@@ -30,7 +30,7 @@
 			  <nav>
 							<ul>
 								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
-                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
+                     
 								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
@@ -53,7 +53,7 @@
       <select name="Department" >
  
  
-  <option  value="-1">Select Program</option>
+  <option  value="-1">Select Department</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
   <option value="MBA">MBA</option>
@@ -62,15 +62,10 @@
 </select><br /> <br />
 
     <input type="text" id="Book_Name" name="Book_Name" placeholder="Book Name.." style="font-size:large"><br /><br />
-  
-      <input type="text" id="Author_Name" name="Author_Name" placeholder="Author Name.." style="font-size:large"><br /><br />
-
-      
-     <input type="text" id="Price" name="Price" placeholder=" Price.." style="font-size:large"><br /><br />
-	 
-	     <input type="text" id="Quantity" name="Quantity" placeholder=" Quantity.." style="font-size:large"><br /><br />
-	 
-	 <input class="submit" name="submit" type="submit" value="Submit">   
+    <input type="text" id="Author_Name" name="Author_Name" placeholder="Author Name.." style="font-size:large"><br /><br />
+	 <input type="text" id="Quantity" name="Quantity" placeholder=" Quantity.." style="font-size:large"><br /><br /> 
+	 <input type="date" name="date" id="date" /><br /><br /> 
+    <input class="submit" name="submit" type="submit" value="Submit">   
   
    
   </form>
@@ -157,11 +152,12 @@ if(isset($_POST['submit'])){
         $Book_Name = $_POST['Book_Name'];
         $Author_Name = $_POST['Author_Name']; 
          $Quantity = $_POST['Quantity'];
+         $Date = $_POST['date'];
         
         
         $con = mysqli_connect('localhost', 'root', '');
         mysqli_select_db($con,'librarian');
-        $q="insert into req_book(Department, Book_Name, Author_Name, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Quantity."')";
+        $q="INSERT INTO req_book(Department, Book_Name, Author_Name, Quantity,date) VALUES ('$Department','$Book_Name','$Author_Name','$Quantity','$Date')";
         
      $fire	= mysqli_query($con, $q);
         

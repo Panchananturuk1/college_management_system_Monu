@@ -119,14 +119,18 @@ table, th, td {
 			mysqli_select_db($con,'faculty');
 			
 			$query="SELECT * FROM `info` WHERE Department='$Department' ";	
-			mysqli_query($con, $query);
+			
 	
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
-
+$row = mysqli_fetch_assoc($result);
  if($row['Department'] == $Department )
  {
 	  echo  '<script> alert("Record  Matching"); </script>';
-	  while($row = mysqli_fetch_assoc($result)) {
+
+	  $query2 = "SELECT * FROM assignment";
+	  $result2 = mysqli_query($con, $query) or die(mysqli_error($con));
+
+	  while($rows = mysqli_fetch_assoc($result2)) {
 		
 		echo "<tr>";
 		echo "<td>" .$row['Name']. " " .$row['Lname']. "</td>";
@@ -134,6 +138,8 @@ $result = mysqli_query($con, $query) or die(mysqli_error($con));
 		echo "<td>" .$row['Department']. "</td>";
 		echo "<td>" .$row['Designation']. "</td>";
 		echo "<td>" .$row['Qualification']. "</td>";
+		echo "<td>" .$row['Contact']. "</td>";
+		echo "<td>" .$row['Emailid']. "</td>";
 		echo "<td>" .$row['Password']. "</td>";
 		echo "</tr>";
 	}

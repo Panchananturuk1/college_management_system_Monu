@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2021 at 08:37 PM
+-- Generation Time: May 09, 2021 at 08:40 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -18,52 +18,49 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `admin`
+-- Database: `librarian`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info`
+-- Table structure for table `book`
 --
 
-CREATE TABLE `info` (
+CREATE TABLE `book` (
   `id` int(11) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  `Lname` varchar(20) NOT NULL,
-  `Gender` varchar(15) NOT NULL,
-  `Emailid` varchar(30) NOT NULL,
-  `Password` varchar(29) NOT NULL,
-  `Contact` bigint(12) NOT NULL
+  `Department` varchar(100) NOT NULL,
+  `Book_Name` varchar(100) NOT NULL,
+  `Author_Name` varchar(100) NOT NULL,
+  `Price` bigint(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `info`
+-- Dumping data for table `book`
 --
 
-INSERT INTO `info` (`id`, `Name`, `Lname`, `Gender`, `Emailid`, `Password`, `Contact`) VALUES
-(1, 'Panchanan', 'Turuk', 'Male', 'panchu@gmail.com', '123', 8596957901);
+INSERT INTO `book` (`id`, `Department`, `Book_Name`, `Author_Name`, `Price`) VALUES
+(1, 'BCA', 'c', 'helio', 100);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `info`
+-- Indexes for table `book`
 --
-ALTER TABLE `info`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Contact` (`Contact`);
+ALTER TABLE `book`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `info`
+-- AUTO_INCREMENT for table `book`
 --
-ALTER TABLE `info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `book`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
