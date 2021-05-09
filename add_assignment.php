@@ -28,8 +28,7 @@
         </div>
 	 
    
-   
-				 <header class="header2" style="  width:190px; ">
+        <header class="header2" style="  width:190px; ">
 			<div class="font">
 			  <nav>
 							<ul>
@@ -37,12 +36,13 @@
 								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
 								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
 								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br /><br />
-								<li> <a href="add_timetable_admin.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li>	<br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
 						  </nav>					
     
 			</div></header>
+				
   
 <div class="box"  >
 <form  method="post"    name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data" >

@@ -1,7 +1,7 @@
 
 
 
-<?php include 'filesLogic.php';?>
+<?php include 'down.php';?>
 
 
 <html>
@@ -18,9 +18,7 @@
 
 <style>
 
-table{
-   margin-left:5%;
-}
+
 
 table, th, td {
     border: 5px solid green;
@@ -42,8 +40,7 @@ table, th, td {
                 College Management System</h1></a>
         </div>
 	 
-  
-				<header class="header2" style="  width:190px; ">
+        <header class="header2" style="  width:190px; ">
 				<div class="font">
 				  <nav>
 							<ul>
@@ -60,8 +57,7 @@ table, th, td {
     
 			</div></header>
   
-  
-
+				
 <div class="box"  >
 <h1 style="text-align:center; font-size:40px;" >View Assignments</h1><br />
 
@@ -89,31 +85,26 @@ table, th, td {
    <option value="6th Semester">6th Semester</option>
 </select> <br /><br />
 
+<input type="hidden" name="myfile" id="myfile" />
+
 <input class="submit" name="submit" type="submit" value="Submit">  
 
+
+</div>
+
+
+
+<center>
 
 <table>
 <thead>
     <th>ID</th>
     <th>Filename</th>
+    <th>Date</th>
     <th>size (in mb)</th>
-    <th>Downloads</th>
-    <th>Action</th>
-</thead>
-<?php foreach ($files as $file): ?>
-    <tr>
-      <td><?php echo $file['id']; ?></td>
-      <td><?php echo $file['name']; ?></td>
-      <td><?php echo floor($file['size'] / 1000) . ' KB'; ?></td>
-      <td><?php echo $file['downloads']; ?></td>
-      <td><a href="downloads.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
-    </tr>
-  <?php endforeach;?>
-</tbody>
-</table>
-
-
-
+    <th>Department</th>
+    <th>Semester</th>
+    <th>Assignment File</th>
 <?php
 
 
@@ -136,8 +127,8 @@ if($row['Department'] == $Department && $row['Semester'] == $Semester )
 	
    echo  '<script> alert("Record  Matching"); </script>';
 
-   $query2 = "SELECT * FROM assignment";
-   $result2 = mysqli_query($con, $query2) or die(mysqli_error($con));
+   //$query2 = "SELECT * FROM assignment";
+   $result2 = mysqli_query($con, $query) or die(mysqli_error($con));
   
       while($rows = mysqli_fetch_assoc($result2)) {
     
@@ -145,10 +136,16 @@ if($row['Department'] == $Department && $row['Semester'] == $Semester )
     
     echo "<td>" .$rows['id']. "</td>";
     echo "<td>" .$rows['name']. "</td>";
+    echo "<td>" .$rows['Date']. "</td>";
     echo "<td>" .$rows['size']. "</td>";
     echo "<td>" .$rows['Department']. "</td>";
     echo "<td>" .$rows['Semester']. "</td>";
-         
+         ?>
+  
+  <td><a href="downloads.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+  
+  </tr>
+   <?php
       }
 }
 
@@ -160,10 +157,11 @@ else{
 		}
 ?>
 
+</tbody>
+</table>
 
+</center>
 
-
-</div>
 
 
 

@@ -1,3 +1,13 @@
+
+</html>
+<head>
+<body>
+
+<input type="hidden" name="myfile" id="myfile" />
+</body>
+</head>
+</html>
+
 <?php 
 	   
 	   
@@ -5,14 +15,16 @@
 
        $sql = "SELECT * FROM assignment";
        $result = mysqli_query($conn, $sql);
-
+       
        $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
        if(isset($_POST["submit"]))  
        {  
       
                      $Department = $_POST['Department'];
-                  $Semester = $_POST['Semester'];
-                  
+                     $Semester = $_POST['Semester'];
+                     $Date = $_POST['date'];
+                //  $myfile =  $_POST['myfile'];
+
                      $filename = $_FILES['myfile']['name'];
       
                      // destination of the file on the server
@@ -32,7 +44,8 @@
                      } else {
                          // move the uploaded (temporary) file to the specified destination
                          if (move_uploaded_file($file, $destination)) {
-                             $sql = "INSERT INTO assignment (name, size, Department, Semester) VALUES ('$filename', $size, '$Department','$Semester')";
+                             $sql = "INSERT INTO assignment (name,Date, size, Department, Semester) 
+                             VALUES ('$filename', '$Date', $size, '$Department','$Semester')";
                              if (mysqli_query($conn, $sql)) {
                                echo  '<script> File uploaded successfully </script>';
                              }
