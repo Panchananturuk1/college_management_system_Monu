@@ -98,16 +98,9 @@ table, th, td {
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
-<select name="enrollment_no">
-  <option  value="-1" >Select Enrollment No.</option>
-  <option value="15/05/DCS/01">15/05/DCS/01</option>
-  <option value="15/05/DCS/02">15/05/DCS/02</option>
-  <option value="15/05/DCS/03">15/05/DCS/03</option>
-   <option value="15/05/DCS/04">15/05/DCS/04</option>
-   <option value="15/05/DCS/05">15/05/DCS/05</option>
-   <option value="15/05/DCS/06">15/05/DCS/06</option>
-   <option value="15/05/DCS/07">15/05/DCS/07</option>
-</select><br /> <br />
+
+
+<input type="text" id="text" name="Adms_Number" placeholder="Admission Number" >
 
 
 
@@ -135,21 +128,21 @@ table, th, td {
 			
 			$Department = $_POST['Department'];
 			
-				$enrollment_no = $_POST['enrollment_no'];
+				$Adms_Number = $_POST['Adms_Number'];
 			
 			
 
 			$con = mysqli_connect('localhost', 'root', '');
 			mysqli_select_db($con,'Books');
 			
-					$query="SELECT * FROM `info` WHERE Department='$Department' and enrollment_no='$enrollment_no'";
+					$query="SELECT * FROM `info` WHERE Department='$Department' and Adms_Number='$Adms_Number'";
 			mysqli_query($con, $query);
 
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_assoc($result);
  
-if($row['Department'] == $Department &&  $row['enrollment_no'] == $enrollment_no)
+if($row['Department'] == $Department &&  $row['Adms_Number'] == $enrollment_no)
  {
 	  echo  '<script> alert("Record  Matching"); </script>';
 	 

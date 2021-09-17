@@ -51,6 +51,8 @@ $msg;
 				  <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 				</select><br /> <br />
 
+				<input type="text" id="Adms_Number" name="Adms_Number" placeholder="Admission Number"><br /><br />
+
 				<select name="Semester">
 					<option  value="-1" >Select Semester</option>
 					<option value="1st Semester">1st Semester</option>
@@ -136,6 +138,7 @@ if(isset($_POST['submit'])){
 			$Gender = $_POST['gens'];
 			$dob = $_POST['dob'];
 			$Department = $_POST['Department'];
+			$Adms_Number = $_POST['Adms_Number']; 
 			$Semester = $_POST['Semester'];
 			$Contact = $_POST['Contact'];
 			$Emailid = $_POST['Emailid'];
@@ -160,9 +163,6 @@ if(isset($_POST['submit'])){
 			// $connect = mysqli_connect("localhost", "root", "", "Students") or die(mysqli_error($connect)); 		
 			//$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
 
-
-
-
                        // $q = "SELECT Emailid from info WHERE Emailid = '$Emailid'";
                        // $fire=mysqli_query($connect, $q) or die("SOMETHINGS WRONG " .mysqli_error($connect));
 
@@ -177,9 +177,10 @@ if(isset($_POST['submit'])){
 					 }
 					 else{*/
 
+						
 
-						$q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Semester, Contact, Emailid, Password) 
-						VALUES ('$file','$Name','$Lname','$Gender','$dob','$Department','$Semester','$Contact','$Emailid','$Password')";  
+						$q = "INSERT INTO info(profile, Name, Lname, Gender, dob, Department, Adms_Number, Semester, Contact, Emailid, Password) 
+						VALUES ('$file','$Name','$Lname','$Gender','$dob','$Department','$Adms_Number','$Semester','$Contact','$Emailid','$Password')";  
 					  
 					  $fire = (mysqli_query($connect,$q) or die("Can't Insert Data. " .mysqli_error($connect)));				
 					  if($fire)

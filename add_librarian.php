@@ -21,7 +21,6 @@ if(isset($_POST['submit'])){
 			
 			$connect = mysqli_connect("localhost", "root", "", "librarian") or die(mysqli_error($connect)); 
 	
-			
 	 		$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
 			$q = "INSERT INTO info(profile, Name, Lname, Gender, Contact, Emailid, Password) VALUES ('$file','$Name','$Lname','$Gender','$Contact','$Emailid','$Password')";
 			

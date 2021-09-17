@@ -1,5 +1,5 @@
 
-
+<?php include 'filesLogic.php';?>
 
  
 
@@ -35,6 +35,9 @@ table, th, td {
                 College Management System</h1></a>
         </div>
 	 
+        
+
+
         <header class="header2" style="  width:190px; ">
 				<div class="font">
 				  <nav>
@@ -43,7 +46,9 @@ table, th, td {
 								<li> <a href="view_book.php" class="header_Menu">View Books</a> </li><br />
 								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
 								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
-								<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
+                <li>  <a href="view_assignments2.php" class="header_Menu">View Assignment2</a> </li><br />
+                <li>  <a href="view_assignments3.php" class="header_Menu">View Assignment3</a> </li><br />
+              	<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
 								<li> <a href="view_attendence.php" class="header_Menu">View Attendence</a>  </li><br />
 								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li><br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
@@ -51,13 +56,15 @@ table, th, td {
 						  </nav>					
     
 			</div></header>
+
+
   
 				
 <div class="box"  >
 <h1 style="text-align:center; font-size:40px;" >View Assignments</h1><br />
 
 
-<form action="view_assignments.php" method="post"  name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data">
+<form action="view_assignments2.php" method="post"  name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data">
 
 <select name="Department" >
  
@@ -90,7 +97,6 @@ table, th, td {
 
 
 <center>
-
 <table>
 <thead>
     <th>ID</th>
@@ -98,10 +104,37 @@ table, th, td {
     <th>Semester</th>
     <th>Date</th>
     <th>Assignment File</th>
+</thead>
+<tbody>
+  <?php foreach ($files as $file): ?>
+    <tr>
+      <td><?php echo $file['id']; ?></td>
+      <td><?php echo $file['Department']; ?></td>
+      <td><?php echo $file['Semester']; ?></td>
+      <td><?php echo $file['Date']; ?></td>
+      <td><?php echo $file['filename']; ?></td>
+      <td><a href="view_assignments2.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+    </tr>
+  <?php endforeach;?>
+
+</tbody>
+</table>
+  </center>
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 
-
-
+/*
 
  if(isset($_POST['submit'])){
 
@@ -110,7 +143,7 @@ table, th, td {
 	
 			$Department = $_POST['Department'];
 			$Semester = $_POST['Semester'];
-        $myfile = $_POST['myfile'];
+            //$myfile = $_POST['myfile'];
        
 	      $query="SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";		
 			
@@ -140,7 +173,7 @@ while($rows = mysqli_fetch_assoc($result2)) {
   }
   ?>
    ?>
-  <td><a href="Download.php?file_id=<?php echo $myfile['id'] ?>">Download</a></td>
+  <td><a href="view_assignments2.php?file_id=<?php echo $myfile['id'] ?>">Download</a></td>
 </tr>
    <?php
       }
@@ -151,15 +184,52 @@ else{
 }
 
 		}
-?>
+?>  
 
 </tbody>
 </table>
 
 </center>
 
+</form>
+
+      <div style="margin-top:400px"></div>
+   </body>
+
+   
+<script>
+function validate()
+     {
+     
+       if( document.myForm.Department.value == "-1" )
+        {
+           alert( "Please Select your Department!" );
+           return false;
+        }
+    
+    
+       if( document.myForm.Year.value == "-1" )
+        {
+           alert( "Please Select your Year!" );
+           return false;
+        }
+
+  
+ if( document.myForm.File.value == "" )
+        {
+           alert( "Please upload Your File!" );
+           document.myForm.File.focus() ;
+           return false;
+        }
+  
+     return true;
+     }
+    </script>
+
+</html>
 
 <?php
+/*
   if (isset($_GET['file_id'])) {
    $id = $_GET['file_id'];
 
@@ -190,40 +260,7 @@ else{
 } 
 
 
-?>
+?>*/
 
-      </form>
+      
 
-      <div style="margin-top:400px"></div>
-   </body>
-</html>
-
-
-<script>
-function validate()
-     {
-     
-       if( document.myForm.Department.value == "-1" )
-        {
-           alert( "Please Select your Department!" );
-           return false;
-        }
-    
-    
-       if( document.myForm.Year.value == "-1" )
-        {
-           alert( "Please Select your Year!" );
-           return false;
-        }
-
-  
- if( document.myForm.File.value == "" )
-        {
-           alert( "Please upload Your File!" );
-           document.myForm.File.focus() ;
-           return false;
-        }
-  
-     return true;
-     }
-    </script>

@@ -6,14 +6,11 @@
  function validate()
       {
       
-	  
-	  
 		  if( document.myForm.Department.value == "-1" )
          {
             alert( "Please Select your Department!" );
             return false;
          }
-	  
 	  
 		  if( document.myForm.Year.value == "-1" )
          {
@@ -38,7 +35,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <style>
 
 
@@ -46,15 +42,14 @@ table, th, td {
     border: 5px solid green;
 	font-size:20px;
 }
-
-		
+	
 </style>
 <body > 
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
 		  <h1 class="myheads">
-                College Management System</h1></a>
+            College Management System</h1></a>
         </div>
 
 		<header class="header2" style="  width:190px; ">
@@ -109,8 +104,10 @@ table, th, td {
 <table style="margin-left:20%; margin-top:15%">
   <tr>
 	<th> Name</th>
+	<th> Gender</th>
+	<th> DOB</th>
 	<th>Department</th>
-
+	<th>Admission Number</th>
 	<th>Semester</th>
 	<th>Contact</th>
 	<th>Emailid</th>
@@ -147,7 +144,10 @@ if (mysqli_num_rows($result) > 0) {
 		
 		echo "<tr>";		
 		echo "<td>" .$rows['Name']. " " .$rows['Lname']. "</td>";
+		echo "<td>" .$rows['Gender']. "</td>";
+		echo "<td>" .$rows['dob']. "</td>";
 		echo "<td>" .$rows['Department']. "</td>";
+		echo "<td>" .$rows['Adms_Number']. "</td>";
 		echo "<td>" .$rows['Semester']. "</td>";
 		echo "<td>" .$rows['Contact']. "</td>";
 		echo "<td>" .$rows['Emailid']. "</td>";		

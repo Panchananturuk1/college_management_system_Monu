@@ -124,6 +124,8 @@ table, th, td {
     <th>Department</th>
     <th>Semester</th>
     <th>Assignment File</th>
+
+<?php include 'filesLogic.php';?>
 <?php
 
 
@@ -134,7 +136,7 @@ table, th, td {
 	
 			$Department = $_POST['Department'];
 			$Semester = $_POST['Semester'];
-        
+
 	      $query="SELECT * FROM `attendence` WHERE Department='$Department' and Semester='$Semester'";		
 			mysqli_query($con, $query);
 
@@ -145,7 +147,7 @@ if($row['Department'] == $Department && $row['Semester'] == $Semester )
 	
    echo  '<script> alert("Record  Matching"); </script>';
 
-   //$query2 = "SELECT * FROM assignment";
+   $query2 = "SELECT * FROM assignment";
    $result2 = mysqli_query($con, $query) or die(mysqli_error($con));
   
 while($rows = mysqli_fetch_assoc($result2)) {

@@ -1,5 +1,5 @@
 
-	
+	<?php include 'filesLogic.php';?>
 	
 	  
 <html>
@@ -33,18 +33,18 @@
 							<ul>
 								<li> <a href="Faculty_Profile.php" class="header_Menu">My Profile</a> </li><br />
 								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
-								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
+								<li> <a href="add_assignment2.php" class="header_Menu">Add Assignments2</a> </li><br />
+                                <li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
 								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br /><br />
 								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li>	<br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
 						  </nav>					
     
-			</div></header>
-				
+			</div></header>				
   
 <div class="box"  >
-<form  method="post" action="add_assignment.php"    name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data" >
+<form  method="post" action="add_assignment2.php"    name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data" >
      		
    <h1 style="text-align:center; font-size:40px;" >Add Assignments</h1><br />
 
@@ -125,7 +125,7 @@ function validate()
       
       <?php 
 
-
+/*
 
 $conn = mysqli_connect('localhost','root','','faculty');
 if(isset($_POST['submit'])){
@@ -152,7 +152,7 @@ if(isset($_POST['submit'])){
     
 }
 
-/*
+
        $conn = mysqli_connect("localhost", "root", "", "faculty")or die(mysqli_error($conn));
 
        $sql = "SELECT * FROM assignment";
@@ -196,8 +196,8 @@ if(isset($_POST['submit'])){
                            echo  '<script> alert("Failed to upload Assignment."); </script>';
                          }
                      }	
-       }  */
+       }  
       
 
-      ?>
+      ?> */
 

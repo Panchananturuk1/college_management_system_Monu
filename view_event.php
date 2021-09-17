@@ -36,20 +36,22 @@ img{
                 College Management System</h1></a>
         </div>
 
-				 <header class="header2" style="  width:190px; ">
-			<div class="font">
-			  <nav>
+		<header class="header2" style="  width:190px; ">
+<div class="font">
+  <nav>
 							<ul>
-								<li> <a href="Faculty_Profile.php" class="header_Menu">My Profile</a> </li><br />
-								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
-								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
-								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br /><br />
-								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="Student_Profile.php" class="header_Menu">My Profile</a> </li><br />
+								<li> <a href="view_book.php" class="header_Menu">View Books</a> </li><br />
+								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
+								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
+								<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
+								<li> <a href="view_attendence.php" class="header_Menu">View Attendence</a>  </li><br />
+								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li><br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
 						  </nav>					
     
-			</div></header>
+	</div></header>
 	
 	
 	 <form action="view_event.php" method="post" enctype="multipart/form-data">

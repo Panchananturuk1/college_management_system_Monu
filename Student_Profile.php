@@ -36,6 +36,7 @@
 								<li> <a href="view_book.php" class="header_Menu" >View Books</a> </li><br />
 								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
 								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
+								<li>  <a href="view_assignments2.php" class="header_Menu">View Assignment2</a> </li><br />
 								<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
 								<li> <a href="view_attendence.php" class="header_Menu">View Attendence</a>  </li><br />
 								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li><br />							
@@ -98,10 +99,6 @@ else{
 	echo "<script> window.location.assign('index.php'); </script>";
 }
 
-
-
-		
-
 	
 }
 
@@ -123,6 +120,10 @@ else{
 
       <label for="Dtpmnt" >Department</label><br />
       <input type="text" id="Department" name="Department" placeholder="Your Department .." style="font-size:large"value="<?php echo $row['Department']; ?>" readonly="" /><br /><br />
+
+	  <label for="Adms_No" >Admission Number</label><br />
+      <input type="text" id="Adms_Number" name="Adms_Number"  style="font-size:large"value="<?php echo $row['Adms_Number']; ?>" readonly="" /><br /><br />
+
 
       <label for="Semester" >Semester</label><br />
       <input type="text" id="Semester" name="Semester" placeholder="Your Semester.." style="font-size:large"value="<?php echo $row['Semester']; ?>" readonly="" /><br /><br /><br />
