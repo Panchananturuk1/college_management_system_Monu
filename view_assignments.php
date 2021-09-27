@@ -120,26 +120,35 @@ function validate()
 <?php
 
 
-
-@$Department = $_POST['Department'];
-@$Semester = $_POST['Semester'];
 $con = mysqli_connect('localhost', 'root', '', 'faculty');
-$sql = "SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";
-$result = mysqli_query($con, $sql); 
 
-
+//$row2 = $row;
 
 if(isset($_POST['submit'])){
+  
+  @$Department = $_POST['Department'];
+  @$Semester = $_POST['Semester'];
+ // $con = mysqli_connect('localhost', 'root', '', 'faculty');
+  //$sql="SELECT * FROM assignment";
+  $sql = "SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";
+  $result = mysqli_query($con, $sql); 
+  //$row=mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $row = mysqli_fetch_assoc($result);
 
-if(@$row['Department'] == $Department && @$row['Semester'] == $Semester )
+if($row['Department'] == $Department && $row['Semester'] == $Semester )
 {
   
   echo  '<script> alert("Record  Matching"); </script>';
+
+  
+
+
 }else{
 
   echo  '<script> alert("Record  not Matching"); </script>';
 }
 }
+
   ?>
 
 
@@ -160,19 +169,50 @@ if(@$row['Department'] == $Department && @$row['Semester'] == $Semester )
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                $i = 1;
-                while($row = mysqli_fetch_array($result)) { ?>
-                <tr>
+               
+
+
+                <?php /*
+                 $i = 1;
+                foreach ($row as $row2): ?>
+
+                  <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['Department']; ?></td>
-                    <td><?php echo $row['Semester']; ?></td>
-                    <td><?php echo $row['filename']; ?></td>
-                    <td><?php echo $row['Date']; ?></td>
-                    <td><a href="Faculty/Assignments/<?php echo $row['filename']; ?>" target="_blank">View</a></td>
-                    <td><a href="Faculty/Assignments/<?php echo $row['filename']; ?>" download>Download</td>
+                    <td><?php echo $row2['Department']; ?></td>
+                    <td><?php echo $row2['Semester']; ?></td>
+                    <td><?php echo $row2['filename']; ?></td>
+                    <td><?php echo $row2['Date']; ?></td>
+                    <td><a href="Faculty/Assignments/<?php echo $row2['filename']; ?>" target="_blank">View</a></td>
+                    <td><a href="Faculty/Assignments/<?php echo $row2['filename']; ?>" download>Download</td>
                 </tr>
-                <?php } ?>
+                    <?php endforeach; */
+                    
+                    ?>
+
+
+                    <?php 
+                    @$Department = $_POST['Department'];
+                    @$Semester = $_POST['Semester'];
+                    $sql2="SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";
+                    $result2 = mysqli_query($con, $sql2); 
+                   
+                    $i = 1;
+                    while($row2 = mysqli_fetch_array($result2)) { ?>
+                    <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $row2['Department']; ?></td>
+                        <td><?php echo $row2['Semester']; ?></td>
+                        <td><?php echo $row2['filename']; ?></td>
+                        <td><?php echo $row2['Date']; ?></td>
+                        <td><a href="Faculty/Assignments/<?php echo $row2['filename']; ?>" target="_blank">View</a></td>
+                        <td><a href="Faculty/Assignments/<?php echo $row2['filename']; ?>" download>Download</td>
+                    </tr>
+                    <?php } 
+                    ?>
+
+
+
+
                 </tbody>
             </table>
         </div>

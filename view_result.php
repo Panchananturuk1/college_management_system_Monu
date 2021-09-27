@@ -119,100 +119,63 @@ table, th, td {
 </form>
 </div>
 
-<center>
-
-<table>
-<thead>
-    <th>ID</th>
-    <th>Filename</th>
-    <th>Date</th>
-    <th>size (in mb)</th>
-    <th>Department</th>
-    <th>Semester</th>
-    <th>Assignment File</th>
 <?php
+$con = mysqli_connect('localhost', 'root', '', 'faculty');
 
+if(isset($_POST['submit'])){
+  
+  @$Department = $_POST['Department'];
+  @$Semester = $_POST['Semester'];
+  $sql = "SELECT * FROM `result` WHERE Department='$Department' and Semester='$Semester'";
+  $result = mysqli_query($con, $sql); 
+  $row = mysqli_fetch_assoc($result);
 
- if(isset($_POST['submit'])){
-
-
- $con = mysqli_connect("localhost", "root", "", "faculty"); 
-	
-			$Department = $_POST['Department'];
-			$Semester = $_POST['Semester'];
-        
-	      $query="SELECT * FROM `result` WHERE Department='$Department' and Semester='$Semester'";		
-			mysqli_query($con, $query);
-
-$result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_assoc($result);
 if($row['Department'] == $Department && $row['Semester'] == $Semester )
 {
-	
-   echo  '<script> alert("Record  Matching"); </script>';
-
-   //$query2 = "SELECT * FROM assignment";
-   $result2 = mysqli_query($con, $query) or die(mysqli_error($con));
+  echo  '<script> alert("Record  Matching"); </script>';
+}else{
+  echo  '<script> alert("Record  not Matching"); </script>';
+}
+}
+  ?>
+<div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Department</th>
+                        <th>Semester</th>
+                        <th>File Name</th>
+                        <th>Date</th>
+                        <th>View</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
   
-while($rows = mysqli_fetch_assoc($result2)) {
-    
-    echo "<tr>";
-    echo "<td>" .$rows['id']. "</td>";
-    echo "<td>" .$rows['name']. "</td>";
-    echo "<td>" .$rows['Date']. "</td>";
-    echo "<td>" .$rows['Size']. "</td>";
-    echo "<td>" .$rows['Department']. "</td>";
-    echo "<td>" .$rows['Semester']. "</td>";
-   ?>
-  <td><a href="downloads.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
-</tr>
-   <?php
-      }
-}
-else{
+                    <?php 
+                    @$Department = $_POST['Department'];
+                    @$Semester = $_POST['Semester'];
+                    $sql2="SELECT * FROM `result` WHERE Department='$Department' and Semester='$Semester'";
+                    $result2 = mysqli_query($con, $sql2); 
+                   
+                    $i = 1;
+                    while($row2 = mysqli_fetch_array($result2)) { ?>
+                    <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $row2['Department']; ?></td>
+                        <td><?php echo $row2['Semester']; ?></td>
+                        <td><?php echo $row2['filename']; ?></td>
+                        <td><?php echo $row2['Date']; ?></td>
+                        <td><a href="Faculty/Result/<?php echo $row2['filename']; ?>" target="_blank">View</a></td>
+                        <td><a href="Faculty/Result/<?php echo $row2['filename']; ?>" download>Download</td>
+                    </tr>
+                    <?php } 
+                    ?>
 
-	echo  '<script> alert("Error: Record Not Matching"); </script>';
-}
-
-		}
-?>
-
-</tbody>
-</table>
-
-</center>
-
-
-<?php
-  if (isset($_GET['file_id'])) {
-   $id = $_GET['file_id'];
-
-   // fetch file to download from database
-   $sql = "SELECT * FROM result WHERE id=$id";
-   $result = mysqli_query($conn, $sql);
-
-   $file = mysqli_fetch_assoc($result);
-   $filepath = 'Faculty/Assignments/' . $file['name'];
-
-   if (file_exists($filepath)) {
-       header('Content-Description: File Transfer');
-       header('Content-Type: application/octet-stream');
-       header('Content-Disposition: attachment; filename=' . basename($filepath));
-       header('Expires: 0');
-       header('Cache-Control: must-revalidate');
-       header('Pragma: public');
-       header('Content-Length: ' . filesize('Faculty/Assignments/' . $file['name']));
-       readfile('Faculty/Assignments/' . $file['name']);
-
-       // Now update downloads count
-      // $newCount = $file['downloads'] + 1;
-       //$updateQuery = "UPDATE files SET downloads=$newCount WHERE id=$id";
-       //mysqli_query($conn, $updateQuery);
-       //exit;
-   }
-
-}
-?>
+                </tbody>
+            </table>
 
       </form>
 

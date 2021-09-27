@@ -109,50 +109,30 @@ function validate()
 
 
 <?php 
-       $conn = mysqli_connect("localhost", "root", "", "faculty")or die(mysqli_error($conn));
-
-       $sql = "SELECT * FROM attendence";
-       $result = mysqli_query($conn, $sql);
+      $con = mysqli_connect('localhost', 'root', '', 'faculty');
+      if(isset($_POST['submit'])){
+     
+     
+     $Department = $_POST['Department'];
+     $Semester = $_POST['Semester'];
+     $Date = $_POST['date'];
+     
+       $filename = $_FILES['myfile']['name'];
+       $fileTmpName = $_FILES['myfile']['tmp_name'];
+       $filepath = 'Faculty/Attendance/' . $filename;
+       $query =  "INSERT INTO attendance (Department, Semester, Date, filename) 
+         VALUES ('$Department','$Semester','$Date','$filename')";
+       $run = mysqli_query($con, $query) or die(mysqli_error($con));
        
-       $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
-       if(isset($_POST["submit"]))  
-       {  
-      
-                     $Department = $_POST['Department'];
-                     $Semester = $_POST['Semester'];
-                     $Date = $_POST['date'];
-                //  $myfile =  $_POST['myfile'];
-
-                     $filename = $_FILES['myfile']['name'];
-      
-                     // destination of the file on the server
-                     $destination = 'Faculty/Attendance/' . $filename;
-                 
-                     // get the file extension
-                     $extension = pathinfo($filename, PATHINFO_EXTENSION);
-                 
-                     // the physical file on a temporary uploads directory on the server
-                     $file = $_FILES['myfile']['tmp_name'];
-                     $size = $_FILES['myfile']['size'];
-                 
-                     if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
-                         echo "You file extension must be .zip, .pdf or .docx";
-                     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
-                         echo "File too large!";
-                     } else {
-                         // move the uploaded (temporary) file to the specified destination
-                         if (move_uploaded_file($file, $destination)) {
-                             $sql = "INSERT INTO attendence (name,Date, size, Department, Semester) 
-                             VALUES ('$filename', '$Date', $size, '$Department','$Semester')";
-                             if (mysqli_query($conn, $sql)) {
-                               echo  '<script> alert("Attendance Sucessfully Uploaded"); </script>';
-                           
-                             }
-                         } else {
-                           echo  '<script> alert("Failed to upload Attendance."); </script>';
-                         }
-                     }	
-       }  
+       if($run){
+         move_uploaded_file($fileTmpName, $filepath);
+         echo  '<script> alert("Attendance Sucessfully Uploaded"); </script>';
+       }else
+       {
+         echo  '<script> alert("ERROR"); </script>';
+       }		
+     
+      }
       
 
       ?>
