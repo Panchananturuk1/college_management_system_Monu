@@ -1,9 +1,9 @@
 
-	<?php include 'filesLogic.php';?>
+	<?php include 'filesLogic2.php';?>
 	
 	  
 <html>
-<title> Add Assignments</title>
+<title> Add Assignments 2</title>
 <head> 
 <link rel="stylesheet" type="text/css" href="css/admin1.css" />
 

@@ -5,7 +5,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'faculty');
 
 $sql = "SELECT * FROM assignment";
 $result = mysqli_query($conn, $sql);
-
 $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 

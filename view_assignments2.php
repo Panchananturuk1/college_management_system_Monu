@@ -64,7 +64,7 @@ table, th, td {
 <h1 style="text-align:center; font-size:40px;" >View Assignments</h1><br />
 
 
-<form action="view_assignments2.php" method="post"  name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data">
+<form action="view_assignments3.php" method="post"  name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data">
 
 <select name="Department" >
  

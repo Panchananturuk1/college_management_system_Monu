@@ -2,31 +2,46 @@
 // connect to the database
 $con = mysqli_connect('localhost', 'root', '', 'faculty');
 
+/*
+$sql = "SELECT * FROM assignment";
+$result = mysqli_query($conn, $sql);
+
+$files = mysqli_fetch_all($result, MYSQLI_ASSOC); */
+
+
 $Department = $_POST['Department'];
 $Semester = $_POST['Semester'];
 
+//$sql = "SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";
+//$result = mysqli_query($con, $sql);
 
 
-
- if(isset($_POST['Submit'])){
+ if(isset($_POST['submit'])){
 
 	
 			$Department = $_POST['Department'];
 			$Semester = $_POST['Semester'];
 		
-			$query="SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";			
-			$result2 = mysqli_query($con, $query) or die(mysqli_error($con));
-			$files = mysqli_fetch_all($result2, MYSQLI_ASSOC);
-		$row = mysqli_fetch_assoc($result2);
-		if($row['Department'] == $Department && $row['Semester'] == $Semester )
-		{
-			
-			echo  '<script> alert("Record  Matching"); </script>';
+$query="SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";			
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
+$files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-		   //$query2 = "SELECT * FROM assignment";
-		   $result = mysqli_query($con, $query) or die(mysqli_error($con));
-		   
-		?>
+
+$row = mysqli_fetch_assoc($result);
+if($row['Department'] == $Department && $row['Semester'] == $Semester )
+{
+	
+	echo  '<script> alert("Record  Matching"); </script>';
+
+   //$query2 = "SELECT * FROM assignment";
+   $result2 = mysqli_query($con, $query) or die(mysqli_error($con));
+   
+   
+   
+   
+   
+   
+  ?>
   <?php while($rows = mysqli_fetch_assoc($result2)) { ?>
     <tr>
       <td><?php echo $row['id']; ?></td>
@@ -39,7 +54,6 @@ $Semester = $_POST['Semester'];
 
     </tr> 
   <?php 
-  }
       }
 	
 }
@@ -47,17 +61,19 @@ $Semester = $_POST['Semester'];
 else{
 
 	echo  '<script> alert("Error: Record Not Matching"); </script>';
-	
-	
-	
-	
-	
-	
-    
+    }
  }
 	
-	?>
-	<?php
+	
+	
+	
+
+
+
+
+
+
+	
 	
 	// Downloads files
 	
@@ -76,7 +92,7 @@ else{
     $result = mysqli_query($conn, $sql);
 
     $file = mysqli_fetch_assoc($result);
-    $filepath = 'Faculty/Assignments/' . $file['name'];
+   -  $filepath = 'Faculty/Assignments/' . $file['filename'];
 
     if (file_exists($filepath)) {
         header('Content-Description: File Transfer');
@@ -85,8 +101,8 @@ else{
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-   -     header('Content-Length: ' . filesize('uploads/' . $file['name']));
-   -     readfile('Faculty/Assignments/' . $file['name']);
+   -     header('Content-Length: ' . filesize('uploads/' . $file['filename']));
+   -     readfile('Faculty/Assignments/' . $file['filename']);
 
         // Now update downloads count
         $newCount = $file['downloads'] + 1;
@@ -97,4 +113,3 @@ else{
 
 }
 	
-?>

@@ -37,6 +37,7 @@
 								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
 								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
 								<li>  <a href="view_assignments2.php" class="header_Menu">View Assignment2</a> </li><br />
+								<li>  <a href="view_assignments3.php" class="header_Menu">View Assignment3</a> </li><br />
 								<li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
 								<li> <a href="view_attendence.php" class="header_Menu">View Attendence</a>  </li><br />
 								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li><br />							

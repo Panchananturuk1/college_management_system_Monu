@@ -133,8 +133,9 @@ if(isset($_POST['submit'])){
    $Semester = $_POST['Semester'];
    $Date = $_POST['date'];
    $myfile =  $_POST['myfile'];
+   // name of the uploaded file
     $fileName = $_FILES['myfile']['name'];
-    $fileTmpName = $_FILES['myfile']['tmp_name'];
+    $file = $_FILES['myfile']['tmp_name'];
     $path = "Faculty/Assignments/".$fileName;
     
     $query = "INSERT INTO assignment (Department, Semester, Date, filename) 
@@ -142,7 +143,7 @@ if(isset($_POST['submit'])){
     $run = mysqli_query($conn,$query);
     
     if($run){
-        move_uploaded_file($fileTmpName,$path);
+        move_uploaded_file($file,$path);
         echo  '<script> alert("Assignment Sucessfully Uploaded"); </script>';
     }
     else{

@@ -1,12 +1,7 @@
 
-<?php include 'dbcon2.php';?>
-
- 
-
-
 <html>
 <head>
-<title>View Assignments </title>
+<title>View Assignments 3</title>
 <link rel="stylesheet" type="text/css" href="css/admin1.css">
 
 <meta charset="UTF-8">
@@ -43,9 +38,9 @@ table, th, td {
 								<li> <a href="view_book.php" class="header_Menu">View Books</a> </li><br />
 								<li> <a href="view_timetb.php" class="header_Menu">View Timatables</a> </li><br />
 								<li>  <a href="view_assignments.php" class="header_Menu">View Assignment</a> </li><br />
-                                <li>  <a href="view_assignments2.php" class="header_Menu">View Assignment2</a> </li><br />
-                                <li>  <a href="view_assignments3.php" class="header_Menu">View Assignment3</a> </li><br />
-                                <li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
+                <li>  <a href="view_assignments2.php" class="header_Menu">View Assignment2</a> </li><br />
+                <li>  <a href="view_assignments3.php" class="header_Menu">View Assignment3</a> </li><br />
+                <li> <a href="view_result.php" class="header_Menu">View Result</a> </li><br />
 								<li> <a href="view_attendence.php" class="header_Menu">View Attendence</a>  </li><br />
 								<li> <a href="view_event.php" class="header_Menu">View Event</a> </li><br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
@@ -84,7 +79,8 @@ table, th, td {
 
 <input type="hidden" name="myfile" id="myfile" />
 
-<input class="submit" name="submit" type="submit" value="Submit">  
+ <input class="submit" name="submit" type="submit" value="Submit"> 
+ <!-- <button type="submit" name="view" class="btn"><i class="fa fa-upload fw-fa"></i> View</button>   --> 
 
 
 </div>
@@ -122,32 +118,69 @@ function validate()
     </script>
 
 
-<center>
-<table>
-<thead>
-    <th>ID</th>
-    <th>Department</th>
-    <th>Semester</th>
-    <th>Date</th>
-    <th>Assignment File</th>
-</thead>
-<tbody>
-<?php foreach ($files as $file): ?>
-    <tr>
-      <td><?php echo $file['id']; ?></td>
-      <td><?php echo $file['Department']; ?></td>
-      <td><?php echo $file['Semester']; ?></td>
-      <td><?php echo $file['Date']; ?></td>
-      <td><?php echo $file['name']; ?></td>
-      <td><a href="view_assignments3.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
-    </tr>
-  <?php endforeach;?>
+
+<?php
 
 
-</tbody>
-</table>
 
-</center>
+@$Department = $_POST['Department'];
+@$Semester = $_POST['Semester'];
+$con = mysqli_connect('localhost', 'root', '', 'faculty');
+$sql = "SELECT * FROM `assignment` WHERE Department='$Department' and Semester='$Semester'";
+$result = mysqli_query($con, $sql); 
+
+
+
+if(isset($_POST['submit'])){
+
+if(@$row['Department'] == $Department && @$row['Semester'] == $Semester )
+{
+  
+  echo  '<script> alert("Record  Matching"); </script>';
+}else{
+
+  echo  '<script> alert("Record  not Matching"); </script>';
+}
+}
+  ?>
+
+
+
+
+<div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Department</th>
+                        <th>Semester</th>
+                        <th>File Name</th>
+                        <th>Date</th>
+                        <th>View</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                $i = 1;
+                while($row = mysqli_fetch_array($result)) { ?>
+                <tr>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $row['Department']; ?></td>
+                    <td><?php echo $row['Semester']; ?></td>
+                    <td><?php echo $row['filename']; ?></td>
+                    <td><?php echo $row['Date']; ?></td>
+                    <td><a href="Faculty/Assignments/<?php echo $row['filename']; ?>" target="_blank">View</a></td>
+                    <td><a href="Faculty/Assignments/<?php echo $row['filename']; ?>" download>Download</td>
+                </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 
 
       <div style="margin-top:400px"></div>
@@ -268,13 +301,13 @@ else{
 
 
 
+*/
 
 
 
 
-
-// Downloads files
-	
+ //Downloads files
+	/*
 	
 if (isset($_GET['file_id'])) {
     $id = $_GET['file_id'];
@@ -315,10 +348,10 @@ if (isset($_GET['file_id'])) {
 
 
 
-
+*/
 		
 ?>  
-*/
+
 
 
 
