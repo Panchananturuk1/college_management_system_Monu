@@ -65,6 +65,7 @@
 
       
      <input type="text" id="Price" name="Price" placeholder=" Price.." style="font-size:large"><br /><br />
+     <input type="text" id="Quantity" name="Quantity" placeholder=" Quantity.." style="font-size:large"><br /><br />
 	 
 	 <input class="submit" name="submit" type="submit" value="Submit">  
 
@@ -143,12 +144,12 @@ if(isset($_POST['submit'])){
         $Book_Name = $_POST['Book_Name'];
         $Author_Name = $_POST['Author_Name'];
         $Price = $_POST['Price'];
-        
+        $Quantity = $POST['Quantity'];
         
         
         $con = mysqli_connect('localhost', 'root', "", "librarian") or die(mysqli_error($con));
         //mysqli_select_db($con,'book');
-        $q="insert into book(Department, Book_Name, Author_Name, Price) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."')";
+        $q="insert into book(Department, Book_Name, Author_Name, Price, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."','".$Quantity."')";
         
         $fire = mysqli_query($con, $q);
         

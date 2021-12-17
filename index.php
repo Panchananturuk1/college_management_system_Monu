@@ -5,7 +5,7 @@
 <html>
 <title>Home</title>
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
-
+<link rel="stylesheet" type="text/css" href="css/footer.css" />
 
 
 <head>  
@@ -340,7 +340,8 @@
 			<input class="submit" name="submit" type="submit" value="Signin">
 		 </div>
   </form><br />
-         
+   
+  <div style="margin-bottom:100px">
 	<form action="admin_profile.php" method="post" id="admin" name="myForm4" onsubmit="return(validate4());"  enctype="multipart/form-data">	
       <h1 class="headings" id="Admin">Admin</h1>
 	  
@@ -357,8 +358,48 @@
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin">
 		</div>
-  </form>
+  </form> </div>
 
+    <!-- Site footer -->
+    
+    <div style="margin-bottom:0px; width:100%; margin-left:0px; margin-right:0px;">
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">college management system is a cloud based educational ERP software that enables higher education institutions & colleges to manage online admission, student enrollment, students' attendance, online fees, grades, assignments, library books, etc.
+</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+              <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+              <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
+              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="http://scanfcode.com/about/">About Us</a></li>
+              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+    
+</footer>
+   </div>
 
 </div>
 

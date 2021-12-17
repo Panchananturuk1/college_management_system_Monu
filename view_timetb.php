@@ -102,18 +102,15 @@
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
-<select name="Year">
-  <option  value="-1" >Select Year</option>
-  <option value="2012-2015">2012-2015</option>
-  <option value="2012-2014">2012-2014</option>
-  <option value="2013-2015">2013-2015</option>
-  <option value="2013-2016">2013-2016</option>
-   <option value="2014-2016">2014-2016</option>
-   <option value="2014-2017">2014-2017</option>
-    <option value="2015-2017">2015-2017</option>
-	 <option value="2015-2018">2015-2018</option>
-	
-</select> <br /><br />
+<select name="Semester">
+        <option  value="-1" >Select Semester</option>
+        <option value="1st Semester">1st Semester</option>
+        <option value="2nd Semester">2nd Semester</option>
+        <option value="3rd Semester">3rd Semester</option>
+        <option value="4th Semester">4th Semester</option>
+        <option value="5th Semester">5th Semester</option>
+        <option value="6th Semester">6th Semester</option>
+        </select> <br /><br />
 
 
 

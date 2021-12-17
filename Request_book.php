@@ -25,12 +25,12 @@
                 College Management System</h1></a>
         </div>
 
-				 <header class="header2" style="  width:190px; ">
+        <header class="header2" style="  width:190px; ">
 			<div class="font">
 			  <nav>
 							<ul>
 								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
-                     
+                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
 								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />

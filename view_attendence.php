@@ -102,11 +102,7 @@ table, th, td {
 
 
 <?php
-
-
 $con = mysqli_connect('localhost', 'root', '', 'faculty');
-
-
 
 if(isset($_POST['submit'])){
   

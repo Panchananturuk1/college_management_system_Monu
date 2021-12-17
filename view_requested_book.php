@@ -79,7 +79,7 @@ table, th, td {
       <h1 >View Requested Book</h1><br />
   
       <select name="Department" >		 
-		  <option  value="-1">Select Program</option>
+		  <option  value="-1">Select Department</option>
 		  <option value="BCA">BCA</option>
 		  <option value="MCA">MCA</option>
 		  <option value="MBA">MBA</option>
@@ -98,8 +98,8 @@ table, th, td {
 	<th>Department</th>
 	<th>Book_Name</th>
 	<th>Author_Name</th>
-	<th>Price</th>
 	<th>Quantity</th>
+	<th>Date</th>
 	
 </tr>
 
@@ -114,19 +114,19 @@ table, th, td {
 			mysqli_select_db($con,'librarian');
 			
 			$query="SELECT * FROM `req_book` WHERE Department='$Department' ";	
-			mysqli_query($con, $query);
+			
 
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_array($result);
  
- 
+
  if($row['Department'] == $Department )
  {
 	echo  '<script> alert("Record  Matching"); </script>';
 
 	$query2 = "SELECT * FROM req_book";
-	$result2 = mysqli_query($con, $query2)or die(mysqli_error($con));;
+	$result2 = mysqli_query($con, $query)or die(mysqli_error($con));;
  	while($rows = mysqli_fetch_assoc($result2)) {
 		
 		echo "<tr>";
@@ -137,21 +137,19 @@ $row = mysqli_fetch_array($result);
 		echo "<td>" .$rows['Date']. "</td>";
 		echo "</tr>";
 	}
- }
- else
+ }else
  {
 	 echo  '<script> alert("There id No Data"); </script>';
  }
  
+
+
  }
  
  ?>
 
-
-
-
   </form>
-    <div style="margin-top:400px"></div>
+    <div style="margin-top:240px"></div>
 
    
 </html>

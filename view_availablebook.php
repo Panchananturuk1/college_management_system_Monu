@@ -100,7 +100,7 @@ table, th, td {
 
    
 
-	<table style="margin-left:28%; margin-top:10%;">
+	<table style="margin-left:42%; margin-top:100px; margin-bottom:5%;">
 	  <tr>
 	  
 		
@@ -120,12 +120,9 @@ table, th, td {
 
 
 					$con = mysqli_connect('localhost', 'root', '');
-					mysqli_select_db($con,'book');
+					mysqli_select_db($con,'librarian');
 					
-					$query="SELECT * FROM `info` WHERE Department='$Department' ";	
-					mysqli_query($con, $query);
-
-				
+		$query="SELECT * FROM `book` WHERE Department='$Department' ";	
 		$result = mysqli_query($con, $query) or die(mysqli_error($con));
 		$row = mysqli_fetch_array($result);
 		 
@@ -135,17 +132,15 @@ table, th, td {
 			 
 			 echo  '<script> alert("Record  Matching"); </script>';
 		 
-			while($info = mysqli_fetch_assoc($result)) {
+			 $result2 = mysqli_query($con, $query)or die(mysqli_error($con));;
+
+			while($rows = mysqli_fetch_assoc($result2)) {
 				
 				echo "<tr>";
-				
-				
-				echo "<td>" .$info['Department']. "</td>";
-				echo "<td>" .$info['Book_Name']. "</td>";
-				echo "<td>" .$info['Author_Name']. "</td>";
-				echo "<td>" .$info['Price']. "</td>";
-				
-				
+				echo "<td>" .$rows['Department']. "</td>";
+				echo "<td>" .$rows['Book_Name']. "</td>";
+				echo "<td>" .$rows['Author_Name']. "</td>";
+				echo "<td>" .$rows['Price']. "</td>";
 				echo "</tr>";
 			}
 		 }
