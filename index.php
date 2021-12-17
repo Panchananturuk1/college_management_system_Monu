@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link rel="stylesheet" type="text/css" href="css/style2.css" />
 <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
 
