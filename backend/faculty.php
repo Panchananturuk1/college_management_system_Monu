@@ -12,7 +12,8 @@ if(count($_POST)>0){
 		$phone=$_POST['phone'];
 		$email=$_POST['email'];
 		$Password=$_POST['Password'];
-		$sql = "INSERT INTO `info`( `name`,'Gender','Address','Department','Designation','Qualification', `phone`,`email`,`Password`) 
+		
+		$sql = "INSERT INTO `info`( `name`, `Gender`,`Address`,`Department`,`Designation`, `Qualification`,`phone`,`email`,`Password`) 
 		VALUES ('$name','$Gender','$Address','$Department','$Designation','$Qualification','$phone','$email','$Password')";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));

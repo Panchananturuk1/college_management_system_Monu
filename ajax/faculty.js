@@ -1,7 +1,7 @@
 	<!-- Add user -->
 	$(document).on('click','#btn-add',function(e) {
 		var data = $("#user_form").serialize();
-		$.faculty({
+		$.ajax({
 			data: data,
 			type: "post",
 			url: "backend/faculty.php",
@@ -31,20 +31,19 @@
 		var Password=$(this).attr("data-Password");
 		$('#id_u').val(id);
 		$('#name_u').val(name);
-		$('#Gender').val(Gender);
+		$('#Gender_u').val(Gender);
 		$('#Address_u').val(Address);
-		$('#phone_u').val(Department);
-		$('#Department_u').val(Designation);
+		$('#Department_u').val(Department);
+		$('#Designation_u').val(Designation);
 		$('#Qualification_u').val(Qualification);
 		$('#phone_u').val(phone);
 		$('#email_u').val(email);
-		
 		$('#Password_u').val(Password);
 	});
 	<!-- Update -->
 	$(document).on('click','#update',function(e) {
 		var data = $("#update_form").serialize();
-		$.faculty({
+		$.ajax({
 			data: data,
 			type: "post",
 			url: "backend/faculty.php",
@@ -67,7 +66,7 @@
 		
 	});
 	$(document).on("click", "#delete", function() { 
-		$.faculty({
+		$.ajax({
 			url: "backend/faculty.php",
 			type: "POST",
 			cache: false,
@@ -96,7 +95,7 @@
 			if(checked == true) {
 				var selected_values = user.join(",");
 				console.log(selected_values);
-				$.faculty({
+				$.ajax({
 					type: "POST",
 					url: "backend/faculty.php",
 					cache:false,

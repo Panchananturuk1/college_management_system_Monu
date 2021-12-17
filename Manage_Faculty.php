@@ -1,7 +1,7 @@
 <?php
 include 'backend/facultydb.php';
 ?>
-<script src="validation_add_faculty.js"></script>
+
 
 <html>
 <title>Manage Faculty </title>
@@ -19,7 +19,7 @@ include 'backend/facultydb.php';
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="ajax/ajax.js"></script>
+	<script src="ajax/faculty.js"></script>
 
 </head>
 
@@ -40,6 +40,7 @@ include 'backend/facultydb.php';
   <nav>
 							<ul>
 								<li> <a href="admin_profile.php" class="header_Menu">My Profile</a> </li><br />
+								<li> <a href="admin_profile2.php" class="header_Menu">My Profile 2</a> </li><br />
 								<li> <a href="add_faculty.php" class="header_Menu">Add Faculty</a> </li><br />
 								<li> <a href="Manage_Faculty.php" class="header_Menu">Manage Faculty</a> </li><br />
 								<li> <a href="add_librarian.php" class="header_Menu">Add Librarian</a> </li><br />
@@ -82,16 +83,15 @@ include 'backend/facultydb.php';
 							</span>
 						</th>
 						<th>SL NO</th>
-                        <th>NAME</th>
-						<th>GENDER</th>
-						<th>ADDRESS</th>
-						<th>DEPARTMENT</th>
-						<th>DESIGNATION</th>
-						<th>QUALIFICATION</th>
-                        <th>PHONE</th>
-						<th>EMAIL</th>
-                        <th>Password</th>
-					
+                        <th>Name</th>
+						<th>Gender</th>
+						<th>Address</th>
+						<th>Dept</th>
+						<th>Designation</th>
+						<th>Qualification</th>
+						<th>Phone</th>
+						<th>Email</th>
+                        <th>Pswd</th>
                         <th>ACTION</th>
                     </tr>
                 </thead>
@@ -116,6 +116,7 @@ include 'backend/facultydb.php';
 					<td><?php echo $row["Address"]; ?></td>
 					<td><?php echo $row["Department"]; ?></td>
 					<td><?php echo $row["Designation"]; ?></td>
+					<td><?php echo $row["Qualification"]; ?></td>
 					<td><?php echo $row["phone"]; ?></td>
 					<td><?php echo $row["email"]; ?></td>
 					<td><?php echo $row["Password"]; ?></td>
@@ -127,13 +128,14 @@ include 'backend/facultydb.php';
 							data-id="<?php echo $row["id"]; ?>"
 							
 							data-name="<?php echo $row["name"]; ?>"
-							data-name="<?php echo $row["Gender"]; ?>"
-							data-email="<?php echo $row["Address"]; ?>"
-							data-phone="<?php echo $row["Department"]; ?>"
-							data-city="<?php echo $row["Designation"]; ?>"
+							data-Gender="<?php echo $row["Gender"]; ?>"
+							data-Address="<?php echo $row["Address"]; ?>"
+							data-Department="<?php echo $row["Department"]; ?>"
+							data-Designation="<?php echo $row["Designation"]; ?>"
+							data-Qualification="<?php echo $row["Qualification"]; ?>"
 							data-phone="<?php echo $row["phone"]; ?>"
 							data-email="<?php echo $row["email"]; ?>"
-							data-password="<?php echo $row["Password"]; ?>"
+							data-Password="<?php echo $row["Password"]; ?>"
 							title="Edit">&#xE254;</i>
 						</a>
 						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" 
@@ -226,17 +228,39 @@ include 'backend/facultydb.php';
 							<input type="text" id="name_u" name="name" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" id="email_u" name="email" class="form-control" required>
+							<label>Gender</label>
+							<input type="text" id="Gender_u" name="Gender" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Address</label>
+							<input type="text" id="Address_u" name="Address" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Department</label>
+							<input type="text" id="Department_u" name="Department" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Designation</label>
+							<input type="text" id="Designation_u" name="Designation" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Qualification</label>
+							<input type="text" id="Qualification_u" name="Qualification" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>PHONE</label>
 							<input type="phone" id="phone_u" name="phone" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>City</label>
-							<input type="city" id="city_u" name="city" class="form-control" required>
-						</div>					
+							<label>Email</label>
+							<input type="email" id="email_u" name="email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="text" id="Password_u" name="Password" class="form-control" required>
+						</div>
+						
+						
 					</div>
 					<div class="modal-footer">
 					<input type="hidden" value="2" name="type">
