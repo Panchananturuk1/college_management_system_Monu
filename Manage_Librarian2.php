@@ -1,70 +1,14 @@
-
-
-
 <?php
-include 'backend/database.php';
+include 'Librarian/librariandb.php';
 ?>
-
-<script src="validation2.js"></script>
-
-
-<?php
-
-
-// On submitting form below function will execute.
-if(isset($_POST['submit'])){
-
-
-			
-			$Emailid = $_POST['Emailid'];
-			$Password = $_POST['Password'];
-	
-			
-			$con = mysqli_connect('localhost', 'root', '');
-			mysqli_select_db($con,'admin');
-			
-			
-			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
-			mysqli_query($con, $query);
-
-		
-$result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_array($result);
-if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
-{
-	
-	session_start();
-	echo  '<script> alert("User Name and Password are Correct"); </script>';
-	//echo "<script> window.location.assign('Student Profile.php'); </script>";
-
-}
-
-
-else{
-
-	echo  '<script> alert("User Name and Password are Wrong"); </script>';
-	
-	echo "<script> window.location.assign('index.php'); </script>";
-}
-
-mysqli_close($con);
-
-		}
-
-
-
-?>
-
-
-
 
 
 <html>
-<title>Admin </title>
+<title>Manage Librarian 2 </title>
 <head>
 <link rel="stylesheet" type="text/css" href="css/admin1.css" />
-		
-        <meta charset="utf-8">
+
+<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>User Data</title>
@@ -75,57 +19,47 @@ mysqli_close($con);
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="ajax/ajax.js"></script>
-		
+	<script src="ajax/librarian.js"></script>
+
 </head>
 
 <style>
-
-		
+	
 </style>
 <body >
 
- 
-
- <div class="header" >
+  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
           <a href="index.php" style="text-decoration:none; color:white;">  
 		  <h1 class="myheads">
                 College Management System</h1></a>
         </div>
 	 
-  
-	 <header class="header2" style="  width:190px; ">
+    <header class="header2" style="  width:190px; ">
 <div class="font">
   <nav>
 							<ul>
 								<li> <a href="admin_profile.php" class="header_Menu">My Profile</a> </li><br />
-                                <li> <a href="admin_profile2.php" class="header_Menu">My Profile 2</a> </li><br />
-								<li> <a href="add_faculty.php" class="header_Menu">Add Faculty</a> </li><br />
 								<li> <a href="Manage_Faculty.php" class="header_Menu">Manage Faculty</a> </li><br />
-								<li> <a href="add_librarian.php" class="header_Menu">Add Librarian</a> </li><br />
+                                <li> <a href="Manage_Librarian2.php" class="header_Menu">Manage Librarian 2</a> </li><br />
 								<li>  <a href="add_event_a.php" class="header_Menu">Add Event</a> </li><br />
 								<li> <a href="view_requested_book.php" class="header_Menu">View Requested Book</a> </li><br />
 								<li> <a href="view_availablebook.php" class="header_Menu">View Available Books</a>  </li><br />
-								<li> <a href="view_student.php" class="header_Menu">View Student</a> </li><br />
-								<li> <a href="view_faculty.php" class="header_Menu">View Faculty </a> </li><br />
-								<li> <a href="view_librarian.php" class="header_Menu">View Librarian</a> </li><br />
-								<li> <a href="delete_data.php" class="header_Menu">Delete Data</a> </li><br />
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
 						  </nav>					
     
 	</div></header>
   
-  			
-
+  
+	
     <div class="container">
 	<p id="success"></p>
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Manage <b>Users</b></h2>
+						<h2>Manage <b>Librarian 2</b></h2>
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
@@ -143,19 +77,21 @@ mysqli_close($con);
 							</span>
 						</th>
 						<th>SL NO</th>
-						
-                        <th>NAME</th>
-                        <th>EMAIL</th>
-						<th>PHONE</th>
-                        <th>CITY</th>
-					
+                        <th>Name</th>
+						<th>Gender</th>
+						<th>Address</th>
+						<th>Qualification</th>
+						<th>Phone</th>
+						<th>Email</th>
+                        <th>Pswd</th>
+				<!--	<th>Photo</th> -->
                         <th>ACTION</th>
                     </tr>
                 </thead>
 				<tbody>
 				
 				<?php
-				$result = mysqli_query($conn,"SELECT * FROM crud");
+				$result = mysqli_query($conn,"SELECT * FROM info");
 					$i=1;
 					while($row = mysqli_fetch_array($result)) {
 				?>
@@ -169,10 +105,13 @@ mysqli_close($con);
 					<td><?php echo $i; ?></td>
 					
 					<td><?php echo $row["name"]; ?></td>
-					<td><?php echo $row["email"]; ?></td>
+					<td><?php echo $row["Gender"]; ?></td>
+					<td><?php echo $row["Address"]; ?></td>
+					<td><?php echo $row["Qualification"]; ?></td>
 					<td><?php echo $row["phone"]; ?></td>
-					<td><?php echo $row["city"]; ?></td>
-					
+					<td><?php echo $row["email"]; ?></td>
+					<td><?php echo $row["Password"]; ?></td>
+			<!--	 <td><?php echo $row["Photo"]; ?></td> -->
 
 					<td>
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
@@ -180,10 +119,13 @@ mysqli_close($con);
 							data-id="<?php echo $row["id"]; ?>"
 							
 							data-name="<?php echo $row["name"]; ?>"
-							data-email="<?php echo $row["email"]; ?>"
+							data-Gender="<?php echo $row["Gender"]; ?>"
+							data-Address="<?php echo $row["Address"]; ?>"
+							data-Qualification="<?php echo $row["Qualification"]; ?>"
 							data-phone="<?php echo $row["phone"]; ?>"
-							data-city="<?php echo $row["city"]; ?>"
-							data-password="<?php echo $row["Password"]; ?>"
+							data-email="<?php echo $row["email"]; ?>"
+							data-Password="<?php echo $row["Password"]; ?>"
+							data-Password="<?php echo $row["Password"]; ?>"  
 							title="Edit">&#xE254;</i>
 						</a>
 						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" 
@@ -203,32 +145,46 @@ mysqli_close($con);
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form id="user_form">
+				<form id="user_form" enctype="multipart/form-data">
 					<div class="modal-header">						
 						<h4 class="modal-title">Add User</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">	
 
-
-				
-
+                 <!--   <div class="form-group">
+							<label>Photo</label>
+							<input type="file" id="Photo" name="Photo" class="form-control" required>
+						</div>	 -->
 						<div class="form-group">
 							<label>NAME</label>
 							<input type="text" id="name" name="name" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>EMAIL</label>
-							<input type="email" id="email" name="email" class="form-control" required>
+							<label>GENDER</label>
+							<input type="text" id="Gender" name="Gender" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>ADDRESS</label>
+							<input type="text" id="Address" name="Address" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>QUALIFICATION</label>
+							<input type="text" id="Qualification" name="Qualification" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>PHONE</label>
-							<input type="phone" id="phone" name="phone" class="form-control" required>
+							<input type="text" id="phone" name="phone" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>CITY</label>
-							<input type="city" id="city" name="city" class="form-control" required>
-						</div>					
+							<label>EMAIL</label>
+							<input type="email" id="email" name="email" class="form-control" required>
+						</div>
+						
+						<div class="form-group">
+							<label>PASSWORD</label>
+							<input type="password" id="Password" name="Password" class="form-control" required>
+						</div>						
 					</div>
 					<div class="modal-footer">
 					    <input type="hidden" value="1" name="type">
@@ -250,22 +206,42 @@ mysqli_close($con);
 					</div>
 					<div class="modal-body">
 						<input type="hidden" id="id_u" name="id" class="form-control" required>					
+						
+						<!-- <div class="form-group">
+							<label>Name</label>
+							<input type="file" id="Photo_u" name="Photo" class="form-control" required>
+						</div> -->
+
 						<div class="form-group">
 							<label>Name</label>
 							<input type="text" id="name_u" name="name" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" id="email_u" name="email" class="form-control" required>
+							<label>Gender</label>
+							<input type="text" id="Gender_u" name="Gender" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Address</label>
+							<input type="text" id="Address_u" name="Address" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Qualification</label>
+							<input type="text" id="Qualification_u" name="Qualification" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>PHONE</label>
 							<input type="phone" id="phone_u" name="phone" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>City</label>
-							<input type="city" id="city_u" name="city" class="form-control" required>
-						</div>					
+							<label>Email</label>
+							<input type="email" id="email_u" name="email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="text" id="Password_u" name="Password" class="form-control" required>
+						</div>
+						
+						
 					</div>
 					<div class="modal-footer">
 					<input type="hidden" value="2" name="type">
@@ -299,10 +275,9 @@ mysqli_close($con);
 			</div>
 		</div>
 	</div>
-
-
+	
     <div style="margin-top:400px"></div>
 
-
-    </body>
+</body>
 </html>
+

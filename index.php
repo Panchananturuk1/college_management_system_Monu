@@ -316,7 +316,7 @@
 
 		<div class="login_form" >
 			<p class="headings2" >Faculty Login</p>
-			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........." >
+			<input type="email" id="email" name="email" placeholder="Email id.........." >
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin" >
 
@@ -335,7 +335,7 @@
 
          <div class="login_form">
 			<p class="headings2" >Librarian Login</p>
-			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........." > 
+			<input type="email" id="email" name="email" placeholder="Email id.........." > 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
 			<input class="submit" name="submit" type="submit" value="Signin">
 		 </div>

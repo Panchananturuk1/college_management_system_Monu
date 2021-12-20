@@ -4,7 +4,7 @@
 		$.ajax({
 			data: data,
 			type: "post",
-			url: "backend/faculty.php",
+			url: "Student/student.php",
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
@@ -20,28 +20,30 @@
 	});
 	$(document).on('click','.update',function(e) {
 		var id=$(this).attr("data-id");
-		var name=$(this).attr("data-name");
+		//var profile=$(this).attr("data-profile");
+		var Name=$(this).attr("data-Name");
+		var Lname=$(this).attr("data-Lname");
 		var Gender=$(this).attr("data-Gender");
-		var Address=$(this).attr("data-Address");
+		var dob=$(this).attr("data-dob");
 		var Department=$(this).attr("data-Department");
-		var Designation=$(this).attr("data-Designation");
-		var Qualification=$(this).attr("data-Qualification");
-		var phone=$(this).attr("data-phone");
-		var email=$(this).attr("data-email");
+		var Adms_Number=$(this).attr("data-Adms_Number");
+		var Semester=$(this).attr("data-Semester");
+		var Contact=$(this).attr("data-Contact");
+		var Emailid=$(this).attr("data-Emailid");
 		var Password=$(this).attr("data-Password");
-		var Photo=$(this).attr("data-Photo");
 		$('#id_u').val(id);
-		$('#name_u').val(name);
+		//$('#profile_u').val(profile);
+		$('#Name_u').val(Name);
+		$('#Lname_u').val(Lname);
 		$('#Gender_u').val(Gender);
-		$('#Address_u').val(Address);
-		$('#phone_u').val(Department);
+		$('#dob_u').val(dob);
 		$('#Department_u').val(Department);
-		$('#Designation_u').val(Designation);
-		$('#Qualification_u').val(Qualification);
-		$('#phone_u').val(phone);
-		$('#email_u').val(email);
+		$('#Adms_Number_u').val(Adms_Number);
+		$('#Semester_u').val(Semester);
+		$('#Contact_u').val(Contact);
+		$('#Emailid_u').val(Emailid);
 		$('#Password_u').val(Password);
-		$('#Photo_u').val(Photo);
+		
 	});
 	<!-- Update -->
 	$(document).on('click','#update',function(e) {
@@ -49,7 +51,7 @@
 		$.ajax({
 			data: data,
 			type: "post",
-			url: "backend/faculty.php",
+			url: "Student/student.php",
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
@@ -70,7 +72,7 @@
 	});
 	$(document).on("click", "#delete", function() { 
 		$.ajax({
-			url: "backend/faculty.php",
+			url: "Student/student.php",
 			type: "POST",
 			cache: false,
 			data:{
@@ -100,7 +102,7 @@
 				console.log(selected_values);
 				$.ajax({
 					type: "POST",
-					url: "backend/faculty.php",
+					url: "Student/student.php",
 					cache:false,
 					data:{
 						type: 4,						

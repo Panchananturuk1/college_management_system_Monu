@@ -54,7 +54,7 @@ table, th, td {
 							<ul>
 								<li> <a href="admin_profile.php" class="header_Menu">My Profile</a> </li><br />
 								<li> <a href="Manage_Faculty.php" class="header_Menu">Manage Faculty</a> </li><br />
-								<li> <a href="add_librarian.php" class="header_Menu">Add Librarian</a> </li><br />
+								<li> <a href="Manage_Librarian.php" class="header_Menu">Manage Librarian</a> </li><br />
 								<li>  <a href="add_event_a.php" class="header_Menu">Add Event</a> </li><br />
 								<li> <a href="view_requested_book.php" class="header_Menu">View Requested Book</a> </li><br />
 								<li> <a href="view_availablebook.php" class="header_Menu">View Available Books</a>  </li><br />

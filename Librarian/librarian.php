@@ -1,21 +1,19 @@
 <?php
-include 'facultydb.php';
+include 'librariandb.php';
 
 if(count($_POST)>0){
 	if($_POST['type']==1){
 		$name=$_POST['name'];
 		$Gender=$_POST['Gender'];
 		$Address=$_POST['Address'];
-		$Department=$_POST['Department'];
-		$Designation=$_POST['Designation'];
 		$Qualification=$_POST['Qualification'];
 		$phone=$_POST['phone'];
 		$email=$_POST['email'];
 		$Password=$_POST['Password'];
-		$Photo=$_POST['Photo'];
+	//	$Photo=$_POST['Photo'];
 		
-		$sql = "INSERT INTO `info`( `name`, `Gender`,`Address`,`Department`,`Designation`, `Qualification`,`phone`,`email`,`Password`,`Photo`) 
-		VALUES ('$name','$Gender','$Address','$Department','$Designation','$Qualification','$phone','$email','$Password','$Photo')";
+		$sql = "INSERT INTO `info`( `name`, `Gender`,`Address`, `Qualification`,`phone`,`email`,`Password`) 
+		VALUES ('$name','$Gender','$Address','$Qualification','$phone','$email','$Password')";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 
@@ -31,15 +29,13 @@ if(count($_POST)>0){
 		$name=$_POST['name'];
 		$Gender=$_POST['Gender'];
 		$Address=$_POST['Address'];
-		$Department=$_POST['Department'];
-		$Designation=$_POST['Designation'];
 		$Qualification=$_POST['Qualification'];
 		$phone=$_POST['phone'];
 		$email=$_POST['email'];
 		$Password=$_POST['Password'];
-		$Photo=$_POST['Photo'];
-		$sql = "UPDATE `info` SET `name`='$name',`Gender`='$Gender',`Address`='$Address',`Department`='$Department',
-		`Designation`='$Designation',`Qualification`='$Qualification',`phone`='$phone',`email`='$email',`Password`='$Password',`Photo`='$Photo' WHERE id=$id";
+		//$Photo=$_POST['Photo'];
+		$sql = "UPDATE `info` SET `name`='$name',`Gender`='$Gender',`Address`='$Address',
+		`Qualification`='$Qualification',`phone`='$phone',`email`='$email',`Password`='$Password' WHERE id=$id";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 

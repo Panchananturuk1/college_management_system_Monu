@@ -63,7 +63,7 @@ $msg;
 					<option value="6th Semester">6th Semester</option>
 				</select> <br /><br />
 
-		<input type="number" id="Contact" name="Contact" placeholder="Contact.."><br /><br />
+		<input type="phone" id="Contact" name="Contact" placeholder="Contact.."><br /><br />
 	    <input type="email" id="Emailid" name="Emailid" placeholder="Email id.." ><br /><br />
 		<input type="hidden" ><!--<div id="iderror"><?php echo"$msg";?> </div> --> </input>
 		<input type="password" id="Password" name="Password" placeholder="Password"><br /><br />

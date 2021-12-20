@@ -1,21 +1,22 @@
 <?php
-include 'facultydb.php';
+include 'studentdb.php';
 
 if(count($_POST)>0){
 	if($_POST['type']==1){
-		$name=$_POST['name'];
+		$Name=$_POST['Name'];
+		$Lname=$_POST['Lname'];
+	//	$profile=$_POST['profile'];
 		$Gender=$_POST['Gender'];
-		$Address=$_POST['Address'];
+		$dob=$_POST['dob'];
 		$Department=$_POST['Department'];
-		$Designation=$_POST['Designation'];
-		$Qualification=$_POST['Qualification'];
-		$phone=$_POST['phone'];
-		$email=$_POST['email'];
+		$Adms_Number=$_POST['Adms_Number'];
+		$Semester=$_POST['Semester'];
+		$Contact=$_POST['Contact'];
+		$Emailid=$_POST['Emailid'];
 		$Password=$_POST['Password'];
-		$Photo=$_POST['Photo'];
 		
-		$sql = "INSERT INTO `info`( `name`, `Gender`,`Address`,`Department`,`Designation`, `Qualification`,`phone`,`email`,`Password`,`Photo`) 
-		VALUES ('$name','$Gender','$Address','$Department','$Designation','$Qualification','$phone','$email','$Password','$Photo')";
+		$sql = "INSERT INTO `info`( `Name`, `Lname`,`Gender`,`dob`,`Department`,`Adms_Number`,`Semester`,`Contact`,`Emailid`,`Password`) 
+		VALUES ('$Name','$Lname','$Gender','$dob','$Department','$Adms_Number','$Semester','$Contact','$Emailid','$Password')";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 
@@ -28,18 +29,20 @@ if(count($_POST)>0){
 if(count($_POST)>0){
 	if($_POST['type']==2){
 		$id=$_POST['id'];
-		$name=$_POST['name'];
+		//	$profile=$_POST['profile'];
+		$Name=$_POST['Name'];
+		$Lname=$_POST['Lname'];
 		$Gender=$_POST['Gender'];
-		$Address=$_POST['Address'];
+		$dob=$_POST['dob'];
 		$Department=$_POST['Department'];
-		$Designation=$_POST['Designation'];
-		$Qualification=$_POST['Qualification'];
-		$phone=$_POST['phone'];
-		$email=$_POST['email'];
+		$Adms_Number=$_POST['Adms_Number'];
+		$Semester=$_POST['Semester'];
+		$Contact=$_POST['Contact'];
+		$Emailid=$_POST['Emailid'];
 		$Password=$_POST['Password'];
-		$Photo=$_POST['Photo'];
-		$sql = "UPDATE `info` SET `name`='$name',`Gender`='$Gender',`Address`='$Address',`Department`='$Department',
-		`Designation`='$Designation',`Qualification`='$Qualification',`phone`='$phone',`email`='$email',`Password`='$Password',`Photo`='$Photo' WHERE id=$id";
+	
+		$sql = "UPDATE `info` SET `Name`='$Name',`Lname`='$Lname',`Gender`='$Gender',`dob`='$dob',`Department`='$Department',
+		`Adms_Number`='$Adms_Number',`Semester`='$Semester',`Contact`='$Contact',`Emailid`='$Emailid',`Password`='$Password' WHERE id=$id";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 

@@ -4,7 +4,7 @@
 		$.ajax({
 			data: data,
 			type: "post",
-			url: "backend/faculty.php",
+			url: "Librarian/librarian.php",
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
@@ -23,24 +23,21 @@
 		var name=$(this).attr("data-name");
 		var Gender=$(this).attr("data-Gender");
 		var Address=$(this).attr("data-Address");
-		var Department=$(this).attr("data-Department");
-		var Designation=$(this).attr("data-Designation");
 		var Qualification=$(this).attr("data-Qualification");
 		var phone=$(this).attr("data-phone");
 		var email=$(this).attr("data-email");
 		var Password=$(this).attr("data-Password");
 		var Photo=$(this).attr("data-Photo");
+		var Photo=$(this).attr("data-Photo");
 		$('#id_u').val(id);
 		$('#name_u').val(name);
 		$('#Gender_u').val(Gender);
 		$('#Address_u').val(Address);
-		$('#phone_u').val(Department);
-		$('#Department_u').val(Department);
-		$('#Designation_u').val(Designation);
 		$('#Qualification_u').val(Qualification);
 		$('#phone_u').val(phone);
 		$('#email_u').val(email);
 		$('#Password_u').val(Password);
+		$('#Photo_u').val(Photo);
 		$('#Photo_u').val(Photo);
 	});
 	<!-- Update -->
@@ -49,7 +46,7 @@
 		$.ajax({
 			data: data,
 			type: "post",
-			url: "backend/faculty.php",
+			url: "Librarian/librarian.php",
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
@@ -70,7 +67,7 @@
 	});
 	$(document).on("click", "#delete", function() { 
 		$.ajax({
-			url: "backend/faculty.php",
+			url: "Librarian/librarian.php",
 			type: "POST",
 			cache: false,
 			data:{
@@ -100,7 +97,7 @@
 				console.log(selected_values);
 				$.ajax({
 					type: "POST",
-					url: "backend/faculty.php",
+					url: "Librarian/librarian.php",
 					cache:false,
 					data:{
 						type: 4,						

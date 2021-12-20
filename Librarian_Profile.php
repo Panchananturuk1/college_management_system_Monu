@@ -26,7 +26,7 @@
 			  <nav>
 							<ul>
 								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
-                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
+                                <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
 								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
@@ -59,21 +59,21 @@ if(isset($_POST['submit'])){
 
 
 			
-			$Emailid = $_POST['Emailid'];
+			$email = $_POST['email'];
 			$Password = $_POST['Password'];
 	
 	
-	 $connect = mysqli_connect("localhost", "root", "", "librarian");
+	 $connect = mysqli_connect("localhost", "root", "", "Librarian");
 			
 			
 			
-			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
+			$query="SELECT * FROM `info` WHERE email='$email' and Password='$Password'";			
 			mysqli_query($connect, $query);
 
 		
 $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
 $row = mysqli_fetch_assoc($result);
-if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
+if($row['email'] == $email && $row['Password'] == $Password)
 {
 	
 	session_start();
@@ -88,7 +88,7 @@ if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
                                <td>  
 							   
 
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['profile'] ).'" height="150" width="140" class="img-thumnail" />  
+                                    <img src="data:image/jpeg;base64,'.base64_encode($row['Photo'] ).'" height="150" width="140" class="img-thumnail" />  
                                </td>  
                           </tr>  
                      ';  
@@ -115,13 +115,15 @@ else{
 </table>
 	  
     <label for="Name" >Name:</label><br />
-     <input type="text" id="Name" name="Name" placeholder="Your name.." style="font-size:large"value="<?php  echo $row['Name'] , " " ,$row['Lname'] ; ?>" readonly="" /><br /><br />
+     <input type="text" id="name" name="name" placeholder="Your name.." style="font-size:large"value="<?php  echo $row['name'] ; ?>" readonly="" /><br /><br />
      <label for="Contact">Gender</label><br />
      <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Gender']; ?>" readonly="" /><br /><br />
-     <label for="Eml">Email Id:</label><br />
-     <input type="text" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
+     <label for="Eml">Qualification :</label><br />
+     <input type="text" id="Qualification" name="Qualification" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Qualification']; ?>" readonly="" /><br /><br />
+	 <label for="Eml">Email Id:</label><br />
+     <input type="text" id="email" name="email" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['email']; ?>" readonly="" /><br /><br />
       <label for="Contact">Contact</label><br />
-     <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
+     <input type="text" id="phone" name="phone" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['phone']; ?>" readonly="" /><br /><br />
 
 </div>
  </form>

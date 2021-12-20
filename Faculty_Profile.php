@@ -54,24 +54,24 @@ if(isset($_POST['submit'])){
 
 
 			
-			$Emailid = $_POST['Emailid'];
+			$email = $_POST['email'];
 			$Password = $_POST['Password'];
 	
-			$connect = mysqli_connect("localhost", "root", "", "faculty");
+			$connect = mysqli_connect("localhost", "root", "", "Faculty");
 			
-			$query="SELECT * FROM `info` WHERE Emailid='$Emailid' and Password='$Password'";			
+			$query="SELECT * FROM `info` WHERE email='$email' and Password='$Password'";			
 			mysqli_query($connect, $query);
 
 		
 $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
 $row = mysqli_fetch_assoc($result);
-if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
+if($row['email'] == $email && $row['Password'] == $Password)
 {
 	echo  '<script> alert("User Name and Password are Correct"); </script>';
 	     echo '  
                           <tr>				  
                                <td >  
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['profile'] ).'" height="150" width="140" class="img-thumnail" />  
+                                    <img src="data:image/jpeg;base64,'.base64_encode($row['Photo'] ).'" height="150" width="140" class="img-thumnail" />  
                                </td>  
                           </tr>  
                      ';  
@@ -80,7 +80,7 @@ if($row['Emailid'] == $Emailid && $row['Password'] == $Password)
 else{
 
 	echo  '<script> alert("User Name and Password are Wrong"); </script>';
-	echo "<script> window.location.assign('index.php'); </script>";
+	//echo "<script> window.location.assign('index.php'); </script>";
 }
 
 		}
@@ -91,17 +91,14 @@ else{
 
 </table>
 	  
-	  
-	  
-	  
-	  
-	  
     <label for="Name" >Name:</label><br />
-     <input type="text" id="Name" name="Name" placeholder="Your name.." style="font-size:large"value="<?php  echo $row['Name'] , " " ,$row['Lname'] ; ?>" readonly="" /><br /><br />
+     <input type="text" id="Name" name="Name" placeholder="Your name.." style="font-size:large"value="<?php  echo $row['name'] ; ?>" readonly="" /><br /><br />
   
+	 <label for="Eml">Department:</label><br />
+      <input type="text" id="Department" name="Department" placeholder="Yor Department.." style="font-size:large" value="<?php echo  $row['Department']; ?>" readonly="" /><br /><br />
   
     <label for="Eml">Designation:</label><br />
-      <input type="text" id="Designation" name="Designation" placeholder="Yor Email.." style="font-size:large" value="<?php echo  $row['Designation']; ?>" readonly="" /><br /><br />
+      <input type="text" id="Designation" name="Designation" placeholder="Yor Designation.." style="font-size:large" value="<?php echo  $row['Designation']; ?>" readonly="" /><br /><br />
 
 	  
 	  
@@ -110,15 +107,11 @@ else{
 
 
     <label for="Eml" >Email Id:</label><br />
-      <input type="email" id="Emailid" name="Emailid" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Emailid']; ?>" readonly="" /><br /><br />
+      <input type="email" id="email" name="email" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['email']; ?>" readonly="" /><br /><br />
 
       <label for="Contact" >Contact</label><br />
-     <input type="number" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Contact']; ?>" readonly="" /><br /><br />
+     <input type="number" id="phone" name="phone" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['phone']; ?>" readonly="" /><br /><br />
 
-     
-
-   
- 
 </div>
  </form>
 
