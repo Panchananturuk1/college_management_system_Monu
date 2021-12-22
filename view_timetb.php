@@ -121,71 +121,101 @@
 
 </div>
 
-<table class="table table-bordered" style="margin-left:20%; margin-top:15%">  
-                     <tr>  
-						 <th>timetable</th>  
-						  
-
-
 <?php
 
 
- if(isset($_POST['submit'])){
+$con = mysqli_connect('localhost', 'root', '', 'admin');
 
+//$row2 = $row;
 
- $connect = mysqli_connect("localhost", "root", "", "timetable")or die(mysqli_error($connect));
-	
-	
-			
-			$Department = $_POST['Department'];
-			$Year = $_POST['Year'];
-	
-	
-	$query="SELECT * FROM `info` WHERE Department='$Department' and Year='$Year'";		
-			mysqli_query($connect, $query);
+if(isset($_POST['submit'])){
+  
+  @$Department = $_POST['Department'];
+  @$Semester = $_POST['Semester'];
+ // $con = mysqli_connect('localhost', 'root', '', 'faculty');
+  //$sql="SELECT * FROM assignment";
+  $sql = "SELECT * FROM `timetable` WHERE Department='$Department' and Semester='$Semester'";
+  $result = mysqli_query($con, $sql); 
+  //$row=mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $row = mysqli_fetch_assoc($result);
 
-		
-$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
-$row = mysqli_fetch_assoc($result);
-if($row['Department'] == $Department && $row['Year'] == $Year )
+if($row['Department'] == $Department && $row['Semester'] == $Semester )
 {
-	
+  
+  echo  '<script> alert("Record  Matching"); </script>';
 
-	echo  '<script> alert("Record Matching "); </script>';
-	
 
-	
-			
-	
-                     echo '  
-                          <tr>  
-						  
-						  
-                               <td>  
-							   
+}else{
 
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['timetb'] ).'" height="600" width="850" class="img-thumnail" />  
-                               </td>  
-                          </tr>  
-                     ';  
+  echo  '<script> alert("Record  not Matching"); </script>';
+}
+}
+
+  ?>
+
+<div class="row">
+<div class="col-xs-8 col-xs-offset-2">
+<table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Department</th>
+                        <th>Semester</th>
+                        <th>File Name</th>
+                        <th>Date</th>
+                        <th>View</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
                
-}
 
 
-else{
+                <?php /*
+                 $i = 1;
+                foreach ($row as $row2): ?>
 
-	echo  '<script> alert("Error: Record Not Matching"); </script>';
+                  <tr>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $row2['Department']; ?></td>
+                    <td><?php echo $row2['Semester']; ?></td>
+                    <td><?php echo $row2['filename']; ?></td>
+                    <td><?php echo $row2['Date']; ?></td>
+                    <td><a href="Faculty/Assignments/<?php echo $row2['filename']; ?>" target="_blank">View</a></td>
+                    <td><a href="Faculty/Assignments/<?php echo $row2['filename']; ?>" download>Download</td>
+                </tr>
+                    <?php endforeach; */
+                    
+                    ?>
 
 
-}
+                    <?php 
+                    @$Department = $_POST['Department'];
+                    @$Semester = $_POST['Semester'];
+                    $sql2="SELECT * FROM `timetable` WHERE Department='$Department' and Semester='$Semester'";
+                    $result2 = mysqli_query($con, $sql2); 
+                   
+                    $i = 1;
+                    while($row2 = mysqli_fetch_array($result2)) { ?>
+                    <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $row2['Department']; ?></td>
+                        <td><?php echo $row2['Semester']; ?></td>
+                        <td><?php echo $row2['Year']; ?></td>
+                        <td><?php echo $row2['timetb']; ?></td>
+                        <td><a href="Faculty/Time_Table/<?php echo $row2['timetb']; ?>" target="_blank">View</a></td>
+                        <td><a href="Faculty/Time_Table/<?php echo $row2['timetb']; ?>" download>Download</td>
+                    </tr>
+                    <?php } 
+                    ?>
 
-		}
 
 
-?>
 
-
-</table>
+                </tbody>
+            </table>
+            </div>
+    </div>
 
 
 

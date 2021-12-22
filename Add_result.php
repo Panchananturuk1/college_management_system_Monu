@@ -69,12 +69,9 @@
 </head>
 <style>
 
-
-		
 </style>
 <body >
 
- 
 
  <div class="header" >
             <img alt="logo"  class="logo_img" src="logo.png";  />
@@ -101,7 +98,7 @@
   			
 
 <div class="box"  >
-<form  method="post"    name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data" >
+<form  method="post" action="Add_result.php"    name="myForm" onsubmit="return(validate());"   enctype="multipart/form-data" >
 
 <h1 style="text-align:center; font-size:40px;" >Add Result</h1><br />
 

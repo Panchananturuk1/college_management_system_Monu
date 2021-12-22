@@ -94,6 +94,7 @@ mysqli_close($con);
 								<li> <a href="Manage_Faculty.php" class="header_Menu">Manage Faculty</a> </li><br />
 								<li> <a href="Manage_Librarian2.php" class="header_Menu">Manage Librarian</a> </li><br />
 								<li>  <a href="add_event_a.php" class="header_Menu">Add Event</a> </li><br />
+								<li>  <a href="add_timetable.php" class="header_Menu">Add Timetable</a> </li><br />
 								<li> <a href="view_requested_book.php" class="header_Menu">View Requested Book</a> </li><br />
 								<li> <a href="view_availablebook.php" class="header_Menu">View Available Books</a>  </li><br />
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
