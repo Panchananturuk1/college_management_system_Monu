@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
            if($fire){
            
            
-  echo  '<script> alert("Book Issued Sucessfully 2"); </script>';
+  echo  '<script> alert("Book Issued Sucessfully "); </script>';
   
 //	echo "<script> window.location.assign('Student Profile.php'); </script>";
   
@@ -118,7 +118,7 @@ else{
 			  <nav>
 							<ul>
 								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
-                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
+                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
 								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />

@@ -23,13 +23,13 @@
                 College Management System</h1></a>
         </div>
 
-				 <header class="header2" style="  width:190px; ">
+        <header class="header2" style="  width:190px; ">
 			<div class="font">
 			  <nav>
 							<ul>
 								<li> <a href="Librarian_Profile.php" class="header_Menu">My Profile</a> </li><br />
-                                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />
-								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
+                        <li> <a href="add_book.php" class="header_Menu">Add Book</a> </li><br />	
+                        <li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
 								<li> <a href="view_event_l.php" class="header_Menu">View Event</a> </li>	<br />							
@@ -40,7 +40,7 @@
 			</div></header>
   
   			
-<form action="add_book.php" method="post"  name="myForm" onsubmit="return(validate());">
+<form action="add_book.php" method="POST"  name="myForm" onsubmit="return(validate());">
 
 <div class="box"  >
 
@@ -59,14 +59,14 @@
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
 
-     <input type="text" id="Book_Name" name="Book_Name" placeholder="Book Name.." style="font-size:large"><br /><br />
+     <input type="text" id="Book_Name" name="Book_Name" placeholder="Book Name.." style="font-size:large" required><br /><br />
   
-      <input type="text" id="Author_Name" name="Author_Name" placeholder="Author Name.." style="font-size:large"><br /><br />
+      <input type="text" id="Author_Name" name="Author_Name" placeholder="Author Name.." style="font-size:large" required><br /><br />
 
       
-     <input type="text" id="Price" name="Price" placeholder=" Price.." style="font-size:large"><br /><br />
-     <input type="text" id="Quantity" name="Quantity" placeholder=" Quantity.." style="font-size:large"><br /><br />
-	 
+     <input type="text" id="Price" name="Price" placeholder=" Price.." style="font-size:large" required><br /><br />
+     <input type="text" id="Quantity" name="Quantity" placeholder=" Quantity.." style="font-size:large" required><br /><br />
+    
 	 <input class="submit" name="submit" type="submit" value="Submit">  
 
   </form>
@@ -86,7 +86,14 @@
 
 function validate()
      {
-     
+         
+    
+      if( document.myForm.Department.value == "-1" )
+        {
+           alert( "Please Select your Department!" );
+           return false;
+        }
+  
     
         if( document.myForm.Book_Name.value == "" )
         {
@@ -118,14 +125,14 @@ function validate()
      return false;
   
     }
-    
-    
-       if( document.myForm.Department.value == "-1" )
+
+    if( document.myForm.Quantity.value == "" )
         {
-           alert( "Please Select your Department!" );
+           alert( "Please provide your First Name!" );
+           document.myForm.Quantity.focus() ;
            return false;
         }
-  
+
      return true;
      }
     </script>
@@ -134,31 +141,30 @@ function validate()
     
     <?php
 // On submitting form below function will execute.
+$con = mysqli_connect('localhost', 'root', "", "librarian") or die(mysqli_error($con));
 if(isset($_POST['submit'])){
 
-        
-  
-     
         
         $Department = $_POST['Department'];
         $Book_Name = $_POST['Book_Name'];
         $Author_Name = $_POST['Author_Name'];
         $Price = $_POST['Price'];
-        $Quantity = $POST['Quantity'];
+        $Quantity = $_POST['Quantity'];
+      
         
         
-        $con = mysqli_connect('localhost', 'root', "", "librarian") or die(mysqli_error($con));
         //mysqli_select_db($con,'book');
-        $q="insert into book(Department, Book_Name, Author_Name, Price, Quantity) values('".$Department."','".$Book_Name."','".$Author_Name."','".$Price."','".$Quantity."')";
+        $q="INSERT INTO books (Department, Book_Name, Author_Name, Price, Quantity) 
+        VALUES('$Department','$Book_Name','$Author_Name','$Price','$Quantity')";
         
-        $fire = mysqli_query($con, $q);
+        $fire = mysqli_query($con, $q)or die(mysqli_error($con));
         
            if($fire){
-            echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
+            echo  '<script> alert("Data Sucessfully Submitted  "); </script>';
          //	echo "<script> window.location.assign('Student Profile.php'); </script>";
          }
       else{
-         echo  '<script> alert("Data Sucessfully Submitted "); </script>';
+         echo  '<script> alert("ERROR "); </script>';
           }
 
 }

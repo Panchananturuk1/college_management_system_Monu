@@ -97,7 +97,7 @@ table, th, td {
 
    
 
-	<table style="margin-left:42%; margin-top:100px; margin-bottom:5%;">
+	<table style="margin-left:35%;  margin-bottom:3%;">
 	  <tr>
 	  
 		
@@ -105,7 +105,7 @@ table, th, td {
 		<th>Book_Name</th>
 		<th>Author_Name</th>
 		<th>Price</th>
-
+		<th>Quantity</th>
 		
 	</tr>
 
@@ -116,8 +116,8 @@ table, th, td {
 					$Department = $_POST['Department'];
 
 
-					$con = mysqli_connect('localhost', 'root', '');
-					mysqli_select_db($con,'librarian');
+					$con = mysqli_connect('localhost', 'root', '','librarian');
+			
 					
 		$query="SELECT * FROM `book` WHERE Department='$Department' ";	
 		$result = mysqli_query($con, $query) or die(mysqli_error($con));
@@ -138,6 +138,7 @@ table, th, td {
 				echo "<td>" .$rows['Book_Name']. "</td>";
 				echo "<td>" .$rows['Author_Name']. "</td>";
 				echo "<td>" .$rows['Price']. "</td>";
+				echo "<td>" .$rows['Quantity']. "</td>";
 				echo "</tr>";
 			}
 		 }

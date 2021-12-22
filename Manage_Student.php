@@ -87,8 +87,8 @@ include 'Student/studentdb.php';
 						<th>Phone</th>
 						<th>Email</th>
                         <th>Pswd</th>
-						<th>Profile</th>
-                        <th>ACTION</th>
+						<th>ACTION</th>
+                       
                     </tr>
                 </thead>
 				<tbody>

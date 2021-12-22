@@ -84,12 +84,7 @@ table, th, td {
 <div class="box"  >
 <h1 >View Book</h1><br />
 
-
-
-	
 <select name="Department" >
- 
- 
   <option  value="-1">Select Program</option>
   <option value="BCA">BCA</option>
   <option value="MCA">MCA</option>
@@ -97,14 +92,7 @@ table, th, td {
    <option value="B.ED">B.ED</option>
     <option value="INTEGRATED Msc">INTEGRATED Msc</option>
 </select><br /> <br />
-
-
-
-<input type="text" id="text" name="Adms_Number" placeholder="Admission Number" >
-
-
-
-
+<input type="text" id="enrollment_no" name="enrollment_no" placeholder="Admission Number" ><br />
 
 <input class="submit" name="submit" type="submit" value="Submit">  
 
@@ -116,7 +104,7 @@ table, th, td {
   
 	<th>BOOK NAME</th>
 	<th>AUTHOR</th>
-	<th>PRICE</th>
+	<th>Student Name</th>
 	
 </tr>
 
@@ -124,25 +112,20 @@ table, th, td {
  
  
  if(isset($_POST['submit'])){
-		
 			
 			$Department = $_POST['Department'];
-			
-				$Adms_Number = $_POST['Adms_Number'];
-			
-			
-
-			$con = mysqli_connect('localhost', 'root', '');
-			mysqli_select_db($con,'Books');
-			
-					$query="SELECT * FROM `info` WHERE Department='$Department' and Adms_Number='$Adms_Number'";
+			$enrollment_no = $_POST['enrollment_no'];
+	
+			$con = mysqli_connect("localhost", "root", "","librarian");
+				
+			$query="SELECT * FROM `iss_book` WHERE Department='$Department' and enrollment_no='$enrollment_no'";
 			mysqli_query($con, $query);
 
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 $row = mysqli_fetch_assoc($result);
  
-if($row['Department'] == $Department &&  $row['Adms_Number'] == $enrollment_no)
+if($row['Department'] == $Department &&  $row['enrollment_no'] == $enrollment_no)
  {
 	  echo  '<script> alert("Record  Matching"); </script>';
 	 
@@ -152,8 +135,7 @@ if($row['Department'] == $Department &&  $row['Adms_Number'] == $enrollment_no)
 		
 		echo "<td>" .$info['book']. "</td>";
 		echo "<td>" .$info['Author_Name']. "</td>";
-		echo "<td>" .$info['Price']. "</td>";
-		
+		echo "<td>" .$info['Name']. "</td>";
 		echo "</tr>";
 		}
 	

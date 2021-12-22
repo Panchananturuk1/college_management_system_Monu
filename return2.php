@@ -85,6 +85,7 @@ table, th, td {
 								<li> <a href="Request_book.php" class="header_Menu">Request Book</a> </li><br />
 								<li> <a href="issue_book.php" class="header_Menu">Issue Book</a> </li><br />
 								<li>  <a href="return_book.php" class="header_Menu">Return Book</a> </li><br /><br />
+								<li>  <a href="return2.php" class="header_Menu">Return Book 2</a> </li><br /><br />
 								<li> <a href="view_event_l.php" class="header_Menu">View Event</a> </li>	<br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
@@ -93,7 +94,7 @@ table, th, td {
 			</div></header>
  
            
-<form action="return_book.php" method="post"  name="myForm" onsubmit="return(validate());">
+<form action="return2.php" method="post"  name="myForm" onsubmit="return(validate());">
 
 <div class="box">
      <h1 style="text-align:center; font-size:40px;" >Return Book</h1><br />
