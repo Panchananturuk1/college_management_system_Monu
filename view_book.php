@@ -119,7 +119,7 @@ table, th, td {
 			$con = mysqli_connect("localhost", "root", "","librarian");
 				
 			$query="SELECT * FROM `iss_book` WHERE Department='$Department' and enrollment_no='$enrollment_no'";
-			mysqli_query($con, $query);
+		//	mysqli_query($con, $query);
 
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
@@ -129,7 +129,8 @@ if($row['Department'] == $Department &&  $row['enrollment_no'] == $enrollment_no
  {
 	  echo  '<script> alert("Record  Matching"); </script>';
 	 
- 	 	while($info = mysqli_fetch_assoc($result)) {
+	  $result2 = mysqli_query($con, $query)or die(mysqli_error($con));;	
+	  while($info = mysqli_fetch_assoc($result2)) {
 		
 		echo "<tr>";
 		

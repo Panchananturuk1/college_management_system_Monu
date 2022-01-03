@@ -16,6 +16,17 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
+<style>
+  form i {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+
+
+
+  </style>
+
 <body>
 		<div class="header">            		
 	  			<img alt="logo" class="logo_img" src="logo.png"; style="text-align:center" />			
@@ -61,6 +72,26 @@
 	</div>
 	
 <script>
+
+  function myFunction() {
+  var x = document.getElementById("Password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function myFunction1() {
+  var x = document.getElementById("Password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
 //Image slideshow
 
     (function () {
@@ -236,6 +267,21 @@
 	   
 
 		return true;
+
+    $(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye fa-eye-slash");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+
+
+
+
       }
 	
 	
@@ -273,8 +319,8 @@
 				<marquee class="mrq" direction=up onMouseOver="this.stop();" OnMouseOut="this.start()" scrolldelay="10">	
 					<p >    
 						<a href="Admission-Notification-2018.pdf">Admission-Notification-2018</a><br /><br />
-						<a href="imp%20Notice/Registration.pdf">imp Notice/Registration.pdf</a><br /><br />
-						<a href="imp%20Notice/Registration.pdf">imp Notice/Registration.pdf</a><br />
+						<a href="fee_structure.pdf">imp Notice/Fee Stucture.pdf</a><br /><br />
+						<a href="notice.pdf"> Notice for UG Counselling and Admission</a><br />
 					</p>
 				</marquee> 
 			</p>
@@ -283,8 +329,6 @@
       <br />
 	  
 
-	
-	
 	<form action="Student_Profile.php" id="student" method="post"  name="myForm" onsubmit="return(validate());"  enctype="multipart/form-data">
 		<h1 class="headings" id="STUDENT">Student</h1>
 			<p>____________________________</p>
@@ -297,14 +341,15 @@
 			<p class="headings2" >Student Login</p>
 			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........." >
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
-			<input class="submit" name="submit" type="submit" value="Signin"><br>
+      <input type="checkbox" onclick="myFunction()"> Show Password <br>
+			<input class="submit" name="submit" type="submit" value="Signin"> <br>
+      
 			<a href="add_student.php" style="text-decoration:none">Not a Member ? Register Here </a>	 
 		</div>
 	</form> <br />
   
 	
-	
-   
+
    <form action="Faculty_Profile.php" id="faculty" method="post"  name="myForm2" onsubmit="return(validate2());" enctype="multipart/form-data">
      <h1 class="headings" id="FACULTY">Faculty</h1>
        <p>____________________________</p>
@@ -318,6 +363,7 @@
 			<p class="headings2" >Faculty Login</p>
 			<input type="email" id="email" name="email" placeholder="Email id.........." >
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+      <input type="checkbox" onclick="myFunction()"> Show Password <br>
 			<input class="submit" name="submit" type="submit" value="Signin" >
 
 		</div>
@@ -337,6 +383,7 @@
 			<p class="headings2" >Librarian Login</p>
 			<input type="email" id="email" name="email" placeholder="Email id.........." > 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+      <input type="checkbox" onclick="myFunction()"> Show Password <br>
 			<input class="submit" name="submit" type="submit" value="Signin">
 		 </div>
   </form><br />
@@ -356,6 +403,7 @@
 			<p class="headings2" >Admin Login</p>
 			<input type="email" id="Emailid" name="Emailid" placeholder="Email id.........."> 
 			<input type="password" id="Password" name="Password" placeholder="Password  .."><br />
+      <input type="checkbox" onclick="myFunction()"> Show Password <br>
 			<input class="submit" name="submit" type="submit" value="Signin">
 		</div>
   </form> </div>
@@ -373,14 +421,14 @@
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
+            <h6>Departments</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-              <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-              <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+              <li><a href="http://scanfcode.com/category/c-language/">BCA</a></li>
+              <li><a href="http://scanfcode.com/category/front-end-development/">MCA</a></li>
+              <li><a href="http://scanfcode.com/category/back-end-development/">MBA</a></li>
+              <li><a href="http://scanfcode.com/category/java-programming-language/">BI</a></li>
+              <li><a href="http://scanfcode.com/category/android/">B.TECH</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">M.TECH</a></li>
             </ul>
           </div>
 

@@ -79,7 +79,7 @@ if($row['email'] == $email && $row['Password'] == $Password)
 	session_start();
 	echo  '<script> alert("User Name and Password are Correct"); </script>';
 	
-	
+	/*
 	
 	     echo '  
                           <tr>  
@@ -91,7 +91,7 @@ if($row['email'] == $email && $row['Password'] == $Password)
                                     <img src="data:image/jpeg;base64,'.base64_encode($row['Photo'] ).'" height="150" width="140" class="img-thumnail" />  
                                </td>  
                           </tr>  
-                     ';  
+                     ';   */
                
 	
 }
@@ -119,9 +119,9 @@ else{
      <label for="Contact">Gender</label><br />
      <input type="text" id="Contact" name="Contact" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['Gender']; ?>" readonly="" /><br /><br />
      <label for="Eml">Qualification :</label><br />
-     <input type="text" id="Qualification" name="Qualification" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['Qualification']; ?>" readonly="" /><br /><br />
+     <input type="text" id="Qualification" name="Qualification" placeholder="Yor Email.." style="font-size:large" value="<?php echo $row['Qualification']; ?>" readonly="" /><br /><br />
 	 <label for="Eml">Email Id:</label><br />
-     <input type="text" id="email" name="email" placeholder="Yor Email.." style="font-size:large" value="<?php echo $_POST['email']; ?>" readonly="" /><br /><br />
+     <input type="text" id="email" name="email" placeholder="Yor Email.." style="font-size:large" value="<?php echo $row['email']; ?>" readonly="" /><br /><br />
       <label for="Contact">Contact</label><br />
      <input type="text" id="phone" name="phone" placeholder="Your contact number.." style="font-size:large"value="<?php echo $row['phone']; ?>" readonly="" /><br /><br />
 

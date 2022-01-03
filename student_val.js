@@ -62,7 +62,7 @@
 	if( document.myForm.gens.value == "" )
          {
             alert( "Please provide your Gender !" );
-            document.myForm.Lname.focus() ;
+            document.myForm.gens.focus() ;
             return false;
          } 
 		 
@@ -71,7 +71,7 @@
 		var valueDate = document.getElementById('dob').value;
 		if ( valueDate== null || valueDate== '')
 		{
-			alert('Date is empty');
+			alert('Please enter DOB');
 			return false;
 		}
 	 
@@ -82,20 +82,21 @@
             return false;
          }
 		 
-		
-
-		  if( document.myForm.Year.value == "-1" )
+		 if( document.myForm.Adms_Number.value == "" )
          {
-            alert( "Please Select your Year!" );
+            alert( "Please Enter Your Admission Number!" );
+            document.myForm.Adms_Number.focus() ;
             return false;
          }
-        
-		
-		  if( document.myForm.Batch.value == "-1" )
+		 
+	
+		 if( document.myForm.Semester.value == "-1" )
          {
-            alert( "Please Select your Batch!" );
+            alert( "Please Select your Semester!" );
             return false;
          }
+		
+		
 	
 	     if( document.myForm.Contact.value == "" )
          {

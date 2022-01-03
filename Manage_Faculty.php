@@ -35,15 +35,16 @@ include 'backend/facultydb.php';
                 College Management System</h1></a>
         </div>
 	 
-    <header class="header2" style="  width:190px; ">
+		<header class="header2" style="  width:190px; ">
 <div class="font">
   <nav>
-  					<ul>
+							<ul>
 								<li> <a href="admin_profile.php" class="header_Menu">My Profile</a> </li><br />
 								<li> <a href="Manage_Student.php" class="header_Menu">Manage Student</a> </li><br />
 								<li> <a href="Manage_Faculty.php" class="header_Menu">Manage Faculty</a> </li><br />
 								<li> <a href="Manage_Librarian2.php" class="header_Menu">Manage Librarian</a> </li><br />
 								<li>  <a href="add_event_a.php" class="header_Menu">Add Event</a> </li><br />
+								<li>  <a href="add_timetable.php" class="header_Menu">Add Timetable</a> </li><br />
 								<li> <a href="view_requested_book.php" class="header_Menu">View Requested Book</a> </li><br />
 								<li> <a href="view_availablebook.php" class="header_Menu">View Available Books</a>  </li><br />
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
@@ -87,7 +88,7 @@ include 'backend/facultydb.php';
 						<th>Phone</th>
 						<th>Email</th>
                         <th>Pswd</th>
-						<th>Photo</th>
+					<!--<th>Photo</th> -->
                         <th>ACTION</th>
                     </tr>
                 </thead>
@@ -116,7 +117,7 @@ include 'backend/facultydb.php';
 					<td><?php echo $row["phone"]; ?></td>
 					<td><?php echo $row["email"]; ?></td>
 					<td><?php echo $row["Password"]; ?></td>
-					<td><?php echo $row["Photo"]; ?></td>
+					
 
 					<td>
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
@@ -132,7 +133,7 @@ include 'backend/facultydb.php';
 							data-phone="<?php echo $row["phone"]; ?>"
 							data-email="<?php echo $row["email"]; ?>"
 							data-Password="<?php echo $row["Password"]; ?>"
-							data-Photo="<?php echo $row["Photo"]; ?>"
+							
 							title="Edit">&#xE254;</i>
 						</a>
 						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" 
@@ -159,10 +160,10 @@ include 'backend/facultydb.php';
 					</div>
 					<div class="modal-body">	
 
-						<div class="form-group">
+					<!--	<div class="form-group">
 							<label>Photo</label>
 							<input type="file" id="Photo" name="Photo" class="form-control" required>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<label>NAME</label>
 							<input type="text" id="name" name="name" class="form-control" required>
@@ -222,10 +223,10 @@ include 'backend/facultydb.php';
 					<div class="modal-body">
 						<input type="hidden" id="id_u" name="id" class="form-control" required>					
 						
-						<div class="form-group">
+					<!--<div class="form-group">
 							<label>Photo</label>
 							<input type="file" id="Photo_u" name="Photo" class="form-control" required>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<label>Name</label>
 							<input type="text" id="name_u" name="name" class="form-control" required>

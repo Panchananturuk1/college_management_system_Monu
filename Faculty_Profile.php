@@ -68,13 +68,13 @@ $row = mysqli_fetch_assoc($result);
 if($row['email'] == $email && $row['Password'] == $Password)
 {
 	echo  '<script> alert("User Name and Password are Correct"); </script>';
-	     echo '  
+	 /*    echo '  
                           <tr>				  
                                <td >  
                                     <img src="data:image/jpeg;base64,'.base64_encode($row['Photo'] ).'" height="150" width="140" class="img-thumnail" />  
                                </td>  
                           </tr>  
-                     ';  
+                     ';   */
 }
 
 else{
