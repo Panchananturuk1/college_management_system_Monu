@@ -31,7 +31,8 @@
 								<li> <a href="add_assignment.php" class="header_Menu">Add Assignments</a> </li><br />
 								<li> <a href="Add_attendence.php" class="header_Menu">Add Attendence</a> </li><br />
 								<li>  <a href="Add_result.php" class="header_Menu">Add Result</a> </li><br />
-								<li> <a href="view_event_f.php" class="header_Menu">View Event</a> </li>	<br />							
+								<li> <a href="view_event_f.php" class="header_Menu">View Event</a> </li>	<br />
+								<li> <a href="view_event_f2.php" class="header_Menu">View Event</a> </li>	<br />							
 								<li> <a href="index.php" class="header_Menu">Logout</a> </li>
 							</ul>
 						  </nav>					

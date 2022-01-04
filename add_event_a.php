@@ -58,6 +58,7 @@ if(isset($_POST['submit'])){
 		
 	
 			$Event_Name = $_POST['Event_Name'];
+			$Description = $_POST['Description'];
 			$Event_Date = $_POST['Event_Date'];
 			
 		
@@ -68,14 +69,14 @@ if(isset($_POST['submit'])){
 			$con = mysqli_connect("localhost", "root", "", "admin") or die(mysqli_error($connect)); 
 			
 			 $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-			$q="insert into event(Event_Name, Event_Date, event) values('$Event_Name','$Event_Date','$file')";
+			$q="insert into event(Event_Name, Description, Event_Date, event) values('$Event_Name','$Description','$Event_Date','$file')";
 			
 			$fire = mysqli_query($con, $q);
 			
 				if($fire){
 				
 				
-	echo  '<script> alert("Data Sucessfully Submitted 2 "); </script>';
+	echo  '<script> alert("Data Sucessfully Submitted "); </script>';
 	
 
 	
@@ -153,12 +154,11 @@ else{
 
   
       <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." ><br /><br />
-
-	   <input type="date" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy"><br /><br />
+	  <input type="date" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy"><br /><br />
+	  <input type="text" id="Description" name="Description" style="width:70%; height:30%;" placeholder="Describe Event.." ><br /><br /> 
 	   
 	  <input type="file" name="image" id="image" class="myfile" ><br /><br />
-  
-		<input class="submit" name="submit" type="submit" value="Submit">  
+  	  <input class="submit" name="submit" type="submit" value="Submit">  
   
    
   </form>

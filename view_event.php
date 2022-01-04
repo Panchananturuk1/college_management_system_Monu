@@ -8,6 +8,7 @@
 <title> view event</title>
 <head>
 <link rel="stylesheet" type="text/css" href="css/admin1.css">
+<link rel="stylesheet" type="text/css" href="css/event.css" />
 	<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -55,9 +56,9 @@ img{
 	
 	
 	 <form action="view_event.php" method="post" enctype="multipart/form-data">
-	 <div class="box">
-<h1 style="text-align:center; font-size:40px;" > Event</h1><br />
-	<table style="margin-left:25%; margin-top:0%">
+	
+
+	
   
   <?php
 
@@ -65,25 +66,68 @@ img{
 	$query="SELECT * FROM event";		
 		
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
-$row = mysqli_fetch_array($result);
-
-   echo '  
-                          <tr>  
-                               <td>  
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['event'] ).'" height="225" width="300" class="img-thumnail" />  
-                               </td>  
-                          </tr>  
-                     ';  
 ?>
-</table><br /><br />
 
-  <label for="Name">Event Name:</label><br />
-  <input type="text" id="Event_Name" name="Event_Name" placeholder="Event Name.." style="font-size:large" value="<?php  echo $row['Event_Name'] ; ?>" readonly="" /><br /><br />
-  
-	  <label for="Name" >Event Date:</label><br />
-	  <input type="text" id="Event_Date" name="Event_Date" placeholder="mm/dd/yyyy" style="font-size:large" value="<?php  echo $row['Event_Date'] ; ?>" readonly="" /><br /><br />
-	   
-  </div>
+<section>
+<div class="events">
+
+<table class="table table-striped table-hover">
+<thead>
+                    <tr>
+                     
+                        <th>Event Name</th>
+                        <th>Event Date</th>
+                        <th>Event Details </th>
+                        
+                      
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+<?php
+$i=0;
+$query2="SELECT * FROM event";		
+			
+$result2 = mysqli_query($con, $query2) or die(mysqli_error($con));
+while($row = mysqli_fetch_array($result2)) { ?>
+  <tr> 
+                      
+                        <td><?php echo $row['Event_Name']; ?></td>
+                        <td><?php echo $row['Description']; ?></td>
+                        <td><?php echo $row['Event_Date']; ?></td>
+
+            </tr>
+            <?php } ?></table>
+              
+            <!--
+                <ul>
+                <li>
+                    <div class="time">
+                        <h2>
+                            <?php echo $i++; ?>
+                             <br><span><?php  echo $row['Event_Date'] ; ?></span>
+                        </h2>
+                    </div>
+                    <div class="details">
+                        <h3>
+                          
+						  <?php  echo $row['Event_Name'] ; ?>
+                        </h3>
+                        <p> 
+                        <?php  echo $row['Description'] ; ?>
+                        </p>
+                        <a href="#">View Details</a>
+                    </div>
+                    <div style="clear: both;"></div>
+                </li>
+            </ul> </td></tr>    
+            
+</table> -->
+        </div>
+</section> 	   
+ 
   </form>
   </body>
 	</html>
