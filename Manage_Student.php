@@ -7,6 +7,7 @@ include 'Student/studentdb.php';
 <title>Manage Student </title>
 <head>
 <link rel="stylesheet" type="text/css" href="css/admin1.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -17,10 +17,7 @@
 </head>
 
 <style>
-  form i {
-    margin-left: -30px;
-    cursor: pointer;
-}
+
 
 
 
@@ -435,7 +432,7 @@ if (input.attr("type") == "password") {
           <div class="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">About Us</a></li>
+              <li><a href="http://localhost/college_management_system_Monu/About_us.php">About Us</a></li>
               <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
               <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
               <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
